@@ -1,66 +1,108 @@
 # Phase B — Business Architecture
 
 **TOGAF Reference:** Part II, Chapter 7 — Phase B  
-**Objective:** Develop the Baseline and Target Business Architecture describing the business strategy, governance, organisation, and key business processes. Perform gap analysis.
+**Bloom level:** Recall → Comprehension → Application → Analysis → Evaluation → Synthesis  
+**Audience:** Architecture practitioners; senior developers transitioning to solution architecture
 
-**At a glance:** Phase B answers *what the business does, who does it, and how value flows* — independent of systems. The output is a Baseline + Target description, a gap analysis, and candidate roadmap items that feed Phase C.
-
-- **In:** Vision, principles, business goals, RFAW
-- **Out:** Capability map, value streams, gap analysis, ADD (Business)
-- **Exit when:** Target Business Architecture is endorsed by stakeholders and gaps are classified
+> **From developer to solution architect — why Phase B matters to you:** As a lead developer you already think in systems and services. Phase B adds one critical layer: *before any system exists there is a business capability that justifies it.* Every microservice, API, and data model you have ever built exists to serve a business capability. Phase B makes that relationship explicit, stable, and auditable. Once you can read a capability map you will never again design a system without knowing why it exists.
 
 ---
 
-## Objectives
+## Bloom Layer A — Quick Recall
 
-1. Develop the Target Business Architecture that supports the Architecture Vision agreed in Phase A.
-2. Identify candidate Architecture Roadmap components based on gaps between Baseline and Target.
-3. Select reference models, viewpoints, and tools appropriate for the business architecture work.
-4. Ensure alignment with the Architecture Vision and consistency with business strategy.
+**At a glance:** Phase B answers *what the business does, who does it, and how value flows* — independent of systems, technology, or organisational structures.
+
+| | |
+|---|---|
+| **In** | Architecture Vision (Phase A), Statement of Architecture Work, business principles, goals, drivers, RFAW |
+| **Out** | Capability map (baseline + target), value streams, gap analysis, ADD (Business), candidate roadmap components |
+| **Exit when** | Target Business Architecture is reviewed and formally endorsed by stakeholders; gaps are classified as Add / Change / Retire / Retain |
+| **Feeds into** | Phase C (Application Architecture & Data Architecture) |
+| **TOGAF Chapter** | Part II, Chapter 7 — [pubs.opengroup.org](https://pubs.opengroup.org/architecture/togaf10-doc/arch/chap07.html) |
 
 ---
 
-## Process Flow
+## Bloom Layer B — Conceptual Understanding
+
+### What Phase B produces and why it is ordered this way
+
+Business Architecture rests on four views, ordered by stability:
+
+``` mermaid
+flowchart LR
+    A["🏛️ Capability\n(What the business does)\nMost stable — changes with strategy"]
+    B["🌊 Value Stream\n(How value reaches a stakeholder)\nChanges with experience design"]
+    C["🔄 Business Process\n(Steps in a capability)\nChanges with operational improvement"]
+    D["🏢 Organisation\n(Who is accountable)\nChanges with structure"]
+
+    A --> B --> C --> D
+    style A fill:#4F46E5,color:#fff,stroke:none
+    style B fill:#7C3AED,color:#fff,stroke:none
+    style C fill:#A855F7,color:#fff,stroke:none
+    style D fill:#EC4899,color:#fff,stroke:none
+```
+
+> **Source:** Layering sequence based on TOGAF 10 Part II §7 and BIZBOK Guide (Business Architecture Guild, 2023) — capabilities are explicitly the most stable view; process models are lower-level representations of capability execution.
+
+**Why this layering matters:** Start with capabilities (*what*), add value streams (*to whom and in what order*), then processes (*how*), then org (*who owns it*). Inverting this — modelling processes first — is the single most common reason Phase B output ages badly. Processes change every quarter; capabilities change every strategy cycle.
+
+**Developer analogy:** A capability is like a bounded context in Domain-Driven Design. A value stream is a user journey across bounded contexts. A process is a sequence diagram within one context. An organisation map is your team topology (Conway's Law territory).
+
+---
+
+## Bloom Layer C — Guided Practice (Step-by-Step)
+
+### TOGAF Phase B Step Sequence
+
+The following sequence is defined in **TOGAF 10 Part II, Chapter 7, §7.3** (Steps 1–9). Every step is required; skipping steps creates traceability gaps that surface in Phase G governance.
 
 ``` mermaid
 flowchart TD
-    A["Select Reference Models,\nViewpoints & Tools"] --> B
-    B["Develop Baseline\nBusiness Architecture\nDescription (As-Is)"] --> C
-    C["Develop Target\nBusiness Architecture\nDescription (To-Be)"] --> D
-    D["Perform Gap Analysis\nBaseline vs Target"] --> E
-    E["Define Candidate\nRoadmap Components"] --> F
-    F["Resolve Impacts\nAcross Architecture Landscape"] --> G
-    G["Conduct Formal\nStakeholder Review"] --> H
-    H["Finalise Business\nArchitecture"] --> I
-    I["Create Architecture\nDefinition Document"] --> J
-    J["Phase B Complete ✓\nEnter Phase C"]
+    S1["Step 1: Select reference models,\nviewpoints and tools"] --> S2
+    S2["Step 2: Develop Baseline Business\nArchitecture description (As-Is)"] --> S3
+    S3["Step 3: Develop Target Business\nArchitecture description (To-Be)"] --> S4
+    S4["Step 4: Perform gap analysis\n(Baseline vs Target)"] --> S5
+    S5["Step 5: Define candidate\nArchitecture Roadmap components"] --> S6
+    S6["Step 6: Resolve impacts across\nthe Architecture Landscape"] --> S7
+    S7["Step 7: Conduct formal\nstakeholder review"] --> S8
+    S8["Step 8: Finalise the\nBusiness Architecture"] --> S9
+    S9["Step 9: Create Architecture\nDefinition Document (Business Chapter)"]
 
-    style A fill:#37474f,color:#fff,stroke:none
-    style J fill:#2e7d32,color:#fff,stroke:none
+    style S1 fill:#37474f,color:#fff,stroke:none
+    style S9 fill:#2e7d32,color:#fff,stroke:none
 ```
 
----
+> **Source:** TOGAF Standard 10th Edition, Part II, Chapter 7, §7.3 Steps — [pubs.opengroup.org/architecture/togaf10-doc/arch/chap07.html](https://pubs.opengroup.org/architecture/togaf10-doc/arch/chap07.html)
 
-## Inputs
+#### Why the sequence matters (common deviation risks)
 
-| Input | Source |
+| If you skip … | The downstream risk is … |
 |---|---|
-| Architecture Vision & SoAW | Phase A |
-| Existing business architecture documentation | Architecture Repository |
-| Business principles, goals, drivers | Phase A / Senior Management |
-| Architecture Principles | Preliminary Phase |
-| Enterprise Continuum | Architecture Repository |
-| Request for Architecture Work | Architecture Board |
+| Step 1 (viewpoints) | Stakeholders get views that don't answer their concerns; rework in review |
+| Step 2 (baseline) | No gap analysis is possible; Target is invented not derived |
+| Step 6 (landscape impacts) | Phase B decisions conflict with previously agreed architecture |
+| Step 7 (stakeholder review) | Phase C work builds on unapproved foundations |
 
 ---
 
-## Core Techniques
+### Inputs
 
-**Why this layering matters:** capability → value stream → process → organisation is the conventional order, and it isn't arbitrary. Capabilities are the most stable view (*what*), value streams describe how value reaches a stakeholder, processes detail the steps, and organisation maps ownership. Inverting this order — modelling processes first — is the single most common reason Phase B output ages badly.
+| Input | Source | Developer translation |
+|---|---|---|
+| Architecture Vision & SoAW | Phase A | "The charter/scope for this design spike" |
+| Existing business architecture docs | Architecture Repository | "Previous ADRs, domain model docs" |
+| Business principles, goals, drivers | Phase A / Senior Management | "Product strategy & OKRs" |
+| Architecture Principles | Preliminary Phase | "Engineering principles / coding standards at architecture level" |
+| Enterprise Continuum | Architecture Repository | "Reuse catalogue — what patterns already exist" |
+| RFAW (Request for Architecture Work) | Architecture Board | "The brief / problem statement that kicked off this work" |
 
-### 1. Business Capability Map
+---
 
-A business capability map provides a structured view of what the business does, independent of how (process), who (organisation), or what systems support it. It is the most stable view in business architecture.
+### Technique 1 — Business Capability Map
+
+**What it is:** A decomposition of *what* the business does, independent of process, people, or systems. The most reusable artefact in enterprise architecture.
+
+**Developer analogy:** Think domain model / bounded context map. The difference is capabilities describe business functions, not software components.
 
 ``` mermaid
 mindmap
@@ -92,61 +134,80 @@ mindmap
       Data Platform
 ```
 
-**Capability levels:**
-- **Level 1** — Major capability domain (e.g., Order Management)
-- **Level 2** — Capability (e.g., Order Fulfilment)
-- **Level 3** — Sub-capability (e.g., Pick & Pack, Last-mile Delivery)
+> **Source:** Structure based on TOGAF 10 §7 and BIZBOK Guide capability mapping methodology (Business Architecture Guild). Levels 1–3 naming convention aligns with BIZBOK's capability decomposition standard.
 
-Heat-map your capability map in Phase A. Expand detail only for capabilities in the scope of this architecture work.
+**Capability levels:**
+
+| Level | Scope | Owner | Use in Phase B |
+|---|---|---|---|
+| Level 1 | Major domain (e.g. Order Management) | C-level / VP | Heat-map for strategic importance |
+| Level 2 | Capability (e.g. Order Fulfilment) | Director / Head | Gap analysis, roadmap |
+| Level 3 | Sub-capability (e.g. Pick & Pack) | Team lead | Only model what is in scope |
+
+**Heat-mapping:** after building the map, colour each Level-2 capability by strategic importance × current maturity. The high-importance / low-maturity intersection is your Phase B focus.
 
 ---
 
-### 2. Value Stream Mapping
+### Technique 2 — Value Stream Mapping
 
-A value stream describes the end-to-end sequence of activities that deliver value to a stakeholder.
+**What it is:** An end-to-end sequence of value-adding steps that delivers an outcome to a stakeholder. Defined in TOGAF 10 §20.2 as a value stream element in the ArchiMate Motivation Aspect.
+
+**Developer analogy:** A user journey / happy path across microservices, but described from the stakeholder's perspective, not the system's.
 
 ``` mermaid
 flowchart LR
-    A([Customer\nPlaces Order]) --> B[Order\nValidation]
+    A([🧑 Customer\nPlaces Order]) --> B[Order\nValidation]
     B --> C[Payment\nAuthorisation]
     C --> D[Inventory\nReservation]
     D --> E[Fulfilment\n& Dispatch]
     E --> F[Delivery\nTracking]
-    F --> G([Customer\nReceives Order])
+    F --> G([✅ Customer\nReceives Order])
 
-    B -.->|Trigger| C
-    C -.->|Trigger| D
-    D -.->|Trigger| E
-
-    style A fill:#4051b5,color:#fff,stroke:none
+    style A fill:#4F46E5,color:#fff,stroke:none
     style G fill:#2e7d32,color:#fff,stroke:none
 ```
 
-For each step, document:
-- **Time** (elapsed / wait time)
-- **Pain points** in the baseline
-- **Improvement** in the target
+> **Source:** Value stream notation and stages based on TOGAF 10 Business Architecture content metamodel and BIZBOK Guide §3 (Value Streams). The "Order-to-Cash" pattern is a standard reference value stream in both frameworks.
+
+**For each step, capture:**
+
+| Attribute | Baseline | Target |
+|---|---|---|
+| Trigger | What starts this step? | Same or changed? |
+| Duration | How long does it take? | Target SLA |
+| Pain points | What breaks, delays, or frustrates? | Resolved by what capability change? |
+| Capability | Which Level-2 capability executes this? | Same or different? |
 
 ---
 
-### 3. Organisation Map
+### Technique 3 — Organisation Map
+
+**What it is:** A simplified view of *who is accountable* for the capabilities in scope. This is not the full org chart — only the parts that intersect the architecture work.
+
+**Why it matters:** Every capability that lacks a clear accountable owner is a delivery risk in Phase G. Surface this in Phase B, not Phase F.
+
+**Conway's Law connection:** the system boundaries you define in Phase C will be pressured to match this org map. If the org is misaligned with the target capability model, note it as a constraint.
 
 ``` mermaid
 flowchart TD
-    CEO["CEO"] --> CTO & CMO & CFO & COO
+    CEO["🏢 CEO"] --> CTO & CMO & CFO & COO
     CTO --> EA["Architecture\nPractice"]
     CTO --> ENG["Engineering\nDivision"]
-    ENG --> SQ1["Orders Squad"] & SQ2["Fulfilment Squad"] & SQ3["Platform Squad"]
-    COO --> OPS["Operations"] & CS["Customer Support"]
+    ENG --> SQ1["Orders Squad\n(Order Mgmt)"] & SQ2["Fulfilment Squad\n(Inventory Mgmt)"] & SQ3["Platform Squad\n(Identity, Analytics)"]
+    COO --> OPS["Operations\n(Fulfilment ops)"] & CS["Customer Support\n(Customer Mgmt)"]
 
     style CEO fill:#37474f,color:#fff,stroke:none
 ```
 
+> **Source:** Org modelling approach aligned with ArchiMate 3.2 Organisation viewpoint (The Open Group, 2019) and Conway's Law (Conway, 1968). Team-capability alignment shown here reflects Team Topologies stream-aligned team pattern (Skelton & Pais, 2019).
+
 ---
 
-### 4. Business Process Model
+### Technique 4 — Business Process Model
 
-Model key processes at Level 2 (BPMN-style flow). Not every process — only those affected by the architecture.
+**What it is:** A BPMN-level view of *how* a specific capability executes — the steps, actors, and handoffs. Only model processes that are directly affected by the architecture work.
+
+**Developer analogy:** A sequence diagram across services — but written from the business actor perspective, not the API perspective.
 
 ``` mermaid
 sequenceDiagram
@@ -166,155 +227,204 @@ sequenceDiagram
     OMS-->>Customer: Order Reference
 ```
 
+> **Source:** BPMN 2.0 notation (OMG Standard, 2011) — [omg.org/spec/BPMN/2.0](https://www.omg.org/spec/BPMN/2.0/). Sequence diagram here approximates BPMN pool/lane behaviour using UML Sequence Diagram notation for readability.
+
 ---
 
-### 5. Gap Analysis — Baseline vs Target
+### Technique 5 — Gap Analysis
 
-The gap analysis identifies what must change to move from baseline to target architecture.
+**What it is:** A structured comparison of Baseline and Target, classifying every material difference as Add / Change / Retire / Retain. This is the primary input to the Architecture Roadmap.
 
-| Capability / Process | Baseline State | Target State | Gap | Action |
-|---|---|---|---|---|
-| Order Management | Monolith; 3-week deployment cycle | Independent microservice; same-day deploy | Extract service; define event contracts | Phase B → Roadmap |
-| Customer Analytics | Manual SQL reports; 1-day lag | Real-time dashboard; < 5min lag | Build streaming pipeline; replace batch | New initiative |
-| Payment Processing | Custom-built payment logic | PCI-compliant SaaS (Stripe) | Migrate and decommission legacy code | Phase E |
-| Identity Management | Home-built session auth | Okta OIDC SSO | Integrate Okta; retire legacy auth | Phase C (Application) |
+> **Source:** Gap analysis categories (Add, Change, Retire, Retain) are defined in TOGAF 10 Part III, §31.2.3 Gap Analysis technique.
+
+| Capability / Process | Baseline | Target | Gap Type | Action | Phase |
+|---|---|---|---|---|---|
+| Order Management | Monolith; 3-week deploy | Microservice; same-day deploy | Change | Extract service; define event contracts | C/D |
+| Customer Analytics | Manual SQL; 1-day lag | Real-time; <5 min lag | Change | Build streaming pipeline | C (Data) |
+| Payment Processing | Custom-built payment logic | PCI-compliant SaaS gateway | Change → Retire | Migrate; decommission legacy | E |
+| Identity Management | Home-built session auth | OIDC/OAuth2 SSO | Change | Integrate standards-based IdP; retire auth code | C (App) |
+| Returns Portal | Not in scope today | New self-serve returns capability | Add | New build | E |
+| Legacy Pricing Engine | Rules engine; vendor end-of-life | Modern pricing microservice | Retire + Add | Replace; data migration | F |
 
 **Gap categories:**
-- `Add` — new capability needed
-- `Change` — existing capability needs to be improved or modified
-- `Retire` — existing capability to be decommissioned
-- `Retain` — keep as-is; no change needed
+
+| Type | Meaning | Roadmap implication |
+|---|---|---|
+| `Add` | New capability required — does not exist today | New project / workstream |
+| `Change` | Capability exists but must be improved | Refactor / uplift |
+| `Retire` | Capability to be decommissioned | Decommission workstream |
+| `Retain` | No change required in this cycle | No action needed |
 
 ---
 
-## Architecture Definition Document (Business) — Structure
+## Architecture Definition Document — Business Chapter Structure
+
+The ADD is the primary Phase B deliverable. The structure below maps to **TOGAF 10 §37.2 Architecture Definition Document** content:
 
 ```
 1. Introduction
-   - Scope, objectives, constraints from SoAW and Phase A
+   1.1 Scope and Constraints (from SoAW and Phase A)
+   1.2 Architecture Principles applied
 
-2. Architecture Principles applied
+2. Baseline Business Architecture (As-Is)
+   2.1 Business Capability Map — current state with heat map
+   2.2 Value Streams — current state
+   2.3 Organisation Map — in-scope parts
+   2.4 Key Business Processes — current state (BPMN-level)
+   2.5 Business Interactions with External Parties
 
-3. Baseline Business Architecture
-   - Business Capability Map (current state)
-   - Value Streams (current state)
-   - Organisation Map (relevant parts)
-   - Key Business Processes (relevant, current state)
+3. Target Business Architecture (To-Be)
+   3.1 Business Capability Map — target state with strategic importance overlay
+   3.2 Value Streams — target state with improvements annotated
+   3.3 Key Business Processes — target state
+   3.4 New/Changed Business Interactions
 
-4. Target Business Architecture
-   - Business Capability Map (target state, with heat map)
-   - Value Streams (target state, with improvements annotated)
-   - Key Business Processes (target state)
-   - Business Interactions with External Parties
+4. Gap Analysis
+   4.1 Gap table (Baseline → Target → Type → Action)
+   4.2 Impact assessment on stakeholders and existing architecture
 
-5. Gap Analysis
-   - Gap table (Baseline → Target → Action)
-   - Impact assessment
+5. Candidate Architecture Roadmap Components
+   5.1 Work packages identified at business architecture level
 
-6. Candidate Architecture Roadmap Components
-   - Work packages at business architecture level
+6. Architecture Views
+   6.1 Stakeholder-specific views (see Views & Viewpoints reference page)
 
-7. Architecture Views
-   - Stakeholder-specific views (reference Views & Viewpoints)
-
-8. Open Issues & Constraints
+7. Open Issues, Assumptions, and Constraints
 ```
 
 ---
 
-## Output Artifacts (Phase B Exit Criteria)
+## Output Artifacts — Phase B Exit Criteria
 
-- [ ] Business Capability Map — baseline and target, with heat map
-- [ ] Value Stream Map — for key in-scope processes
-- [ ] Organisation Map — relevant scope
-- [ ] Business Process Models — for impacted processes
-- [ ] Gap Analysis — baseline vs target, classified
-- [ ] Architecture Definition Document (Business) — drafted
-- [ ] Candidate Architecture Roadmap components — identified
-- [ ] Updated Risk Register
-- [ ] Architecture Repository updated
-
----
-
-## Key Tools & Notations
-
-| Technique | Standard / Tool |
-|---|---|
-| Business Capability Map | Custom; aligns with TOGAF, BIZBOK |
-| Value Stream Mapping | Lean / TOGAF; ArchiMate value stream element |
-| Business Process Modelling | BPMN 2.0 (OMG Standard); [bpmn.io](https://bpmn.io/) |
-| Organisation modelling | ArchiMate; org chart tools |
-| Business Motivation Model | TOGAF / OMG BMM specification |
-| Business Architecture body of knowledge | [BIZBOK Guide](https://www.businessarchitectureguild.org/) (Business Architecture Guild) |
+- [ ] Business Capability Map — baseline and target, with strategic heat map
+- [ ] Value Stream Map — for key in-scope stakeholder journeys
+- [ ] Organisation Map — relevant scope with capability ownership noted
+- [ ] Business Process Models — for impacted processes (BPMN level)
+- [ ] Gap Analysis — baseline vs target, classified (Add/Change/Retire/Retain)
+- [ ] Architecture Definition Document (Business chapter) — drafted and reviewed
+- [ ] Candidate Architecture Roadmap components — identified with phase assignment
+- [ ] Updated Risk Register — owner-less capabilities and Conway conflicts logged
+- [ ] Architecture Repository updated with new artefacts
 
 ---
 
-## Decision Frameworks
+## Bloom Layer D — Tools & Notations
 
-**Which view leads?** Different stakeholders read business architecture through different lenses. Pick the lead view that matches the dominant concern, then layer the others in for triangulation.
+> For each tool: purpose, pros, cons, cost, and link to the primary standard or resource.
 
-| If your stakeholder cares most about … | Lead with … | Then layer in … |
-|---|---|---|
-| Strategic alignment / portfolio rationalisation | Capability map (heat-mapped) | Value streams to test the heat |
-| Customer experience / journey transformation | Value stream | Capabilities that enable each step |
-| Cost / accountability / org change | Organisation map crossed with capabilities | Processes only where ownership is contested |
-| Operational efficiency | Process model (BPMN) | Capabilities to check this isn't a local optimisation |
+### Modelling & Notation Standards
+
+| Tool / Standard | Purpose in Phase B | Pros | Cons | Cost | Primary link |
+|---|---|---|---|---|---|
+| **BIZBOK Guide** | Capability mapping, value stream notation | Definitive BA standard; aligns with TOGAF | Not freely downloadable in full; dense | Free summary; paid full guide | [businessarchitectureguild.org](https://www.businessarchitectureguild.org/) |
+| **BPMN 2.0** (OMG) | Business process modelling | Universal standard; tool-agnostic; widely understood | Steep learning curve for lane/pool syntax | Free (open standard) | [omg.org/spec/BPMN/2.0](https://www.omg.org/spec/BPMN/2.0/) |
+| **ArchiMate 3.2** | End-to-end modelling (capability, value stream, org) | Integrated with TOGAF; rich metamodel | Complex; requires training | Free spec (Open Group member); tools vary | [pubs.opengroup.org/architecture/archimate3-doc](https://pubs.opengroup.org/architecture/archimate3-doc/) |
+| **OMG BMM** | Business Motivation Model (goals → means) | Links strategy to architecture; rigorous | Rarely used outside large enterprise | Free (open standard) | [omg.org/spec/BMM](https://www.omg.org/spec/BMM/) |
+
+### Diagramming & Drawing Tools
+
+| Tool | Best for | Pros | Cons | Cost | Link |
+|---|---|---|---|---|---|
+| **Miro** | Collaborative capability mapping workshops | Real-time collaboration; templates for BCM; easy for non-architects | Not standards-compliant; no ArchiMate export | Free tier; paid from ~$8/user/mo | [miro.com](https://miro.com) |
+| **LeanIX** | Enterprise capability map management | Architecture repository built-in; roadmap integration | Enterprise pricing; complex setup | Enterprise ($$$$) | [leanix.net](https://www.leanix.net) |
+| **Ardoq** | Business & application architecture with org integration | Strong capability-to-app-to-org traceability | Learning curve; cost | Enterprise | [ardoq.com](https://ardoq.com) |
+| **draw.io / diagrams.net** | Lightweight BPMN, org charts, process flows | Free; offline; no vendor lock-in; Git-friendly | No repository; no auto-analysis | Free | [diagrams.net](https://www.diagrams.net) |
+| **bpmn.io** | BPMN 2.0 process modelling | Standards-compliant BPMN 2.0; free; exports XML | BPMN only; no capability mapping | Free | [bpmn.io](https://bpmn.io) |
+| **Sparx Enterprise Architect** | Full ArchiMate + BPMN + TOGAF ADM in one tool | Deep TOGAF/ArchiMate support; repository | Heavy; expensive; steep learning curve | ~$229/user/yr | [sparxsystems.com](https://sparxsystems.com) |
+| **Mermaid (this site)** | Code-as-diagram — version-controlled diagrams in Markdown | Diff-friendly; lives with docs; free | Limited layout control; no BPMN pool/lane | Free (open source) | [mermaid.js.org](https://mermaid.js.org) |
 
 ---
 
-## Judgment & Trade-offs
+## Bloom Layer E — Decision Frameworks
 
-**Judgment & trade-offs:** when modelling business capabilities:
+**Which view leads?** Pick the one that matches the dominant stakeholder concern, then layer in the others.
 
-| Question | Lean towards … when | Lean away when |
-|---|---|---|
-| **Capability map vs. process map** | Stable strategy; long-life model | Process re-engineering is the main intent |
-| **Three levels vs. four** | Mid-size enterprise; ~80–150 capabilities | Small; or so large that level-4 emerges naturally |
-| **Map current vs. target** | Modernisation programme | Net-new business model |
-| **Top-down vs. outside-in capability discovery** | Stable strategy known | Customer-experience programme; capabilities emerge from value streams |
-| **Capability-first vs. value-stream-first** | Long-lived enterprise model | Programme bounded by a customer journey |
+| Stakeholder concern | Lead with | Then layer in | Why |
+|---|---|---|---|
+| Strategic alignment / portfolio rationalisation | Capability map (heat-mapped) | Value streams to stress-test strategic importance ratings | Capability map is readable by CxO without architecture training |
+| Customer experience / journey redesign | Value stream | Capabilities that underpin each step | Journey is the change driver; capabilities show what must change |
+| Cost reduction / accountability / org redesign | Organisation map × capability ownership | Processes only where ownership is contested | Conway's Law — org and system structure will co-evolve |
+| Operational efficiency / throughput | Business process (BPMN) | Capabilities to validate this isn't a local optimisation | Risk: optimising one process at the expense of the overall capability |
+| Regulatory / compliance change | Gap analysis of impacted capabilities | Process models for audit trail | Auditors need traceability, not strategy diagrams |
 
-**Synthesis exercise:** sketch the level-1 capability map of an organisation you know. For each capability, name its current owner and one capability gap. Anywhere the owner is unclear is where future delivery will stall.
+---
+
+## Bloom Layer E — Judgment & Trade-offs
+
+| Architectural question | Lean towards when | Lean away when | Failure mode if wrong |
+|---|---|---|---|
+| **Capability map vs. process map as primary artefact** | Long-lived enterprise model; stable strategy | Process re-engineering is the explicit goal | Process-first maps rot quickly; capabilities built on them lose strategic meaning |
+| **3 levels vs. 4 levels of capability decomposition** | Mid-size org; ~80–150 Level-2 capabilities | Small org (4 levels = overkill); very large org (4th level emerges naturally) | Over-decomposition → maintenance burden; under-decomposition → gaps in Phase C |
+| **Model baseline, then target (sequential)** | Established business; modernisation programme | Net-new business model (no meaningful baseline) | Without baseline, gap analysis becomes a wish-list |
+| **Top-down capability discovery** | Stable, well-documented strategy | Customer-experience programme (outside-in better) | Missing emergent capabilities that only appear when you trace journeys |
+| **Capability-first vs. value-stream-first** | Long-lived reference model | Programme bounded by a single customer journey | Capability-first without a journey anchor may produce a technically complete but unstakeholdered model |
+| **Full BPMN vs. swim-lane sketch** | Regulated process; handoff disputes likely | Exploratory / discovery phase | Investing in BPMN syntax before the process is agreed wastes time |
+| **Scope creep into Phase C now** | Never justified in Phase B | — | Premature system design before business architecture is agreed; foundation shifts under Phase C work |
+
+---
+
+## Bloom Layer F — Synthesis Exercise
+
+**Scenario:** You are the lead architect for a retail bank migrating from a monolithic core banking system to a microservices platform.
+
+1. **Recall:** Name the four views of business architecture and their correct order of modelling.
+2. **Comprehension:** Explain why modelling the Organisation Map *before* the Capability Map is a risk.
+3. **Application:** Sketch a Level-1 capability map for a retail bank (5–7 domains). Heat-map two capabilities as "high importance / low maturity."
+4. **Analysis:** For one of those heat-mapped capabilities, build a value stream with 5–7 steps. For each step, identify what breaks in the baseline.
+5. **Evaluation:** Your CFO wants to outsource "Payment Processing" to a third-party SaaS. Using the gap analysis categories, classify this change. What risks does this introduce in Phase C?
+6. **Synthesis:** Draft the Gap Analysis table for the migration (at least 6 rows, all four gap types represented). Which three gaps have the highest cross-architecture impact and why?
+
+> A solution architect is not someone who knows the right answer — they are someone who can structure the question, surface the trade-offs, and earn the decision.
 
 ---
 
 ## Acceleration Using AI
 
-LLMs help most where reasoning is checklist-shaped — use them as a *peer-review prompt*, not as content to ship.
+LLMs are useful for reasoning scaffolding, not for generating deliverables.
 
-- **Capability map first-draft** — generate a strawman Level-1/Level-2 from a business description; use only as a prompt to challenge thinking, never as a deliverable.
-- **Gap-classification rationale** — paste your Add/Change/Retire/Retain table; ask the model to find rows where the *Action* column doesn't logically follow from the gap.
-- **Stakeholder lens swap** — ask the model to re-read the target architecture from the perspective of a CFO, COO, and product owner; surfaces missing concerns.
-- **Naming hygiene** — flag capabilities named as verbs (process leakage) or as systems (technology leakage).
+| Use case | Prompt pattern | Watch for |
+|---|---|---|
+| **Capability map first-draft** | "Generate a Level-1/2 capability map for [business description in 5+ specifics]. Use noun-phrase naming (no verbs)." | Generic output; fabricated sub-capabilities; capabilities named as systems |
+| **Gap-classification review** | "Here is my gap table [paste]. For each row, flag where the Gap Type does not logically follow from the Baseline→Target change." | Model may agree with your classification rather than challenge it |
+| **Stakeholder lens swap** | "Re-read this target architecture description from the perspective of [CFO / COO / Product Owner]. What is missing or unclear?" | Hallucinated stakeholder concerns; may miss domain-specific regulatory constraints |
+| **Naming hygiene** | "Scan this capability list. Flag any names that are: (a) verbs not nouns, (b) system names not business functions, (c) too granular for Level-2." | Misclassifications; may flag valid names |
+| **Conway's Law check** | "Here is our org map and our target capability map. Where do capability boundaries and team boundaries misalign? What are the delivery risks?" | Model has no visibility into real team dynamics — treat output as prompts to verify |
 
 !!! warning "Bias to watch"
-    LLMs default to consultancy-flavoured generic capability maps. They will happily produce a plausible map for a business they know nothing about. Always anchor the prompt with at least 3–5 *real* business specifics before trusting any output.
+    LLMs default to generic, consultancy-flavoured output. They will produce a plausible capability map for a business they know nothing about. Always anchor prompts with real business specifics before trusting any output. Never submit AI-generated architecture artefacts without expert review.
 
 ---
 
 ## Common Mistakes
 
 !!! danger "Failure patterns to watch"
-    - **Capability sprawl** — pushing the map past Level-3 by default; detail proliferates without decisions improving.
-    - **Capability = process** — naming capabilities as verbs ("Process Returns" instead of "Returns Management"); the map becomes a process map and loses stability.
-    - **Owner-less capabilities** — capabilities with no accountable executive will not be funded and will not deliver. Treat *no owner* as a Phase B risk, not a Phase E one.
-    - **Map without heat** — baseline + target with no maturity or strategic-importance overlay produces no roadmap signal.
-    - **Org-chart fidelity** — modelling the full org chart instead of just the parts that intersect the in-scope capabilities adds noise.
+    - **Capability sprawl** — pushing past Level-3 by default; detail proliferates without improving decisions.
+    - **Capability = process** — naming capabilities as verbs ("Process Returns" not "Returns Management"); the map becomes a process map and loses stability.
+    - **Owner-less capabilities** — no accountable executive means no funding, no delivery. Treat *no owner* as a Phase B risk, not a Phase E one.
+    - **Map without heat** — baseline + target without a maturity or strategic-importance overlay produces no roadmap signal.
+    - **Org-chart fidelity** — modelling the full org chart instead of only the parts that intersect in-scope capabilities adds noise and slows reviews.
+    - **Scope creep into Phase C** — designing systems (which APIs, which databases) during Phase B; the business architecture foundation is not yet approved.
 
 !!! failure "Describing processes instead of capabilities"
     Processes change; capabilities are stable. Build the capability map first — it is the anchor for business architecture across multiple ADM cycles.
 
 !!! warning "Ignoring the organisation dimension"
-    Architecture that doesn't account for organisational ownership and accountability will fail during implementation. Conway's Law applies: systems mirror the communication structures of the teams that build them.
+    Architecture that doesn't account for organisational ownership will fail during implementation. Conway's Law applies: systems mirror the communication structures of the teams that build them. Identify misalignments in Phase B, not Phase G.
 
 !!! tip "BIZBOK for deep business architecture"
-    The Business Architecture Guild's BIZBOK Guide is the reference standard for business architecture. It provides notations and techniques that complement TOGAF's Phase B. Freely available summary at [businessarchitectureguild.org](https://www.businessarchitectureguild.org/).
+    The Business Architecture Guild's BIZBOK Guide is the de facto reference standard for business architecture practice. It provides notations and techniques that complement TOGAF's Phase B. [businessarchitectureguild.org](https://www.businessarchitectureguild.org/)
 
 ---
 
-## TOGAF Reference
+## Credible Sources & Further Reading
 
-- TOGAF Standard 10th Edition — Part II, Chapter 7: Phase B
-- Business Motivation Model — OMG: [omg.org/spec/BMM](https://www.omg.org/spec/BMM/)
-- BIZBOK Guide — Business Architecture Guild
-- Free online: [pubs.opengroup.org/architecture/togaf10-doc/arch/chap07.html](https://pubs.opengroup.org/architecture/togaf10-doc/arch/chap07.html)
+| Resource | Type | What it adds | Link |
+|---|---|---|---|
+| TOGAF 10 Part II Chapter 7 | Primary standard | Authoritative Phase B steps, inputs, outputs | [pubs.opengroup.org](https://pubs.opengroup.org/architecture/togaf10-doc/arch/chap07.html) |
+| BIZBOK Guide (Business Architecture Guild) | Primary BA standard | Capability mapping, value streams, information maps | [businessarchitectureguild.org](https://www.businessarchitectureguild.org/) |
+| OMG Business Motivation Model (BMM) | Standard | Links strategic motivation to architecture | [omg.org/spec/BMM](https://www.omg.org/spec/BMM/) |
+| BPMN 2.0 (OMG) | Standard | Business process modelling notation | [omg.org/spec/BPMN/2.0](https://www.omg.org/spec/BPMN/2.0/) |
+| ArchiMate 3.2 (The Open Group) | Standard | Integrated EA modelling including value streams | [pubs.opengroup.org/architecture/archimate3-doc](https://pubs.opengroup.org/architecture/archimate3-doc/) |
+| Team Topologies (Skelton & Pais, 2019) | Book | Org-to-system alignment; stream-aligned teams | [teamtopologies.com](https://teamtopologies.com) |
+| Conway's Law (Conway, 1968) | Foundational paper | Organisation structure → system structure | [melconway.com/Home/Conways_Law.html](http://www.melconway.com/Home/Conways_Law.html) |
+| Implementing Domain-Driven Design (Vernon, 2013) | Book | Bounded context → capability analogy for developers | [vaughnvernon.com](https://vaughnvernon.com) |
