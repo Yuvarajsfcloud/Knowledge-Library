@@ -78,12 +78,12 @@ nav:
     - Requirements Management: togaf/requirements-management.md
 
   - Architecture Concepts:
-    - Architecture Repository: togaf/architecture-repository.md
-    - Enterprise Continuum: togaf/enterprise-continuum.md
-    - Views & Viewpoints: togaf/views-viewpoints.md
-    - Building Blocks: togaf/building-blocks.md
+    - togaf/architecture-repository.md
+    - togaf/enterprise-continuum.md
+    - togaf/views-viewpoints.md
+    - togaf/building-blocks.md
 
-  - ArchiMate 3.1:
+  - ArchiMate 3.2:
     - archimate/index.md
 
   - Architecture Governance:
