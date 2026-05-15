@@ -45,8 +45,10 @@ jobs:
       - name: Build MkDocs site
         run: mkdocs build
 
-      - name: Copy static HTML pages into site
-        run: cp *.html site/
+      - name: Copy static HTML pages and assets into site
+        run: |
+          cp *.html site/
+          cp -r assets site/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

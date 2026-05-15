@@ -1,29 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Design Patterns — Yuvi's KB</title>
+  <title>Design Patterns — Knowledge Library</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/brand.css" />
+  <script>
+    (function () {
+      var s = localStorage.getItem('kb-theme');
+      var d = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', s || (d ? 'dark' : 'light'));
+    })();
+  </script>
 </head>
-<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+<body>
 
-  <nav class="bg-indigo-700 text-white shadow-md">
-    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="index.html" class="font-bold text-lg tracking-tight">📚 Yuvi's KB &amp; Playbook</a>
-      <div class="hidden md:flex gap-5 text-sm font-medium">
-        <a href="index.html" class="hover:text-indigo-200 transition">Home</a>
-        <a href="knowledge/" class="hover:text-indigo-200 transition">Knowledge</a>
-        <a href="playbook/" class="hover:text-indigo-200 transition">Playbook</a>
-        <a href="references.html" class="hover:text-indigo-200 transition">References</a>
-        <a href="templates.html" class="hover:text-indigo-200 transition">Templates</a>
-        <a href="patterns.html" class="text-white underline underline-offset-4">Patterns</a>
-        <a href="adr.html" class="hover:text-indigo-200 transition">ADRs</a>
-        <a href="tech-radar.html" class="hover:text-indigo-200 transition">Tech Radar</a>
-        <a href="notes.html" class="hover:text-indigo-200 transition">Notes</a>
+  <header class="kb-header">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-6">
+      <a href="index.html" class="kb-brand">
+        <span class="kb-brand-mark">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </span>
+        <span>Knowledge<span class="kb-grad-text">Library</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="index.html" class="kb-nav-link">Home</a>
+        <a href="knowledge/" class="kb-nav-link">Knowledge</a>
+        <a href="playbook/" class="kb-nav-link">Playbook</a>
+        <a href="references.html" class="kb-nav-link">References</a>
+        <a href="templates.html" class="kb-nav-link">Templates</a>
+        <a href="patterns.html" class="kb-nav-link is-active">Patterns</a>
+        <a href="adr.html" class="kb-nav-link">ADRs</a>
+        <a href="tech-radar.html" class="kb-nav-link">Tech Radar</a>
+        <a href="notes.html" class="kb-nav-link">Notes</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <button class="kb-theme-toggle" data-kb-toggle="theme" aria-label="Toggle dark mode" title="Toggle theme">
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun"  width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <button class="kb-theme-toggle md:hidden" data-kb-toggle="menu" aria-label="Open menu">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
       </div>
     </div>
-  </nav>
+    <div class="kb-mobile-menu md:!hidden flex-col gap-1 px-6 py-4 border-t" style="border-color: var(--kb-border);" data-kb-menu>
+      <a href="index.html" class="kb-nav-link py-2">Home</a>
+      <a href="knowledge/" class="kb-nav-link py-2">Knowledge</a>
+      <a href="playbook/" class="kb-nav-link py-2">Playbook</a>
+      <a href="references.html" class="kb-nav-link py-2">References</a>
+      <a href="templates.html" class="kb-nav-link py-2">Templates</a>
+      <a href="patterns.html" class="kb-nav-link is-active py-2">Patterns</a>
+      <a href="adr.html" class="kb-nav-link py-2">ADRs</a>
+      <a href="tech-radar.html" class="kb-nav-link py-2">Tech Radar</a>
+      <a href="notes.html" class="kb-nav-link py-2">Notes</a>
+    </div>
+  </header>
 
   <header class="bg-white border-b px-6 py-8">
     <div class="max-w-7xl mx-auto">
@@ -292,9 +329,27 @@
     </div>
   </main>
 
-  <footer class="border-t bg-white text-center text-xs text-gray-400 py-6">
-    Yuvi's Knowledge Base &amp; Playbook &mdash; Hosted on <a href="https://pages.github.com" class="hover:text-indigo-500 underline" target="_blank" rel="noopener">GitHub Pages</a>
+  <footer class="kb-footer">
+    <div class="kb-footer-inner">
+      <div class="kb-footer-meta flex items-center gap-2">
+        <span class="kb-brand-mark" style="width:22px;height:22px;border-radius:6px;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </span>
+        Knowledge Library
+      </div>
+      <nav class="kb-footer-links">
+        <a href="knowledge/">Knowledge</a>
+        <a href="playbook/">Playbook</a>
+        <a href="adr.html">ADRs</a>
+        <a href="tech-radar.html">Tech Radar</a>
+        <a href="https://github.com/Yuvarajsfcloud/Knowledge-Library" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+      <div class="kb-footer-end">
+        Hosted on <a href="https://pages.github.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">GitHub Pages</a>
+      </div>
+    </div>
   </footer>
 
+  <script src="assets/brand.js"></script>
 </body>
 </html>

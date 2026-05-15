@@ -7,18 +7,23 @@ site_url: https://yuvarajsfcloud.github.io/Knowledge-Library/
 
 theme:
   name: material
+  logo: assets/logo.svg
+  favicon: assets/favicon.svg
+  font:
+    text: Inter
+    code: JetBrains Mono
   palette:
     - scheme: default
-      primary: indigo
-      accent: indigo
+      primary: deep purple
+      accent: pink
       toggle:
-        icon: material/brightness-7
+        icon: material/weather-night
         name: Switch to dark mode
     - scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: deep purple
+      accent: cyan
       toggle:
-        icon: material/brightness-4
+        icon: material/weather-sunny
         name: Switch to light mode
   features:
     - navigation.tabs
@@ -34,6 +39,9 @@ theme:
 
 plugins:
   - search
+
+extra_css:
+  - stylesheets/brand.css
 
 markdown_extensions:
   - admonition
