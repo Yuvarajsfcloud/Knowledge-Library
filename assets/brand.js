@@ -60,7 +60,8 @@
     const f = e.target.closest('[data-kb-search]');
     if (!f) return;
     e.preventDefault();
-    const q = (f.querySelector('input[name="q]') || f.querySelector('input[name=q]') || f.querySelector('input')).value || '';
+    const input = f.querySelector('input[name="q"]') || f.querySelector('input[type="search"]') || f.querySelector('input');
+    const q = (input && input.value) || '';
     if (!q.trim()) return;
     const site = f.getAttribute('data-site') || 'yuvarajsfcloud.github.io/Knowledge-Library';
     const url = 'https://www.google.com/search?q=' + encodeURIComponent('site:' + site + ' ' + q);
