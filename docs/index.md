@@ -69,7 +69,6 @@ A set of static HTML pages provides higher-level visual cuts that complement the
 
 | Page | What it shows |
 |---|---|
-| [Domain Playbooks](../playbooks.html) | Step-by-step playbooks organised by architecture *domain* (Business, App, Data, Integration, Security, Tech) |
 | [Patterns](../patterns.html) | Visual pattern catalogue |
 | [Tech Radar](../tech-radar.html) | Adopt / Trial / Assess / Hold visualisation |
 | [Templates](../templates.html) | Visual template gallery |

@@ -11,7 +11,6 @@ A personal repository of architectural wisdom, design patterns, curated referenc
 ```
 yuviskb/
 ├── index.html          ← Home page with all section cards
-├── playbooks.html      ← Architecture Playbooks
 ├── references.html     ← References & Links
 ├── templates.html      ← Reusable Templates
 ├── patterns.html       ← Design Patterns
@@ -63,9 +62,6 @@ https://YOUR_USERNAME.github.io/REPO_NAME/
 ## ✏️ How to Add Content
 
 All pages are self-contained HTML files using [Tailwind CSS CDN](https://tailwindcss.com/docs/installation/play-cdn) — no build step required.
-
-### Adding a new Playbook card
-In `playbooks.html`, duplicate an existing `<div class="bg-white rounded-2xl ...">` card block, update the title, description, category tag, and date.
 
 ### Adding a new ADR
 In `adr.html`, duplicate a `<tr>` row in the table, update the ADR number, title, category, date, and status badge.
