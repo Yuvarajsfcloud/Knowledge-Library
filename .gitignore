@@ -1,0 +1,25 @@
+# Python / MkDocs
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+site/
+.venv/
+venv/
+env/
+*.egg-info/
+
+# MkDocs
+/site
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# OS
+desktop.ini

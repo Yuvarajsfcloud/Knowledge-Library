@@ -44,7 +44,13 @@ markdown_extensions:
   - toc:
       permalink: true
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -59,6 +65,13 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Architecture Phases:
+    - phases/index.md
+    - Phase 1 — Discovery: phases/01-discovery.md
+    - Phase 2 — Design: phases/02-design.md
+    - Phase 3 — Validation: phases/03-validation.md
+    - Phase 4 — Implementation: phases/04-implementation.md
+    - Phase 5 — Operate & Evolve: phases/05-operate.md
   - Architecture Notes:
     - architecture/index.md
     - Event-Driven Architecture: architecture/event-driven-architecture.md
@@ -68,8 +81,11 @@ nav:
   - Playbooks:
     - playbooks/index.md
     - Incident Response: playbooks/incident-response.md
+    - Technology Evaluation: playbooks/technology-evaluation.md
   - ADRs:
     - adrs/index.md
+    - ADR-001 Shared Database (Phase 1): adrs/ADR-001-shared-database.md
+    - ADR-002 Async Events (Phase 2): adrs/ADR-002-async-events.md
 
 # Disable features not appropriate for a private knowledge base
 extra:
