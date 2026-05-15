@@ -28,37 +28,211 @@
         </span>
         <span>Knowledge<span class="kb-grad-text">Library</span></span>
       </a>
+
       <nav class="hidden md:flex items-center gap-6">
         <a href="index.html" class="kb-nav-link">Home</a>
-        <a href="knowledge/" class="kb-nav-link">Knowledge</a>
-        <a href="playbook/" class="kb-nav-link">Playbook</a>
-        <a href="references.html" class="kb-nav-link">References</a>
-        <a href="templates.html" class="kb-nav-link">Templates</a>
-        <a href="patterns.html" class="kb-nav-link">Patterns</a>
-        <a href="adr.html" class="kb-nav-link is-active">ADRs</a>
-        <a href="tech-radar.html" class="kb-nav-link">Tech Radar</a>
-        <a href="notes.html" class="kb-nav-link">Notes</a>
+
+        <div class="kb-dropdown">
+          <button type="button" class="kb-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Knowledge
+            <svg class="caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="kb-dropdown-panel" role="menu">
+            <span class="kb-dropdown-label">Track A — Understand</span>
+            <a href="knowledge/" class="kb-dropdown-link">
+              <span class="kb-dropdown-link-icon">📖</span>
+              <span class="kb-dropdown-link-body">
+                <span class="kb-dropdown-link-title">Overview</span>
+                <span class="kb-dropdown-link-desc">Library landing & how to navigate</span>
+              </span>
+            </a>
+            <a href="knowledge/adm/" class="kb-dropdown-link">
+              <span class="kb-dropdown-link-icon">🔁</span>
+              <span class="kb-dropdown-link-body">
+                <span class="kb-dropdown-link-title">TOGAF ADM Phases</span>
+                <span class="kb-dropdown-link-desc">Preliminary → H + Requirements</span>
+              </span>
+            </a>
+            <a href="knowledge/reference/" class="kb-dropdown-link">
+              <span class="kb-dropdown-link-icon">📚</span>
+              <span class="kb-dropdown-link-body">
+                <span class="kb-dropdown-link-title">Reference Shelf</span>
+                <span class="kb-dropdown-link-desc">Repository, Continuum, ABB/SBB, Patterns, Radar, Glossary</span>
+              </span>
+            </a>
+            <a href="knowledge/architecture-notes/" class="kb-dropdown-link">
+              <span class="kb-dropdown-link-icon">📝</span>
+              <span class="kb-dropdown-link-body">
+                <span class="kb-dropdown-link-title">Architecture Notes</span>
+                <span class="kb-dropdown-link-desc">Deep dives (e.g. Event-Driven)</span>
+              </span>
+            </a>
+            <a href="knowledge/decision-records/" class="kb-dropdown-link">
+              <span class="kb-dropdown-link-icon">📋</span>
+              <span class="kb-dropdown-link-body">
+                <span class="kb-dropdown-link-title">ADRs (canonical)</span>
+                <span class="kb-dropdown-link-desc">Architecture Decision Records</span>
+              </span>
+            </a>
+            <a href="knowledge/case-studies/" class="kb-dropdown-link">
+              <span class="kb-dropdown-link-icon">🔍</span>
+              <span class="kb-dropdown-link-body">
+                <span class="kb-dropdown-link-title">Case Studies</span>
+                <span class="kb-dropdown-link-desc">Worked examples</span>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="kb-dropdown">
+          <button type="button" class="kb-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            Playbook
+            <svg class="caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="kb-dropdown-panel" role="menu">
+            <span class="kb-dropdown-label">Track B — Do</span>
+            <a href="playbook/" class="kb-dropdown-link">
+              <span class="kb-dropdown-link-icon">🧭</span>
+              <span class="kb-dropdown-link-body">
+                <span class="kb-dropdown-link-title">Overview</span>
+                <span class="kb-dropdown-link-desc">Playbook landing & how it differs from ADM</span>
+              </span>
+            </a>
+            <a href="playbook/engagement/" class="kb-dropdown-link">
+              <span class="kb-dropdown-link-icon">🚀</span>
+              <span class="kb-dropdown-link-body">
+                <span class="kb-dropdown-link-title">Engagement Phases</span>
+                <span class="kb-dropdown-link-desc">Discovery → Operate (5 phases)</span>
+              </span>
+            </a>
+            <a href="playbook/operational/" class="kb-dropdown-link">
+              <span class="kb-dropdown-link-icon">⚡</span>
+              <span class="kb-dropdown-link-body">
+                <span class="kb-dropdown-link-title">Operational Playbooks</span>
+                <span class="kb-dropdown-link-desc">Incident response, tech evaluation</span>
+              </span>
+            </a>
+            <a href="playbook/checklists/" class="kb-dropdown-link">
+              <span class="kb-dropdown-link-icon">✅</span>
+              <span class="kb-dropdown-link-body">
+                <span class="kb-dropdown-link-title">Checklists</span>
+                <span class="kb-dropdown-link-desc">Architecture review, NFR, go-live</span>
+              </span>
+            </a>
+            <a href="playbook/templates/" class="kb-dropdown-link">
+              <span class="kb-dropdown-link-icon">📄</span>
+              <span class="kb-dropdown-link-body">
+                <span class="kb-dropdown-link-title">Templates (canonical)</span>
+                <span class="kb-dropdown-link-desc">ADR, Vision, Compliance</span>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div class="kb-dropdown">
+          <button type="button" class="kb-dropdown-trigger is-active" aria-haspopup="true" aria-expanded="false">
+            Resources
+            <svg class="caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="kb-dropdown-panel" role="menu">
+            <span class="kb-dropdown-label">Visual companions</span>
+            <a href="references.html" class="kb-dropdown-link">
+              <span class="kb-dropdown-link-icon">🔗</span>
+              <span class="kb-dropdown-link-body">
+                <span class="kb-dropdown-link-title">References</span>
+                <span class="kb-dropdown-link-desc">Curated external links</span>
+              </span>
+            </a>
+            <a href="templates.html" class="kb-dropdown-link">
+              <span class="kb-dropdown-link-icon">📄</span>
+              <span class="kb-dropdown-link-body">
+                <span class="kb-dropdown-link-title">Templates</span>
+                <span class="kb-dropdown-link-desc">Visual template gallery</span>
+              </span>
+            </a>
+            <a href="patterns.html" class="kb-dropdown-link">
+              <span class="kb-dropdown-link-icon">🔷</span>
+              <span class="kb-dropdown-link-body">
+                <span class="kb-dropdown-link-title">Patterns</span>
+                <span class="kb-dropdown-link-desc">Visual pattern catalogue</span>
+              </span>
+            </a>
+            <a href="adr.html" class="kb-dropdown-link">
+              <span class="kb-dropdown-link-icon">📋</span>
+              <span class="kb-dropdown-link-body">
+                <span class="kb-dropdown-link-title">ADRs (table view)</span>
+                <span class="kb-dropdown-link-desc">Decision log at a glance</span>
+              </span>
+            </a>
+            <a href="tech-radar.html" class="kb-dropdown-link">
+              <span class="kb-dropdown-link-icon">🎯</span>
+              <span class="kb-dropdown-link-body">
+                <span class="kb-dropdown-link-title">Tech Radar</span>
+                <span class="kb-dropdown-link-desc">Adopt / Trial / Assess / Hold</span>
+              </span>
+            </a>
+            <a href="notes.html" class="kb-dropdown-link">
+              <span class="kb-dropdown-link-icon">📝</span>
+              <span class="kb-dropdown-link-body">
+                <span class="kb-dropdown-link-title">Notes / Blog</span>
+                <span class="kb-dropdown-link-desc">Short articles & reflections</span>
+              </span>
+            </a>
+          </div>
+        </div>
       </nav>
+
       <div class="flex items-center gap-2">
+        <form class="kb-search" data-kb-search data-site="yuvarajsfcloud.github.io/Knowledge-Library" role="search" aria-label="Search the site">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="search" name="q" placeholder="Search the library…" autocomplete="off" />
+        </form>
+
+        <a class="kb-icon-btn" href="https://github.com/Yuvarajsfcloud/Knowledge-Library" target="_blank" rel="noopener" aria-label="View on GitHub" title="GitHub">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.66.5 12.04c0 5.1 3.29 9.42 7.86 10.95.58.1.79-.25.79-.55v-2.07c-3.2.7-3.87-1.36-3.87-1.36-.52-1.34-1.27-1.7-1.27-1.7-1.04-.72.08-.7.08-.7 1.15.08 1.75 1.19 1.75 1.19 1.02 1.76 2.68 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.29-5.24-5.74 0-1.27.45-2.31 1.18-3.13-.12-.29-.51-1.46.11-3.05 0 0 .97-.31 3.18 1.19a11 11 0 0 1 5.79 0c2.21-1.5 3.18-1.19 3.18-1.19.62 1.59.23 2.76.11 3.05.74.82 1.18 1.86 1.18 3.13 0 4.46-2.7 5.45-5.27 5.73.41.36.78 1.06.78 2.14v3.17c0 .31.21.66.8.55a11.55 11.55 0 0 0 7.85-10.95C23.5 5.66 18.35.5 12 .5z"/></svg>
+        </a>
+
         <button class="kb-theme-toggle" data-kb-toggle="theme" aria-label="Toggle dark mode" title="Toggle theme">
           <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           <svg class="icon-sun"  width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
         </button>
+
         <button class="kb-theme-toggle md:hidden" data-kb-toggle="menu" aria-label="Open menu">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
       </div>
     </div>
+
     <div class="kb-mobile-menu md:!hidden flex-col gap-1 px-6 py-4 border-t" style="border-color: var(--kb-border);" data-kb-menu>
       <a href="index.html" class="kb-nav-link py-2">Home</a>
-      <a href="knowledge/" class="kb-nav-link py-2">Knowledge</a>
-      <a href="playbook/" class="kb-nav-link py-2">Playbook</a>
-      <a href="references.html" class="kb-nav-link py-2">References</a>
-      <a href="templates.html" class="kb-nav-link py-2">Templates</a>
-      <a href="patterns.html" class="kb-nav-link py-2">Patterns</a>
-      <a href="adr.html" class="kb-nav-link is-active py-2">ADRs</a>
-      <a href="tech-radar.html" class="kb-nav-link py-2">Tech Radar</a>
-      <a href="notes.html" class="kb-nav-link py-2">Notes</a>
+
+      <span class="kb-mobile-section-label">Knowledge — Track A</span>
+      <a href="knowledge/" class="kb-nav-link py-1.5">Overview</a>
+      <a href="knowledge/adm/" class="kb-nav-link py-1.5">TOGAF ADM Phases</a>
+      <a href="knowledge/reference/" class="kb-nav-link py-1.5">Reference Shelf</a>
+      <a href="knowledge/architecture-notes/" class="kb-nav-link py-1.5">Architecture Notes</a>
+      <a href="knowledge/decision-records/" class="kb-nav-link py-1.5">ADRs</a>
+      <a href="knowledge/case-studies/" class="kb-nav-link py-1.5">Case Studies</a>
+
+      <span class="kb-mobile-section-label">Playbook — Track B</span>
+      <a href="playbook/" class="kb-nav-link py-1.5">Overview</a>
+      <a href="playbook/engagement/" class="kb-nav-link py-1.5">Engagement Phases</a>
+      <a href="playbook/operational/" class="kb-nav-link py-1.5">Operational Playbooks</a>
+      <a href="playbook/checklists/" class="kb-nav-link py-1.5">Checklists</a>
+      <a href="playbook/templates/" class="kb-nav-link py-1.5">Templates</a>
+
+      <span class="kb-mobile-section-label">Visual companions</span>
+      <a href="references.html" class="kb-nav-link py-1.5">References</a>
+      <a href="templates.html" class="kb-nav-link py-1.5">Templates</a>
+      <a href="patterns.html" class="kb-nav-link py-1.5">Patterns</a>
+      <a href="adr.html" class="kb-nav-link py-1.5">ADRs</a>
+      <a href="tech-radar.html" class="kb-nav-link py-1.5">Tech Radar</a>
+      <a href="notes.html" class="kb-nav-link py-1.5">Notes</a>
+
+      <form class="mt-3" data-kb-search data-site="yuvarajsfcloud.github.io/Knowledge-Library" role="search">
+        <input type="search" name="q" placeholder="Search the library…" autocomplete="off"
+               style="width:100%;padding:0.5rem 0.75rem;border-radius:10px;border:1px solid var(--kb-border);background:var(--kb-bg-soft);color:var(--kb-text);font:inherit;font-size:0.875rem;" />
+      </form>
     </div>
   </header>
 
