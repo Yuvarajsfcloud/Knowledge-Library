@@ -3,6 +3,12 @@
 **TOGAF Reference:** Part II, Chapter 7 — Phase B  
 **Objective:** Develop the Baseline and Target Business Architecture describing the business strategy, governance, organisation, and key business processes. Perform gap analysis.
 
+**At a glance:** Phase B answers *what the business does, who does it, and how value flows* — independent of systems. The output is a Baseline + Target description, a gap analysis, and candidate roadmap items that feed Phase C.
+
+- **In:** Vision, principles, business goals, RFAW
+- **Out:** Capability map, value streams, gap analysis, ADD (Business)
+- **Exit when:** Target Business Architecture is endorsed by stakeholders and gaps are classified
+
 ---
 
 ## Objectives
@@ -49,6 +55,8 @@ flowchart TD
 ---
 
 ## Core Techniques
+
+**Why this layering matters:** capability → value stream → process → organisation is the conventional order, and it isn't arbitrary. Capabilities are the most stable view (*what*), value streams describe how value reaches a stakeholder, processes detail the steps, and organisation maps ownership. Inverting this order — modelling processes first — is the single most common reason Phase B output ages badly.
 
 ### 1. Business Capability Map
 
@@ -241,17 +249,16 @@ The gap analysis identifies what must change to move from baseline to target arc
 
 ---
 
-## Judgment & Trade-offs
+## Decision Frameworks
 
-**Judgment & trade-offs:** when modelling business capabilities:
+**Which view leads?** Different stakeholders read business architecture through different lenses. Pick the lead view that matches the dominant concern, then layer the others in for triangulation.
 
-| Question | Lean towards … when | Lean away when |
+| If your stakeholder cares most about … | Lead with … | Then layer in … |
 |---|---|---|
-| **Capability map vs. process map** | Stable strategy; long-life model | Process re-engineering is the main intent |
-| **Three levels vs. four** | Mid-size enterprise; ~80–150 capabilities | Small; or so large that level-4 emerges naturally |
-| **Map current vs. target** | Modernisation programme | Net-new business model |
-
-**Synthesis exercise:** sketch the level-1 capability map of an organisation you know. For each capability, name its current owner and one capability gap. Anywhere the owner is unclear is where future delivery will stall.
+| Strategic alignment / portfolio rationalisation | Capability map (heat-mapped) | Value streams to test the heat |
+| Customer experience / journey transformation | Value stream | Capabilities that enable each step |
+| Cost / accountability / org change | Organisation map crossed with capabilities | Processes only where ownership is contested |
+| Operational efficiency | Process model (BPMN) | Capabilities to check this isn't a local optimisation |
 
 ---
 
@@ -264,12 +271,35 @@ The gap analysis identifies what must change to move from baseline to target arc
 | **Capability map vs. process map** | Stable strategy; long-life model | Process re-engineering is the main intent |
 | **Three levels vs. four** | Mid-size enterprise; ~80–150 capabilities | Small; or so large that level-4 emerges naturally |
 | **Map current vs. target** | Modernisation programme | Net-new business model |
+| **Top-down vs. outside-in capability discovery** | Stable strategy known | Customer-experience programme; capabilities emerge from value streams |
+| **Capability-first vs. value-stream-first** | Long-lived enterprise model | Programme bounded by a customer journey |
 
 **Synthesis exercise:** sketch the level-1 capability map of an organisation you know. For each capability, name its current owner and one capability gap. Anywhere the owner is unclear is where future delivery will stall.
+
+---
+
+## Acceleration Using AI
+
+LLMs help most where reasoning is checklist-shaped — use them as a *peer-review prompt*, not as content to ship.
+
+- **Capability map first-draft** — generate a strawman Level-1/Level-2 from a business description; use only as a prompt to challenge thinking, never as a deliverable.
+- **Gap-classification rationale** — paste your Add/Change/Retire/Retain table; ask the model to find rows where the *Action* column doesn't logically follow from the gap.
+- **Stakeholder lens swap** — ask the model to re-read the target architecture from the perspective of a CFO, COO, and product owner; surfaces missing concerns.
+- **Naming hygiene** — flag capabilities named as verbs (process leakage) or as systems (technology leakage).
+
+!!! warning "Bias to watch"
+    LLMs default to consultancy-flavoured generic capability maps. They will happily produce a plausible map for a business they know nothing about. Always anchor the prompt with at least 3–5 *real* business specifics before trusting any output.
 
 ---
 
 ## Common Mistakes
+
+!!! danger "Failure patterns to watch"
+    - **Capability sprawl** — pushing the map past Level-3 by default; detail proliferates without decisions improving.
+    - **Capability = process** — naming capabilities as verbs ("Process Returns" instead of "Returns Management"); the map becomes a process map and loses stability.
+    - **Owner-less capabilities** — capabilities with no accountable executive will not be funded and will not deliver. Treat *no owner* as a Phase B risk, not a Phase E one.
+    - **Map without heat** — baseline + target with no maturity or strategic-importance overlay produces no roadmap signal.
+    - **Org-chart fidelity** — modelling the full org chart instead of just the parts that intersect the in-scope capabilities adds noise.
 
 !!! failure "Describing processes instead of capabilities"
     Processes change; capabilities are stable. Build the capability map first — it is the anchor for business architecture across multiple ADM cycles.
