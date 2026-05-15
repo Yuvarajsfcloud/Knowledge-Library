@@ -65,27 +65,58 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Architecture Phases:
+
+  - TOGAF ADM:
+    - togaf/index.md
+    - Preliminary — Capability: togaf/preliminary.md
+    - Phase A — Vision: togaf/phase-a-vision.md
+    - Phase B — Business: togaf/phase-b-business.md
+    - Phase C — Information Systems: togaf/phase-c-information.md
+    - Phase D — Technology: togaf/phase-d-technology.md
+    - Phase E–F — Migration: togaf/phase-ef-migration.md
+    - Phase G–H — Governance: togaf/phase-gh-governance.md
+    - Requirements Management: togaf/requirements-management.md
+
+  - Architecture Concepts:
+    - Architecture Repository: togaf/architecture-repository.md
+    - Enterprise Continuum: togaf/enterprise-continuum.md
+    - Views & Viewpoints: togaf/views-viewpoints.md
+    - Building Blocks: togaf/building-blocks.md
+
+  - ArchiMate 3.1:
+    - archimate/index.md
+
+  - Architecture Governance:
+    - governance/index.md
+
+  - Frameworks Reference:
+    - reference/frameworks.md
+
+  - Engagement Phases (Practical):
     - phases/index.md
     - Phase 1 — Discovery: phases/01-discovery.md
     - Phase 2 — Design: phases/02-design.md
     - Phase 3 — Validation: phases/03-validation.md
     - Phase 4 — Implementation: phases/04-implementation.md
     - Phase 5 — Operate & Evolve: phases/05-operate.md
+
   - Architecture Notes:
     - architecture/index.md
     - Event-Driven Architecture: architecture/event-driven-architecture.md
+
   - Case Studies:
     - case-studies/index.md
     - Microservices Migration: case-studies/microservices-migration.md
+
   - Playbooks:
     - playbooks/index.md
     - Incident Response: playbooks/incident-response.md
     - Technology Evaluation: playbooks/technology-evaluation.md
+
   - ADRs:
     - adrs/index.md
-    - ADR-001 Shared Database (Phase 1): adrs/ADR-001-shared-database.md
-    - ADR-002 Async Events (Phase 2): adrs/ADR-002-async-events.md
+    - ADR-001 Shared Database: adrs/ADR-001-shared-database.md
+    - ADR-002 Async Events: adrs/ADR-002-async-events.md
 
 # Disable features not appropriate for a private knowledge base
 extra:
