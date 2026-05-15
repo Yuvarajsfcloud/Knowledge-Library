@@ -1,3 +1,5 @@
+[:material-home: KB Home](../index.html){ .md-button .md-button--primary } &nbsp; [ADRs](../adr.html){ .md-button } &nbsp; [Templates](../templates.html){ .md-button }
+
 # Architecture Governance
 
 **TOGAF Reference:** Part VI — Architecture Governance  

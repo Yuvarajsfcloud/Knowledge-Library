@@ -1,3 +1,5 @@
+[:material-home: KB Home](../index.html){ .md-button .md-button--primary } &nbsp; [Patterns](../patterns.html){ .md-button } &nbsp; [Tech Radar](../tech-radar.html){ .md-button } &nbsp; [Templates](../templates.html){ .md-button }
+
 # TOGAF ADM — Architecture Development Method
 
 **Standard:** TOGAF Standard, 10th Edition (2022) | The Open Group  

@@ -1,3 +1,5 @@
+[:material-home: KB Home](../index.html){ .md-button .md-button--primary } &nbsp; [ADRs](../adr.html){ .md-button } &nbsp; [Patterns](../patterns.html){ .md-button }
+
 # Case Studies
 
 Real-world project analyses — context, decisions, outcomes, and lessons.

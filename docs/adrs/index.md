@@ -1,3 +1,5 @@
+[:material-home: KB Home](../index.html){ .md-button .md-button--primary } &nbsp; [ADR Table (visual)](../adr.html){ .md-button } &nbsp; [Templates](../templates.html){ .md-button }
+
 # Architecture Decision Records
 
 Immutable records of significant architectural decisions. Once accepted, an ADR is never edited — only superseded by a new one.
@@ -21,6 +23,10 @@ Immutable records of significant architectural decisions. Once accepted, an ADR 
 |---|---|---|---|
 | [ADR-001](ADR-001-shared-database.md) | Use a Shared Database During Phase 1 of Service Extraction | Superseded by ADR-003 | 2024-03-15 |
 | [ADR-002](ADR-002-async-events.md) | Use Asynchronous Events for Cross-Domain Integration | Accepted | 2024-03-18 |
+| [ADR-003](ADR-003-database-per-service.md) | Adopt Database-per-Service in Phase 2 | Accepted | 2024-09-12 |
+| [ADR-004](ADR-004-terraform-iac.md) | Adopt Terraform for Infrastructure Provisioning | Accepted | 2024-10-08 |
+| [ADR-005](ADR-005-oauth-oidc.md) | Replace Homegrown Auth with OAuth 2.0 / OIDC via Keycloak | Accepted | 2025-02-04 |
+| [ADR-006](ADR-006-graphql-federation.md) | Evaluate GraphQL Federation for the Unified API Layer | Proposed | 2025-06-20 |
 
 ---
 

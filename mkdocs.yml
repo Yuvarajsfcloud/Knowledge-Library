@@ -116,6 +116,19 @@ nav:
     - adrs/index.md
     - ADR-001 Shared Database: adrs/ADR-001-shared-database.md
     - ADR-002 Async Events: adrs/ADR-002-async-events.md
+    - ADR-003 Database-per-Service: adrs/ADR-003-database-per-service.md
+    - ADR-004 Terraform IaC: adrs/ADR-004-terraform-iac.md
+    - ADR-005 OAuth / OIDC: adrs/ADR-005-oauth-oidc.md
+    - ADR-006 GraphQL Federation: adrs/ADR-006-graphql-federation.md
+
+  - Patterns:
+    - patterns/index.md
+
+  - Tech Radar:
+    - tech-radar/index.md
+
+  - Templates:
+    - templates/index.md
 
 # Disable features not appropriate for a private knowledge base
 extra:

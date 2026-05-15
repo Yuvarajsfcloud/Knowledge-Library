@@ -1,3 +1,5 @@
+[:material-home: KB Home](../index.html){ .md-button .md-button--primary } &nbsp; [References (visual)](../references.html){ .md-button } &nbsp; [Patterns](../patterns.html){ .md-button }
+
 # Architecture Frameworks — Comparison Reference
 
 A quick-reference comparison of the major frameworks an Applications Architect will encounter. Understand what each framework does, when to use it, and how it relates to TOGAF.

@@ -20,6 +20,7 @@
         <a href="adr.html" class="text-white underline underline-offset-4">ADRs</a>
         <a href="tech-radar.html" class="hover:text-indigo-200 transition">Tech Radar</a>
         <a href="notes.html" class="hover:text-indigo-200 transition">Notes</a>
+        <a href="togaf/" class="hover:text-indigo-200 transition">Docs</a>
       </div>
     </div>
   </nav>
@@ -56,33 +57,33 @@
         </thead>
         <tbody class="divide-y divide-gray-50">
 
-          <tr class="hover:bg-gray-50 transition-colors">
+          <tr class="hover:bg-gray-50 transition-colors cursor-pointer" onclick="window.location='adrs/ADR-001-shared-database/'">
             <td class="px-5 py-4 font-mono text-gray-400 text-xs">ADR-001</td>
             <td class="px-5 py-4">
-              <p class="font-medium text-gray-800">Adopt Microservices over Monolith for new platform</p>
-              <p class="text-xs text-gray-400 mt-0.5">Independent deployability, team autonomy, and scalability were primary drivers.</p>
+              <p class="font-medium text-gray-800"><a href="adrs/ADR-001-shared-database/" class="hover:text-indigo-600">Use a Shared Database During Phase 1 of Service Extraction</a></p>
+              <p class="text-xs text-gray-400 mt-0.5">Accepted shared Oracle access as transitional debt to decouple service extraction from data migration risk.</p>
             </td>
             <td class="px-5 py-4 hidden sm:table-cell">
-              <span class="text-xs bg-blue-100 text-blue-700 font-semibold px-2 py-0.5 rounded-full">Architecture</span>
+              <span class="text-xs bg-orange-100 text-orange-700 font-semibold px-2 py-0.5 rounded-full">Data</span>
             </td>
-            <td class="px-5 py-4 text-gray-400 hidden md:table-cell text-xs">Jan 2026</td>
+            <td class="px-5 py-4 text-gray-400 hidden md:table-cell text-xs">Mar 2024</td>
             <td class="px-5 py-4">
-              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-green-700 bg-green-50 px-2 py-0.5 rounded-full">
-                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Accepted
+              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> Superseded
               </span>
             </td>
           </tr>
 
-          <tr class="hover:bg-gray-50 transition-colors">
+          <tr class="hover:bg-gray-50 transition-colors cursor-pointer" onclick="window.location='adrs/ADR-002-async-events/'">
             <td class="px-5 py-4 font-mono text-gray-400 text-xs">ADR-002</td>
             <td class="px-5 py-4">
-              <p class="font-medium text-gray-800">Use Kafka as the primary event streaming platform</p>
-              <p class="text-xs text-gray-400 mt-0.5">Chosen over RabbitMQ for durability, replay capability, and ecosystem maturity.</p>
+              <p class="font-medium text-gray-800"><a href="adrs/ADR-002-async-events/" class="hover:text-indigo-600">Use Asynchronous Events for Cross-Domain Integration</a></p>
+              <p class="text-xs text-gray-400 mt-0.5">REST for sync user-facing calls; SNS/SQS fan-out for cross-domain events with idempotent consumers.</p>
             </td>
             <td class="px-5 py-4 hidden sm:table-cell">
               <span class="text-xs bg-green-100 text-green-700 font-semibold px-2 py-0.5 rounded-full">Integration</span>
             </td>
-            <td class="px-5 py-4 text-gray-400 hidden md:table-cell text-xs">Feb 2026</td>
+            <td class="px-5 py-4 text-gray-400 hidden md:table-cell text-xs">Mar 2024</td>
             <td class="px-5 py-4">
               <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-green-700 bg-green-50 px-2 py-0.5 rounded-full">
                 <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Accepted
@@ -90,16 +91,33 @@
             </td>
           </tr>
 
-          <tr class="hover:bg-gray-50 transition-colors">
+          <tr class="hover:bg-gray-50 transition-colors cursor-pointer" onclick="window.location='adrs/ADR-003-database-per-service/'">
             <td class="px-5 py-4 font-mono text-gray-400 text-xs">ADR-003</td>
             <td class="px-5 py-4">
-              <p class="font-medium text-gray-800">Adopt Terraform for infrastructure provisioning</p>
-              <p class="text-xs text-gray-400 mt-0.5">Cloud-agnostic IaC with state management; evaluated against Pulumi and AWS CDK.</p>
+              <p class="font-medium text-gray-800"><a href="adrs/ADR-003-database-per-service/" class="hover:text-indigo-600">Adopt Database-per-Service in Phase 2</a></p>
+              <p class="text-xs text-gray-400 mt-0.5">Each bounded context owns its database; cross-domain reads via events or composition. Supersedes ADR-001.</p>
+            </td>
+            <td class="px-5 py-4 hidden sm:table-cell">
+              <span class="text-xs bg-orange-100 text-orange-700 font-semibold px-2 py-0.5 rounded-full">Data</span>
+            </td>
+            <td class="px-5 py-4 text-gray-400 hidden md:table-cell text-xs">Sep 2024</td>
+            <td class="px-5 py-4">
+              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-green-700 bg-green-50 px-2 py-0.5 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Accepted
+              </span>
+            </td>
+          </tr>
+
+          <tr class="hover:bg-gray-50 transition-colors cursor-pointer" onclick="window.location='adrs/ADR-004-terraform-iac/'">
+            <td class="px-5 py-4 font-mono text-gray-400 text-xs">ADR-004</td>
+            <td class="px-5 py-4">
+              <p class="font-medium text-gray-800"><a href="adrs/ADR-004-terraform-iac/" class="hover:text-indigo-600">Adopt Terraform for Infrastructure Provisioning</a></p>
+              <p class="text-xs text-gray-400 mt-0.5">Cloud-agnostic IaC with remote state and shared modules; evaluated against Pulumi, CDK, CloudFormation.</p>
             </td>
             <td class="px-5 py-4 hidden sm:table-cell">
               <span class="text-xs bg-purple-100 text-purple-700 font-semibold px-2 py-0.5 rounded-full">Cloud</span>
             </td>
-            <td class="px-5 py-4 text-gray-400 hidden md:table-cell text-xs">Feb 2026</td>
+            <td class="px-5 py-4 text-gray-400 hidden md:table-cell text-xs">Oct 2024</td>
             <td class="px-5 py-4">
               <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-green-700 bg-green-50 px-2 py-0.5 rounded-full">
                 <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Accepted
@@ -107,33 +125,16 @@
             </td>
           </tr>
 
-          <tr class="hover:bg-gray-50 transition-colors">
-            <td class="px-5 py-4 font-mono text-gray-400 text-xs">ADR-004</td>
-            <td class="px-5 py-4">
-              <p class="font-medium text-gray-800">Evaluate GraphQL federation for unified API layer</p>
-              <p class="text-xs text-gray-400 mt-0.5">Investigating Apollo Federation for aggregating multiple service schemas into one gateway.</p>
-            </td>
-            <td class="px-5 py-4 hidden sm:table-cell">
-              <span class="text-xs bg-teal-100 text-teal-700 font-semibold px-2 py-0.5 rounded-full">API</span>
-            </td>
-            <td class="px-5 py-4 text-gray-400 hidden md:table-cell text-xs">Mar 2026</td>
-            <td class="px-5 py-4">
-              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-yellow-700 bg-yellow-50 px-2 py-0.5 rounded-full">
-                <span class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span> Proposed
-              </span>
-            </td>
-          </tr>
-
-          <tr class="hover:bg-gray-50 transition-colors">
+          <tr class="hover:bg-gray-50 transition-colors cursor-pointer" onclick="window.location='adrs/ADR-005-oauth-oidc/'">
             <td class="px-5 py-4 font-mono text-gray-400 text-xs">ADR-005</td>
             <td class="px-5 py-4">
-              <p class="font-medium text-gray-800">Replace homegrown auth with OAuth 2.0 / OIDC</p>
-              <p class="text-xs text-gray-400 mt-0.5">Standardise identity across services using Keycloak as the identity provider.</p>
+              <p class="font-medium text-gray-800"><a href="adrs/ADR-005-oauth-oidc/" class="hover:text-indigo-600">Replace Homegrown Auth with OAuth 2.0 / OIDC via Keycloak</a></p>
+              <p class="text-xs text-gray-400 mt-0.5">Standards-based authentication; Keycloak self-hosted as IdP; PKCE flows for web/mobile, client credentials for service-to-service.</p>
             </td>
             <td class="px-5 py-4 hidden sm:table-cell">
               <span class="text-xs bg-red-100 text-red-700 font-semibold px-2 py-0.5 rounded-full">Security</span>
             </td>
-            <td class="px-5 py-4 text-gray-400 hidden md:table-cell text-xs">Apr 2026</td>
+            <td class="px-5 py-4 text-gray-400 hidden md:table-cell text-xs">Feb 2025</td>
             <td class="px-5 py-4">
               <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-green-700 bg-green-50 px-2 py-0.5 rounded-full">
                 <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Accepted
@@ -141,19 +142,19 @@
             </td>
           </tr>
 
-          <tr class="hover:bg-gray-50 transition-colors">
+          <tr class="hover:bg-gray-50 transition-colors cursor-pointer" onclick="window.location='adrs/ADR-006-graphql-federation/'">
             <td class="px-5 py-4 font-mono text-gray-400 text-xs">ADR-006</td>
             <td class="px-5 py-4">
-              <p class="font-medium text-gray-800">Use REST over gRPC for external-facing APIs</p>
-              <p class="text-xs text-gray-400 mt-0.5">gRPC preferred for internal service-to-service communication; REST retained for public developer ergonomics.</p>
+              <p class="font-medium text-gray-800"><a href="adrs/ADR-006-graphql-federation/" class="hover:text-indigo-600">Evaluate GraphQL Federation for the Unified API Layer</a></p>
+              <p class="text-xs text-gray-400 mt-0.5">Apollo Federation v2 as the client-facing API surface; subgraph per domain. Pending 6-week PoC.</p>
             </td>
             <td class="px-5 py-4 hidden sm:table-cell">
               <span class="text-xs bg-teal-100 text-teal-700 font-semibold px-2 py-0.5 rounded-full">API</span>
             </td>
-            <td class="px-5 py-4 text-gray-400 hidden md:table-cell text-xs">May 2026</td>
+            <td class="px-5 py-4 text-gray-400 hidden md:table-cell text-xs">Jun 2025</td>
             <td class="px-5 py-4">
-              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full">
-                <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> Superseded
+              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-yellow-700 bg-yellow-50 px-2 py-0.5 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span> Proposed
               </span>
             </td>
           </tr>
@@ -162,26 +163,7 @@
       </table>
     </div>
 
-    <p class="text-xs text-gray-400 mt-4">Add new ADRs by duplicating a table row and incrementing the number. Follow the <a href="templates.html" class="text-indigo-500 hover:underline">ADR template</a> for detailed write-ups.</p>
-
-    <!-- Links to full ADR markdown documents -->
-    <div class="mt-8 border-t border-gray-100 pt-6">
-      <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-widest mb-4">Full ADR Documents</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <a href="adrs/ADR-001-shared-database/" class="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md p-5 flex flex-col gap-2 transition-all">
-          <span class="font-mono text-xs text-gray-400">ADR-001</span>
-          <h3 class="font-semibold text-sm group-hover:text-indigo-600 transition-colors">Shared Database Decision</h3>
-          <p class="text-xs text-gray-500 leading-relaxed">Context, options evaluated, and consequences of the shared database architectural decision.</p>
-          <span class="text-indigo-600 text-xs font-medium group-hover:translate-x-1 inline-block transition-transform">Read full doc →</span>
-        </a>
-        <a href="adrs/ADR-002-async-events/" class="group bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md p-5 flex flex-col gap-2 transition-all">
-          <span class="font-mono text-xs text-gray-400">ADR-002</span>
-          <h3 class="font-semibold text-sm group-hover:text-indigo-600 transition-colors">Asynchronous Events Decision</h3>
-          <p class="text-xs text-gray-500 leading-relaxed">Context, options evaluated, and consequences of adopting async event-driven communication.</p>
-          <span class="text-indigo-600 text-xs font-medium group-hover:translate-x-1 inline-block transition-transform">Read full doc →</span>
-        </a>
-      </div>
-    </div>
+    <p class="text-xs text-gray-400 mt-4">Each row links to the full ADR document. Add new ADRs by duplicating a table row, incrementing the number, and creating the corresponding markdown file in <code class="bg-gray-100 px-1 rounded">docs/adrs/</code>. Follow the <a href="templates.html" class="text-indigo-500 hover:underline">ADR template</a> for write-ups.</p>
   </main>
 
   <footer class="border-t bg-white text-center text-xs text-gray-400 py-6">

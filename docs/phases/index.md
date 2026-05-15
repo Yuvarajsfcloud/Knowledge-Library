@@ -1,3 +1,5 @@
+[:material-home: KB Home](../index.html){ .md-button .md-button--primary } &nbsp; [Playbooks](../playbooks.html){ .md-button } &nbsp; [Patterns](../patterns.html){ .md-button }
+
 # Architecture Engagement Phases
 
 A repeatable, phase-based model for delivering architectural work — from first stakeholder conversation to steady-state operations. Aligned with **TOGAF ADM**, **IEEE 42010**, and **AWS Well-Architected** practices.

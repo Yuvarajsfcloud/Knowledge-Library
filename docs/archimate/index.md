@@ -1,3 +1,5 @@
+[:material-home: KB Home](../index.html){ .md-button .md-button--primary } &nbsp; [Patterns](../patterns.html){ .md-button } &nbsp; [Templates](../templates.html){ .md-button }
+
 # ArchiMate 3.2 — Quick Reference
 
 **Standard:** ArchiMate 3.2 (2023) — The Open Group  
