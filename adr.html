@@ -20,7 +20,7 @@
         <a href="adr.html" class="text-white underline underline-offset-4">ADRs</a>
         <a href="tech-radar.html" class="hover:text-indigo-200 transition">Tech Radar</a>
         <a href="notes.html" class="hover:text-indigo-200 transition">Notes</a>
-        <a href="togaf/" class="hover:text-indigo-200 transition">Docs</a>
+        <a href="knowledge/adm/" class="hover:text-indigo-200 transition">Docs</a>
       </div>
     </div>
   </nav>
@@ -60,7 +60,7 @@
           <tr class="hover:bg-gray-50 transition-colors cursor-pointer" onclick="window.location='adrs/ADR-001-shared-database/'">
             <td class="px-5 py-4 font-mono text-gray-400 text-xs">ADR-001</td>
             <td class="px-5 py-4">
-              <p class="font-medium text-gray-800"><a href="adrs/ADR-001-shared-database/" class="hover:text-indigo-600">Use a Shared Database During Phase 1 of Service Extraction</a></p>
+              <p class="font-medium text-gray-800"><a href="knowledge/decision-records/ADR-001-shared-database/" class="hover:text-indigo-600">Use a Shared Database During Phase 1 of Service Extraction</a></p>
               <p class="text-xs text-gray-400 mt-0.5">Accepted shared Oracle access as transitional debt to decouple service extraction from data migration risk.</p>
             </td>
             <td class="px-5 py-4 hidden sm:table-cell">
@@ -77,7 +77,7 @@
           <tr class="hover:bg-gray-50 transition-colors cursor-pointer" onclick="window.location='adrs/ADR-002-async-events/'">
             <td class="px-5 py-4 font-mono text-gray-400 text-xs">ADR-002</td>
             <td class="px-5 py-4">
-              <p class="font-medium text-gray-800"><a href="adrs/ADR-002-async-events/" class="hover:text-indigo-600">Use Asynchronous Events for Cross-Domain Integration</a></p>
+              <p class="font-medium text-gray-800"><a href="knowledge/decision-records/ADR-002-async-events/" class="hover:text-indigo-600">Use Asynchronous Events for Cross-Domain Integration</a></p>
               <p class="text-xs text-gray-400 mt-0.5">REST for sync user-facing calls; SNS/SQS fan-out for cross-domain events with idempotent consumers.</p>
             </td>
             <td class="px-5 py-4 hidden sm:table-cell">
@@ -94,7 +94,7 @@
           <tr class="hover:bg-gray-50 transition-colors cursor-pointer" onclick="window.location='adrs/ADR-003-database-per-service/'">
             <td class="px-5 py-4 font-mono text-gray-400 text-xs">ADR-003</td>
             <td class="px-5 py-4">
-              <p class="font-medium text-gray-800"><a href="adrs/ADR-003-database-per-service/" class="hover:text-indigo-600">Adopt Database-per-Service in Phase 2</a></p>
+              <p class="font-medium text-gray-800"><a href="knowledge/decision-records/ADR-003-database-per-service/" class="hover:text-indigo-600">Adopt Database-per-Service in Phase 2</a></p>
               <p class="text-xs text-gray-400 mt-0.5">Each bounded context owns its database; cross-domain reads via events or composition. Supersedes ADR-001.</p>
             </td>
             <td class="px-5 py-4 hidden sm:table-cell">
@@ -111,7 +111,7 @@
           <tr class="hover:bg-gray-50 transition-colors cursor-pointer" onclick="window.location='adrs/ADR-004-terraform-iac/'">
             <td class="px-5 py-4 font-mono text-gray-400 text-xs">ADR-004</td>
             <td class="px-5 py-4">
-              <p class="font-medium text-gray-800"><a href="adrs/ADR-004-terraform-iac/" class="hover:text-indigo-600">Adopt Terraform for Infrastructure Provisioning</a></p>
+              <p class="font-medium text-gray-800"><a href="knowledge/decision-records/ADR-004-terraform-iac/" class="hover:text-indigo-600">Adopt Terraform for Infrastructure Provisioning</a></p>
               <p class="text-xs text-gray-400 mt-0.5">Cloud-agnostic IaC with remote state and shared modules; evaluated against Pulumi, CDK, CloudFormation.</p>
             </td>
             <td class="px-5 py-4 hidden sm:table-cell">
@@ -128,7 +128,7 @@
           <tr class="hover:bg-gray-50 transition-colors cursor-pointer" onclick="window.location='adrs/ADR-005-oauth-oidc/'">
             <td class="px-5 py-4 font-mono text-gray-400 text-xs">ADR-005</td>
             <td class="px-5 py-4">
-              <p class="font-medium text-gray-800"><a href="adrs/ADR-005-oauth-oidc/" class="hover:text-indigo-600">Replace Homegrown Auth with OAuth 2.0 / OIDC via Keycloak</a></p>
+              <p class="font-medium text-gray-800"><a href="knowledge/decision-records/ADR-005-oauth-oidc/" class="hover:text-indigo-600">Replace Homegrown Auth with OAuth 2.0 / OIDC via Keycloak</a></p>
               <p class="text-xs text-gray-400 mt-0.5">Standards-based authentication; Keycloak self-hosted as IdP; PKCE flows for web/mobile, client credentials for service-to-service.</p>
             </td>
             <td class="px-5 py-4 hidden sm:table-cell">
@@ -145,7 +145,7 @@
           <tr class="hover:bg-gray-50 transition-colors cursor-pointer" onclick="window.location='adrs/ADR-006-graphql-federation/'">
             <td class="px-5 py-4 font-mono text-gray-400 text-xs">ADR-006</td>
             <td class="px-5 py-4">
-              <p class="font-medium text-gray-800"><a href="adrs/ADR-006-graphql-federation/" class="hover:text-indigo-600">Evaluate GraphQL Federation for the Unified API Layer</a></p>
+              <p class="font-medium text-gray-800"><a href="knowledge/decision-records/ADR-006-graphql-federation/" class="hover:text-indigo-600">Evaluate GraphQL Federation for the Unified API Layer</a></p>
               <p class="text-xs text-gray-400 mt-0.5">Apollo Federation v2 as the client-facing API surface; subgraph per domain. Pending 6-week PoC.</p>
             </td>
             <td class="px-5 py-4 hidden sm:table-cell">

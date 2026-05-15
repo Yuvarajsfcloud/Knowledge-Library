@@ -65,70 +65,69 @@ markdown_extensions:
 nav:
   - Home: index.md
 
-  - TOGAF ADM:
-    - togaf/index.md
-    - Preliminary — Capability: togaf/preliminary.md
-    - Phase A — Vision: togaf/phase-a-vision.md
-    - Phase B — Business: togaf/phase-b-business.md
-    - Phase C — Information Systems: togaf/phase-c-information.md
-    - Phase D — Technology: togaf/phase-d-technology.md
-    - Phase E–F — Migration: togaf/phase-ef-migration.md
-    - Phase G–H — Governance: togaf/phase-gh-governance.md
-    - Requirements Management: togaf/requirements-management.md
+  - Knowledge Library:
+    - knowledge/index.md
+    - Architecture Development Method:
+      - knowledge/adm/index.md
+      - Preliminary: knowledge/adm/preliminary.md
+      - A — Architecture Vision: knowledge/adm/architecture-vision.md
+      - B — Business Architecture: knowledge/adm/business-architecture.md
+      - C — Information Systems:
+        - knowledge/adm/information-systems/index.md
+        - Application Architecture: knowledge/adm/information-systems/application-architecture.md
+        - Data Architecture: knowledge/adm/information-systems/data-architecture.md
+      - D — Technology Architecture: knowledge/adm/technology-architecture.md
+      - E — Opportunities & Solutions: knowledge/adm/opportunities-and-solutions.md
+      - F — Migration Planning: knowledge/adm/migration-planning.md
+      - G — Implementation Governance: knowledge/adm/implementation-governance.md
+      - H — Architecture Change Management: knowledge/adm/change-management.md
+      - Requirements Management: knowledge/adm/requirements-management.md
+    - Reference:
+      - knowledge/reference/index.md
+      - Architecture Repository: knowledge/reference/architecture-repository.md
+      - Enterprise Continuum: knowledge/reference/enterprise-continuum.md
+      - Views & Viewpoints: knowledge/reference/views-viewpoints.md
+      - Building Blocks (ABB / SBB): knowledge/reference/building-blocks.md
+      - ArchiMate 3.2 Quick Reference: knowledge/reference/archimate.md
+      - Frameworks Comparison: knowledge/reference/frameworks.md
+      - Patterns: knowledge/reference/patterns.md
+      - Tech Radar: knowledge/reference/tech-radar.md
+      - Governance Framework: knowledge/reference/governance-framework.md
+      - Glossary: knowledge/reference/glossary.md
+    - Architecture Notes:
+      - knowledge/architecture-notes/index.md
+      - Event-Driven Architecture: knowledge/architecture-notes/event-driven-architecture.md
+    - Decision Records (ADRs):
+      - knowledge/decision-records/index.md
+      - ADR-001 Shared Database: knowledge/decision-records/ADR-001-shared-database.md
+      - ADR-002 Async Events: knowledge/decision-records/ADR-002-async-events.md
+      - ADR-003 Database-per-Service: knowledge/decision-records/ADR-003-database-per-service.md
+      - ADR-004 Terraform IaC: knowledge/decision-records/ADR-004-terraform-iac.md
+      - ADR-005 OAuth / OIDC: knowledge/decision-records/ADR-005-oauth-oidc.md
+      - ADR-006 GraphQL Federation: knowledge/decision-records/ADR-006-graphql-federation.md
+    - Case Studies:
+      - knowledge/case-studies/index.md
+      - Microservices Migration: knowledge/case-studies/microservices-migration.md
 
-  - Architecture Concepts:
-    - togaf/architecture-repository.md
-    - togaf/enterprise-continuum.md
-    - togaf/views-viewpoints.md
-    - togaf/building-blocks.md
-
-  - ArchiMate 3.2:
-    - archimate/index.md
-
-  - Architecture Governance:
-    - governance/index.md
-
-  - Frameworks Reference:
-    - reference/frameworks.md
-
-  - Engagement Phases (Practical):
-    - phases/index.md
-    - Phase 1 — Discovery: phases/01-discovery.md
-    - Phase 2 — Design: phases/02-design.md
-    - Phase 3 — Validation: phases/03-validation.md
-    - Phase 4 — Implementation: phases/04-implementation.md
-    - Phase 5 — Operate & Evolve: phases/05-operate.md
-
-  - Architecture Notes:
-    - architecture/index.md
-    - Event-Driven Architecture: architecture/event-driven-architecture.md
-
-  - Case Studies:
-    - case-studies/index.md
-    - Microservices Migration: case-studies/microservices-migration.md
-
-  - Playbooks:
-    - playbooks/index.md
-    - Incident Response: playbooks/incident-response.md
-    - Technology Evaluation: playbooks/technology-evaluation.md
-
-  - ADRs:
-    - adrs/index.md
-    - ADR-001 Shared Database: adrs/ADR-001-shared-database.md
-    - ADR-002 Async Events: adrs/ADR-002-async-events.md
-    - ADR-003 Database-per-Service: adrs/ADR-003-database-per-service.md
-    - ADR-004 Terraform IaC: adrs/ADR-004-terraform-iac.md
-    - ADR-005 OAuth / OIDC: adrs/ADR-005-oauth-oidc.md
-    - ADR-006 GraphQL Federation: adrs/ADR-006-graphql-federation.md
-
-  - Patterns:
-    - patterns/index.md
-
-  - Tech Radar:
-    - tech-radar/index.md
-
-  - Templates:
-    - templates/index.md
+  - Playbook:
+    - playbook/index.md
+    - Engagement Phases:
+      - playbook/engagement/index.md
+      - Phase 1 — Discovery: playbook/engagement/01-discovery.md
+      - Phase 2 — Design: playbook/engagement/02-design.md
+      - Phase 3 — Validation: playbook/engagement/03-validation.md
+      - Phase 4 — Implementation: playbook/engagement/04-implementation.md
+      - Phase 5 — Operate & Evolve: playbook/engagement/05-operate.md
+    - Operational Playbooks:
+      - playbook/operational/index.md
+      - Incident Response: playbook/operational/incident-response.md
+      - Technology Evaluation: playbook/operational/technology-evaluation.md
+    - Checklists:
+      - playbook/checklists/index.md
+      - Architecture Review: playbook/checklists/architecture-review.md
+      - NFR Checklist: playbook/checklists/nfr-checklist.md
+    - Templates:
+      - playbook/templates/index.md
 
 # Disable features not appropriate for a private knowledge base
 extra:
