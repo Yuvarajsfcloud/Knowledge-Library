@@ -3,8 +3,7 @@ site_description: Personal architecture knowledge base
 docs_dir: docs
 site_dir: site
 
-# No site_url set here — configure it after your GitHub Pages URL is known.
-# site_url: https://<your-username>.github.io/<your-repo>/
+site_url: https://yuvarajsfcloud.github.io/Knowledge-Library/
 
 theme:
   name: material
