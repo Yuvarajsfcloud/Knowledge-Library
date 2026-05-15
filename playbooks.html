@@ -14,14 +14,15 @@
       <a href="index.html" class="font-bold text-lg tracking-tight">📚 Yuvi's KB &amp; Playbook</a>
       <div class="hidden md:flex gap-5 text-sm font-medium">
         <a href="index.html" class="hover:text-indigo-200 transition">Home</a>
-        <a href="playbooks.html" class="text-white underline underline-offset-4">Playbooks</a>
+        <a href="knowledge/" class="hover:text-indigo-200 transition">Knowledge</a>
+        <a href="playbook/" class="hover:text-indigo-200 transition">Playbook</a>
+        <a href="playbooks.html" class="text-white underline underline-offset-4">Domain Playbooks</a>
         <a href="references.html" class="hover:text-indigo-200 transition">References</a>
         <a href="templates.html" class="hover:text-indigo-200 transition">Templates</a>
         <a href="patterns.html" class="hover:text-indigo-200 transition">Patterns</a>
         <a href="adr.html" class="hover:text-indigo-200 transition">ADRs</a>
         <a href="tech-radar.html" class="hover:text-indigo-200 transition">Tech Radar</a>
         <a href="notes.html" class="hover:text-indigo-200 transition">Notes</a>
-        <a href="knowledge/adm/" class="hover:text-indigo-200 transition">Docs</a>
       </div>
     </div>
   </nav>
@@ -29,13 +30,22 @@
   <!-- Page Header -->
   <header class="bg-white border-b px-6 py-8">
     <div class="max-w-7xl mx-auto">
-      <p class="text-xs text-gray-400 mb-1"><a href="index.html" class="hover:text-indigo-600">Home</a> / Architecture Playbooks</p>
-      <h1 class="text-2xl font-bold">🏗️ Architecture Playbooks</h1>
-      <p class="text-gray-500 mt-1 text-sm">Step-by-step playbooks for each architecture domain — from Business through Security. Select a domain to explore its phases.</p>
+      <p class="text-xs text-gray-400 mb-1"><a href="index.html" class="hover:text-indigo-600">Home</a> / Domain Playbooks</p>
+      <h1 class="text-2xl font-bold">🏗️ Domain Playbooks</h1>
+      <p class="text-gray-500 mt-1 text-sm">Step-by-step playbooks organised by architecture <strong>domain</strong> — from Business through Security. Select a domain to explore its phases.</p>
     </div>
   </header>
 
   <main class="max-w-7xl mx-auto px-6 py-10 flex-1 w-full">
+
+    <!-- Scope banner: clarify the two playbook cuts -->
+    <div class="mb-8 bg-indigo-50 border border-indigo-100 rounded-xl p-5 text-sm">
+      <p class="font-semibold text-indigo-900 mb-1">Two playbook views — pick the one matching your task:</p>
+      <ul class="text-indigo-900/80 space-y-1 ml-1">
+        <li>📐 <strong>This page (Domain Playbooks)</strong> — by architecture <em>domain</em>: Business, Application, Data, Integration, Security, Technology. Use when designing within one domain.</li>
+        <li>🧭 <a href="playbook/" class="text-indigo-700 underline font-medium">Playbook (docs)</a> — by <em>engagement phase</em> (Discovery → Operate), plus operational runbooks, checklists, and templates. Use when running an engagement end-to-end.</li>
+      </ul>
+    </div>
 
     <!-- Domain Tab Bar -->
     <div class="flex flex-wrap gap-2 mb-8" id="domain-tabs">

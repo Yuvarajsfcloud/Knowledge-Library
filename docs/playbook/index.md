@@ -15,6 +15,19 @@
 
 ---
 
+## Two Playbook Views
+
+This site offers **two complementary cuts** of practical architecture guidance — pick the one matching your task:
+
+| View | Organised by | Use when |
+|---|---|---|
+| **Playbook (this section)** | *Engagement phase* — Discovery → Design → Validation → Implementation → Operate | You're running an engagement end-to-end |
+| [**Domain Playbooks**](../../playbooks.html) (visual page) | *Architecture domain* — Business, Application, Data, Integration, Security, Technology | You're designing within one domain |
+
+The two views overlap on purpose. The phase-view tells you *what to do this week*; the domain-view tells you *what good design looks like in your area of responsibility*.
+
+---
+
 ## Engagement vs. ADM
 
 The **5-phase engagement model** in this playbook is *not* the TOGAF ADM. It is a **practical scaffolding for one engagement**, designed to map cleanly onto agile/iterative delivery.

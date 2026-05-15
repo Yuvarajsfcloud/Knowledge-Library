@@ -63,6 +63,20 @@ Each Playbook page links into the relevant Knowledge page when you need depth.
 | Checklists | [Checklists](playbook/checklists/index.md) |
 | Templates | [Templates](playbook/templates/index.md) |
 
+### Visual companion pages
+
+A set of static HTML pages provides higher-level visual cuts that complement the docs:
+
+| Page | What it shows |
+|---|---|
+| [Domain Playbooks](../playbooks.html) | Step-by-step playbooks organised by architecture *domain* (Business, App, Data, Integration, Security, Tech) |
+| [Patterns](../patterns.html) | Visual pattern catalogue |
+| [Tech Radar](../tech-radar.html) | Adopt / Trial / Assess / Hold visualisation |
+| [Templates](../templates.html) | Visual template gallery |
+| [References](../references.html) | Curated external links |
+| [ADRs](../adr.html) | ADR table view |
+| [Notes](../notes.html) | Notes / blog index |
+
 ---
 
 ## TOGAF ADM at a Glance
