@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yuvi's Knowledge Base & Playbook</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+  <!-- Nav -->
+  <nav class="bg-indigo-700 text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="font-bold text-lg tracking-tight">📚 Yuvi's KB &amp; Playbook</a>
+      <div class="hidden md:flex gap-5 text-sm font-medium">
+        <a href="index.html" class="text-white underline underline-offset-4">Home</a>
+        <a href="playbooks.html" class="hover:text-indigo-200 transition">Playbooks</a>
+        <a href="references.html" class="hover:text-indigo-200 transition">References</a>
+        <a href="templates.html" class="hover:text-indigo-200 transition">Templates</a>
+        <a href="patterns.html" class="hover:text-indigo-200 transition">Patterns</a>
+        <a href="adr.html" class="hover:text-indigo-200 transition">ADRs</a>
+        <a href="tech-radar.html" class="hover:text-indigo-200 transition">Tech Radar</a>
+        <a href="notes.html" class="hover:text-indigo-200 transition">Notes</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="bg-gradient-to-br from-indigo-700 via-indigo-600 to-violet-600 text-white py-20 px-6 text-center">
+    <p class="text-indigo-200 uppercase tracking-widest text-xs font-semibold mb-3">Personal Knowledge Repository</p>
+    <h1 class="text-4xl sm:text-5xl font-extrabold mb-4 leading-tight">Yuvi's Knowledge Base<br class="hidden sm:block" /> &amp; Playbook</h1>
+    <p class="text-indigo-100 text-lg max-w-2xl mx-auto leading-relaxed">
+      A curated collection of architecture playbooks, design patterns, decision records, tech radar, and references — built to grow over time.
+    </p>
+  </header>
+
+  <!-- Section Cards -->
+  <main class="max-w-7xl mx-auto px-6 py-14 flex-1 w-full">
+    <h2 class="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-6">Browse Sections</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+      <a href="playbooks.html" class="group bg-white rounded-2xl shadow-sm hover:shadow-md border border-gray-100 p-6 flex flex-col gap-3 transition-all">
+        <span class="text-4xl">🏗️</span>
+        <h3 class="text-base font-semibold group-hover:text-indigo-600 transition-colors">Architecture Playbooks</h3>
+        <p class="text-sm text-gray-500 flex-1 leading-relaxed">End-to-end guides for system design, integration patterns, and reference architectures.</p>
+        <span class="text-indigo-600 text-sm font-medium group-hover:translate-x-1 inline-block transition-transform">Explore →</span>
+      </a>
+
+      <a href="references.html" class="group bg-white rounded-2xl shadow-sm hover:shadow-md border border-gray-100 p-6 flex flex-col gap-3 transition-all">
+        <span class="text-4xl">🔗</span>
+        <h3 class="text-base font-semibold group-hover:text-indigo-600 transition-colors">References &amp; Links</h3>
+        <p class="text-sm text-gray-500 flex-1 leading-relaxed">Curated external resources, official docs, tools, and articles organized by topic.</p>
+        <span class="text-indigo-600 text-sm font-medium group-hover:translate-x-1 inline-block transition-transform">Explore →</span>
+      </a>
+
+      <a href="templates.html" class="group bg-white rounded-2xl shadow-sm hover:shadow-md border border-gray-100 p-6 flex flex-col gap-3 transition-all">
+        <span class="text-4xl">📄</span>
+        <h3 class="text-base font-semibold group-hover:text-indigo-600 transition-colors">Templates</h3>
+        <p class="text-sm text-gray-500 flex-1 leading-relaxed">Reusable document templates for architecture reviews, RFCs, and technical proposals.</p>
+        <span class="text-indigo-600 text-sm font-medium group-hover:translate-x-1 inline-block transition-transform">Explore →</span>
+      </a>
+
+      <a href="patterns.html" class="group bg-white rounded-2xl shadow-sm hover:shadow-md border border-gray-100 p-6 flex flex-col gap-3 transition-all">
+        <span class="text-4xl">🔷</span>
+        <h3 class="text-base font-semibold group-hover:text-indigo-600 transition-colors">Design Patterns</h3>
+        <p class="text-sm text-gray-500 flex-1 leading-relaxed">Software and architectural patterns with context, use cases, and trade-off notes.</p>
+        <span class="text-indigo-600 text-sm font-medium group-hover:translate-x-1 inline-block transition-transform">Explore →</span>
+      </a>
+
+      <a href="adr.html" class="group bg-white rounded-2xl shadow-sm hover:shadow-md border border-gray-100 p-6 flex flex-col gap-3 transition-all">
+        <span class="text-4xl">📋</span>
+        <h3 class="text-base font-semibold group-hover:text-indigo-600 transition-colors">Decision Records (ADRs)</h3>
+        <p class="text-sm text-gray-500 flex-1 leading-relaxed">Architectural decisions with captured context, evaluated options, and consequences.</p>
+        <span class="text-indigo-600 text-sm font-medium group-hover:translate-x-1 inline-block transition-transform">Explore →</span>
+      </a>
+
+      <a href="tech-radar.html" class="group bg-white rounded-2xl shadow-sm hover:shadow-md border border-gray-100 p-6 flex flex-col gap-3 transition-all">
+        <span class="text-4xl">🎯</span>
+        <h3 class="text-base font-semibold group-hover:text-indigo-600 transition-colors">Tech Radar</h3>
+        <p class="text-sm text-gray-500 flex-1 leading-relaxed">Personal technology adoption tracker across Adopt, Trial, Assess, and Hold quadrants.</p>
+        <span class="text-indigo-600 text-sm font-medium group-hover:translate-x-1 inline-block transition-transform">Explore →</span>
+      </a>
+
+      <a href="notes.html" class="group bg-white rounded-2xl shadow-sm hover:shadow-md border border-gray-100 p-6 flex flex-col gap-3 transition-all">
+        <span class="text-4xl">📝</span>
+        <h3 class="text-base font-semibold group-hover:text-indigo-600 transition-colors">Notes / Blog</h3>
+        <p class="text-sm text-gray-500 flex-1 leading-relaxed">Personal notes, learning reflections, and short articles on tech and architecture.</p>
+        <span class="text-indigo-600 text-sm font-medium group-hover:translate-x-1 inline-block transition-transform">Explore →</span>
+      </a>
+
+    </div>
+  </main>
+
+  <footer class="border-t bg-white text-center text-xs text-gray-400 py-6">
+    Yuvi's Knowledge Base &amp; Playbook &mdash; Hosted on <a href="https://pages.github.com" class="hover:text-indigo-500 underline" target="_blank" rel="noopener">GitHub Pages</a>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Decision Records (ADRs) — Yuvi's KB</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+  <nav class="bg-indigo-700 text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="font-bold text-lg tracking-tight">📚 Yuvi's KB &amp; Playbook</a>
+      <div class="hidden md:flex gap-5 text-sm font-medium">
+        <a href="index.html" class="hover:text-indigo-200 transition">Home</a>
+        <a href="playbooks.html" class="hover:text-indigo-200 transition">Playbooks</a>
+        <a href="references.html" class="hover:text-indigo-200 transition">References</a>
+        <a href="templates.html" class="hover:text-indigo-200 transition">Templates</a>
+        <a href="patterns.html" class="hover:text-indigo-200 transition">Patterns</a>
+        <a href="adr.html" class="text-white underline underline-offset-4">ADRs</a>
+        <a href="tech-radar.html" class="hover:text-indigo-200 transition">Tech Radar</a>
+        <a href="notes.html" class="hover:text-indigo-200 transition">Notes</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-white border-b px-6 py-8">
+    <div class="max-w-7xl mx-auto">
+      <p class="text-xs text-gray-400 mb-1"><a href="index.html" class="hover:text-indigo-600">Home</a> / Decision Records</p>
+      <h1 class="text-2xl font-bold">📋 Architectural Decision Records</h1>
+      <p class="text-gray-500 mt-1 text-sm">A log of significant architectural decisions, the context that drove them, and their consequences.</p>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 py-10 flex-1 w-full">
+
+    <!-- Legend -->
+    <div class="flex flex-wrap gap-3 mb-8 text-xs font-semibold">
+      <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-green-500 inline-block"></span> Accepted</span>
+      <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-yellow-400 inline-block"></span> Proposed</span>
+      <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-gray-400 inline-block"></span> Deprecated</span>
+      <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block"></span> Superseded</span>
+    </div>
+
+    <!-- ADR Table -->
+    <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+      <table class="w-full text-sm">
+        <thead class="bg-gray-50 border-b border-gray-100">
+          <tr>
+            <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider w-16">#</th>
+            <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Title</th>
+            <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider w-32 hidden sm:table-cell">Category</th>
+            <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider w-28 hidden md:table-cell">Date</th>
+            <th class="text-left px-5 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider w-28">Status</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-50">
+
+          <tr class="hover:bg-gray-50 transition-colors">
+            <td class="px-5 py-4 font-mono text-gray-400 text-xs">ADR-001</td>
+            <td class="px-5 py-4">
+              <p class="font-medium text-gray-800">Adopt Microservices over Monolith for new platform</p>
+              <p class="text-xs text-gray-400 mt-0.5">Independent deployability, team autonomy, and scalability were primary drivers.</p>
+            </td>
+            <td class="px-5 py-4 hidden sm:table-cell">
+              <span class="text-xs bg-blue-100 text-blue-700 font-semibold px-2 py-0.5 rounded-full">Architecture</span>
+            </td>
+            <td class="px-5 py-4 text-gray-400 hidden md:table-cell text-xs">Jan 2026</td>
+            <td class="px-5 py-4">
+              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-green-700 bg-green-50 px-2 py-0.5 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Accepted
+              </span>
+            </td>
+          </tr>
+
+          <tr class="hover:bg-gray-50 transition-colors">
+            <td class="px-5 py-4 font-mono text-gray-400 text-xs">ADR-002</td>
+            <td class="px-5 py-4">
+              <p class="font-medium text-gray-800">Use Kafka as the primary event streaming platform</p>
+              <p class="text-xs text-gray-400 mt-0.5">Chosen over RabbitMQ for durability, replay capability, and ecosystem maturity.</p>
+            </td>
+            <td class="px-5 py-4 hidden sm:table-cell">
+              <span class="text-xs bg-green-100 text-green-700 font-semibold px-2 py-0.5 rounded-full">Integration</span>
+            </td>
+            <td class="px-5 py-4 text-gray-400 hidden md:table-cell text-xs">Feb 2026</td>
+            <td class="px-5 py-4">
+              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-green-700 bg-green-50 px-2 py-0.5 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Accepted
+              </span>
+            </td>
+          </tr>
+
+          <tr class="hover:bg-gray-50 transition-colors">
+            <td class="px-5 py-4 font-mono text-gray-400 text-xs">ADR-003</td>
+            <td class="px-5 py-4">
+              <p class="font-medium text-gray-800">Adopt Terraform for infrastructure provisioning</p>
+              <p class="text-xs text-gray-400 mt-0.5">Cloud-agnostic IaC with state management; evaluated against Pulumi and AWS CDK.</p>
+            </td>
+            <td class="px-5 py-4 hidden sm:table-cell">
+              <span class="text-xs bg-purple-100 text-purple-700 font-semibold px-2 py-0.5 rounded-full">Cloud</span>
+            </td>
+            <td class="px-5 py-4 text-gray-400 hidden md:table-cell text-xs">Feb 2026</td>
+            <td class="px-5 py-4">
+              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-green-700 bg-green-50 px-2 py-0.5 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Accepted
+              </span>
+            </td>
+          </tr>
+
+          <tr class="hover:bg-gray-50 transition-colors">
+            <td class="px-5 py-4 font-mono text-gray-400 text-xs">ADR-004</td>
+            <td class="px-5 py-4">
+              <p class="font-medium text-gray-800">Evaluate GraphQL federation for unified API layer</p>
+              <p class="text-xs text-gray-400 mt-0.5">Investigating Apollo Federation for aggregating multiple service schemas into one gateway.</p>
+            </td>
+            <td class="px-5 py-4 hidden sm:table-cell">
+              <span class="text-xs bg-teal-100 text-teal-700 font-semibold px-2 py-0.5 rounded-full">API</span>
+            </td>
+            <td class="px-5 py-4 text-gray-400 hidden md:table-cell text-xs">Mar 2026</td>
+            <td class="px-5 py-4">
+              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-yellow-700 bg-yellow-50 px-2 py-0.5 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span> Proposed
+              </span>
+            </td>
+          </tr>
+
+          <tr class="hover:bg-gray-50 transition-colors">
+            <td class="px-5 py-4 font-mono text-gray-400 text-xs">ADR-005</td>
+            <td class="px-5 py-4">
+              <p class="font-medium text-gray-800">Replace homegrown auth with OAuth 2.0 / OIDC</p>
+              <p class="text-xs text-gray-400 mt-0.5">Standardise identity across services using Keycloak as the identity provider.</p>
+            </td>
+            <td class="px-5 py-4 hidden sm:table-cell">
+              <span class="text-xs bg-red-100 text-red-700 font-semibold px-2 py-0.5 rounded-full">Security</span>
+            </td>
+            <td class="px-5 py-4 text-gray-400 hidden md:table-cell text-xs">Apr 2026</td>
+            <td class="px-5 py-4">
+              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-green-700 bg-green-50 px-2 py-0.5 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500"></span> Accepted
+              </span>
+            </td>
+          </tr>
+
+          <tr class="hover:bg-gray-50 transition-colors">
+            <td class="px-5 py-4 font-mono text-gray-400 text-xs">ADR-006</td>
+            <td class="px-5 py-4">
+              <p class="font-medium text-gray-800">Use REST over gRPC for external-facing APIs</p>
+              <p class="text-xs text-gray-400 mt-0.5">gRPC preferred for internal service-to-service communication; REST retained for public developer ergonomics.</p>
+            </td>
+            <td class="px-5 py-4 hidden sm:table-cell">
+              <span class="text-xs bg-teal-100 text-teal-700 font-semibold px-2 py-0.5 rounded-full">API</span>
+            </td>
+            <td class="px-5 py-4 text-gray-400 hidden md:table-cell text-xs">May 2026</td>
+            <td class="px-5 py-4">
+              <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span> Superseded
+              </span>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-xs text-gray-400 mt-4">Add new ADRs by duplicating a table row and incrementing the number. Follow the <a href="templates.html" class="text-indigo-500 hover:underline">ADR template</a> for detailed write-ups.</p>
+  </main>
+
+  <footer class="border-t bg-white text-center text-xs text-gray-400 py-6">
+    Yuvi's Knowledge Base &amp; Playbook &mdash; Hosted on <a href="https://pages.github.com" class="hover:text-indigo-500 underline" target="_blank" rel="noopener">GitHub Pages</a>
+  </footer>
+
+</body>
+</html>

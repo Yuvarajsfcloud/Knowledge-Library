@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design Patterns — Yuvi's KB</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+  <nav class="bg-indigo-700 text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="font-bold text-lg tracking-tight">📚 Yuvi's KB &amp; Playbook</a>
+      <div class="hidden md:flex gap-5 text-sm font-medium">
+        <a href="index.html" class="hover:text-indigo-200 transition">Home</a>
+        <a href="playbooks.html" class="hover:text-indigo-200 transition">Playbooks</a>
+        <a href="references.html" class="hover:text-indigo-200 transition">References</a>
+        <a href="templates.html" class="hover:text-indigo-200 transition">Templates</a>
+        <a href="patterns.html" class="text-white underline underline-offset-4">Patterns</a>
+        <a href="adr.html" class="hover:text-indigo-200 transition">ADRs</a>
+        <a href="tech-radar.html" class="hover:text-indigo-200 transition">Tech Radar</a>
+        <a href="notes.html" class="hover:text-indigo-200 transition">Notes</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-white border-b px-6 py-8">
+    <div class="max-w-7xl mx-auto">
+      <p class="text-xs text-gray-400 mb-1"><a href="index.html" class="hover:text-indigo-600">Home</a> / Design Patterns</p>
+      <h1 class="text-2xl font-bold">🔷 Design Patterns</h1>
+      <p class="text-gray-500 mt-1 text-sm">Architectural and software patterns with context, applicability, and trade-off notes.</p>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-10 flex-1 w-full">
+
+    <!-- Filter Tags -->
+    <div class="flex flex-wrap gap-2 mb-8">
+      <span class="bg-indigo-600 text-white text-xs font-semibold px-3 py-1 rounded-full cursor-pointer">All</span>
+      <span class="bg-white border text-gray-600 text-xs font-semibold px-3 py-1 rounded-full cursor-pointer hover:bg-indigo-50">Distributed</span>
+      <span class="bg-white border text-gray-600 text-xs font-semibold px-3 py-1 rounded-full cursor-pointer hover:bg-indigo-50">Messaging</span>
+      <span class="bg-white border text-gray-600 text-xs font-semibold px-3 py-1 rounded-full cursor-pointer hover:bg-indigo-50">Resilience</span>
+      <span class="bg-white border text-gray-600 text-xs font-semibold px-3 py-1 rounded-full cursor-pointer hover:bg-indigo-50">Data</span>
+      <span class="bg-white border text-gray-600 text-xs font-semibold px-3 py-1 rounded-full cursor-pointer hover:bg-indigo-50">Integration</span>
+    </div>
+
+    <p class="text-xs text-gray-400 mb-5">Sources: <a href="https://martinfowler.com/articles/patterns-of-distributed-systems/" class="text-indigo-500 hover:underline" target="_blank" rel="noopener">Fowler</a> · <a href="https://microservices.io/patterns/" class="text-indigo-500 hover:underline" target="_blank" rel="noopener">Richardson</a> · <a href="https://www.enterpriseintegrationpatterns.com/" class="text-indigo-500 hover:underline" target="_blank" rel="noopener">EIP (Hohpe)</a> · <a href="https://learn.microsoft.com/en-us/azure/architecture/patterns/" class="text-indigo-500 hover:underline" target="_blank" rel="noopener">Azure CAF</a> · <a href="https://aws.amazon.com/builders-library/" class="text-indigo-500 hover:underline" target="_blank" rel="noopener">AWS Builders Library</a></p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+
+      <!-- CQRS -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs bg-blue-100 text-blue-700 font-semibold px-2 py-0.5 rounded-full">Distributed</span>
+          <a href="https://martinfowler.com/bliki/CQRS.html" target="_blank" rel="noopener" class="text-xs text-gray-400 hover:text-indigo-500">↗ Fowler</a>
+        </div>
+        <h3 class="font-semibold text-sm mt-1">CQRS</h3>
+        <p class="text-xs bg-indigo-50 text-indigo-700 rounded px-2 py-1"><span class="font-semibold">Problem:</span> Read-heavy and write-heavy workloads compete for the same model, making optimisation impossible.</p>
+        <p class="text-xs text-gray-600 leading-relaxed"><span class="font-semibold">Solution:</span> Separate the write model (Commands → state change) from the read model (Queries → denormalised projections). Each side evolves and scales independently.</p>
+        <div class="flex flex-wrap gap-1 mt-1">
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Independent scale</span>
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Optimised reads</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ Eventual consistency</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ Sync complexity</span>
+        </div>
+        <div class="text-xs text-gray-400 pt-2 border-t border-gray-50 mt-1">
+          <span class="font-semibold">Use when:</span> High read/write ratio imbalance; complex reporting projections.
+        </div>
+      </div>
+
+      <!-- Saga -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs bg-green-100 text-green-700 font-semibold px-2 py-0.5 rounded-full">Messaging</span>
+          <a href="https://microservices.io/patterns/data/saga.html" target="_blank" rel="noopener" class="text-xs text-gray-400 hover:text-indigo-500">↗ Richardson</a>
+        </div>
+        <h3 class="font-semibold text-sm mt-1">Saga Pattern</h3>
+        <p class="text-xs bg-indigo-50 text-indigo-700 rounded px-2 py-1"><span class="font-semibold">Problem:</span> Distributed transactions across microservices can’t use 2PC without tight coupling and lock risk.</p>
+        <p class="text-xs text-gray-600 leading-relaxed"><span class="font-semibold">Solution:</span> Break the transaction into a chain of local sub-transactions each publishing an event. On failure, execute compensating transactions in reverse (e.g. cancel-order → refund-payment).</p>
+        <div class="flex flex-wrap gap-1 mt-1">
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ No distributed lock</span>
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Loose coupling</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ Compensations complex</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ Hard to debug</span>
+        </div>
+        <div class="text-xs text-gray-400 pt-2 border-t border-gray-50 mt-1">
+          <span class="font-semibold">Use when:</span> Multi-service business flows — order fulfilment, booking, payment.
+        </div>
+      </div>
+
+      <!-- Circuit Breaker -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs bg-red-100 text-red-700 font-semibold px-2 py-0.5 rounded-full">Resilience</span>
+          <a href="https://martinfowler.com/bliki/CircuitBreaker.html" target="_blank" rel="noopener" class="text-xs text-gray-400 hover:text-indigo-500">↗ Fowler</a>
+        </div>
+        <h3 class="font-semibold text-sm mt-1">Circuit Breaker</h3>
+        <p class="text-xs bg-indigo-50 text-indigo-700 rounded px-2 py-1"><span class="font-semibold">Problem:</span> A failing downstream service causes threads to pile up and cascade the failure to all callers.</p>
+        <p class="text-xs text-gray-600 leading-relaxed"><span class="font-semibold">Solution:</span> State machine: Closed (normal) → Open (failing, short-circuit) → Half-Open (probe). When error rate exceeds threshold, fail fast and return a fallback; retry after cooldown.</p>
+        <div class="flex flex-wrap gap-1 mt-1">
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Prevents cascade</span>
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Fast fail</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ Fallback design needed</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ Threshold tuning required</span>
+        </div>
+        <div class="text-xs text-gray-400 pt-2 border-t border-gray-50 mt-1">
+          <span class="font-semibold">Use when:</span> Calling external APIs, payment gateways, or flaky microservices.
+        </div>
+      </div>
+
+      <!-- Event Sourcing -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs bg-orange-100 text-orange-700 font-semibold px-2 py-0.5 rounded-full">Data</span>
+          <a href="https://martinfowler.com/eaaDev/EventSourcing.html" target="_blank" rel="noopener" class="text-xs text-gray-400 hover:text-indigo-500">↗ Fowler</a>
+        </div>
+        <h3 class="font-semibold text-sm mt-1">Event Sourcing</h3>
+        <p class="text-xs bg-indigo-50 text-indigo-700 rounded px-2 py-1"><span class="font-semibold">Problem:</span> Current-state storage loses history — impossible to answer “what was the balance at time T?”</p>
+        <p class="text-xs text-gray-600 leading-relaxed"><span class="font-semibold">Solution:</span> Store every state change as an immutable event (OrderPlaced, PaymentConfirmed). Rebuild state by replaying the event log; derive read projections from it.</p>
+        <div class="flex flex-wrap gap-1 mt-1">
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Full audit trail</span>
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Time-travel queries</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ Projection overhead</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ Schema evolution tricky</span>
+        </div>
+        <div class="text-xs text-gray-400 pt-2 border-t border-gray-50 mt-1">
+          <span class="font-semibold">Use when:</span> Financial ledgers, audit requirements, temporal domain models.
+        </div>
+      </div>
+
+      <!-- API Gateway -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs bg-teal-100 text-teal-700 font-semibold px-2 py-0.5 rounded-full">Integration</span>
+          <a href="https://microservices.io/patterns/apigateway.html" target="_blank" rel="noopener" class="text-xs text-gray-400 hover:text-indigo-500">↗ Richardson</a>
+        </div>
+        <h3 class="font-semibold text-sm mt-1">API Gateway</h3>
+        <p class="text-xs bg-indigo-50 text-indigo-700 rounded px-2 py-1"><span class="font-semibold">Problem:</span> Clients must call multiple services, handle auth, retries, and aggregation themselves — high coupling.</p>
+        <p class="text-xs text-gray-600 leading-relaxed"><span class="font-semibold">Solution:</span> A single entry point proxies, authenticates, rate-limits, and aggregates calls. Clients talk to one address; the gateway fans out internally to the right services.</p>
+        <div class="flex flex-wrap gap-1 mt-1">
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Decouples clients</span>
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Central auth &amp; logging</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ Single point of failure</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ Bottleneck risk</span>
+        </div>
+        <div class="text-xs text-gray-400 pt-2 border-t border-gray-50 mt-1">
+          <span class="font-semibold">Use when:</span> Multiple services exposed behind one unified API surface.
+        </div>
+      </div>
+
+      <!-- BFF -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs bg-purple-100 text-purple-700 font-semibold px-2 py-0.5 rounded-full">Integration</span>
+          <a href="https://samnewman.io/patterns/architectural/bff/" target="_blank" rel="noopener" class="text-xs text-gray-400 hover:text-indigo-500">↗ Newman</a>
+        </div>
+        <h3 class="font-semibold text-sm mt-1">Backend for Frontend (BFF)</h3>
+        <p class="text-xs bg-indigo-50 text-indigo-700 rounded px-2 py-1"><span class="font-semibold">Problem:</span> A single API gateway returns generic payloads — over-fetching for mobile, under-fetching for web.</p>
+        <p class="text-xs text-gray-600 leading-relaxed"><span class="font-semibold">Solution:</span> Thin dedicated backend per client type (web-bff, mobile-bff). Each composes downstream calls and shapes the exact response its client needs.</p>
+        <div class="flex flex-wrap gap-1 mt-1">
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Client-optimised APIs</span>
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Team autonomy</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ Code duplication risk</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ More services to operate</span>
+        </div>
+        <div class="text-xs text-gray-400 pt-2 border-t border-gray-50 mt-1">
+          <span class="font-semibold">Use when:</span> Web and mobile clients have meaningfully different data shapes.
+        </div>
+      </div>
+
+      <!-- Strangler Fig -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs bg-indigo-100 text-indigo-700 font-semibold px-2 py-0.5 rounded-full">Distributed</span>
+          <a href="https://martinfowler.com/bliki/StranglerFigApplication.html" target="_blank" rel="noopener" class="text-xs text-gray-400 hover:text-indigo-500">↗ Fowler</a>
+        </div>
+        <h3 class="font-semibold text-sm mt-1">Strangler Fig</h3>
+        <p class="text-xs bg-indigo-50 text-indigo-700 rounded px-2 py-1"><span class="font-semibold">Problem:</span> A big-bang rewrite of a legacy system is high risk — you can’t stop the world while rebuilding.</p>
+        <p class="text-xs text-gray-600 leading-relaxed"><span class="font-semibold">Solution:</span> Place a routing proxy in front of the legacy system. Incrementally redirect traffic capability-by-capability to new services. The legacy system shrinks until it can be decommissioned.</p>
+        <div class="flex flex-wrap gap-1 mt-1">
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Low-risk migration</span>
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Continuous delivery</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ Dual maintenance period</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ Proxy routing complexity</span>
+        </div>
+        <div class="text-xs text-gray-400 pt-2 border-t border-gray-50 mt-1">
+          <span class="font-semibold">Use when:</span> Migrating legacy monoliths to microservices incrementally.
+        </div>
+      </div>
+
+      <!-- Sidecar -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs bg-pink-100 text-pink-700 font-semibold px-2 py-0.5 rounded-full">Resilience</span>
+          <a href="https://learn.microsoft.com/en-us/azure/architecture/patterns/sidecar" target="_blank" rel="noopener" class="text-xs text-gray-400 hover:text-indigo-500">↗ Azure CAF</a>
+        </div>
+        <h3 class="font-semibold text-sm mt-1">Sidecar Pattern</h3>
+        <p class="text-xs bg-indigo-50 text-indigo-700 rounded px-2 py-1"><span class="font-semibold">Problem:</span> Cross-cutting concerns (logging, mTLS, tracing) duplicated in every service regardless of language.</p>
+        <p class="text-xs text-gray-600 leading-relaxed"><span class="font-semibold">Solution:</span> Deploy a companion container in the same pod (e.g., Envoy proxy). The sidecar intercepts network calls and handles infrastructure concerns; the app stays focused on business logic.</p>
+        <div class="flex flex-wrap gap-1 mt-1">
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Language-agnostic</span>
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Independent updates</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ Resource overhead</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ K8s-specific complexity</span>
+        </div>
+        <div class="text-xs text-gray-400 pt-2 border-t border-gray-50 mt-1">
+          <span class="font-semibold">Use when:</span> Service mesh (Istio/Linkerd), polyglot microservice estates.
+        </div>
+      </div>
+
+      <!-- Transactional Outbox -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs bg-yellow-100 text-yellow-700 font-semibold px-2 py-0.5 rounded-full">Messaging</span>
+          <a href="https://microservices.io/patterns/data/transactional-outbox.html" target="_blank" rel="noopener" class="text-xs text-gray-400 hover:text-indigo-500">↗ Richardson</a>
+        </div>
+        <h3 class="font-semibold text-sm mt-1">Transactional Outbox</h3>
+        <p class="text-xs bg-indigo-50 text-indigo-700 rounded px-2 py-1"><span class="font-semibold">Problem:</span> Writing to a DB and publishing a message are two operations — one can succeed while the other fails, leaving the system inconsistent.</p>
+        <p class="text-xs text-gray-600 leading-relaxed"><span class="font-semibold">Solution:</span> Write the event to an OUTBOX table in the same DB transaction as your data change. A relay (e.g. Debezium CDC) reads the outbox and publishes to the broker, guaranteeing at-least-once delivery.</p>
+        <div class="flex flex-wrap gap-1 mt-1">
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Atomic write + publish</span>
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ At-least-once delivery</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ Duplicate msgs possible</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ CDC relay infra needed</span>
+        </div>
+        <div class="text-xs text-gray-400 pt-2 border-t border-gray-50 mt-1">
+          <span class="font-semibold">Use when:</span> Publishing domain events reliably alongside DB writes (Kafka + Postgres).
+        </div>
+      </div>
+
+      <!-- Bulkhead -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs bg-red-100 text-red-700 font-semibold px-2 py-0.5 rounded-full">Resilience</span>
+          <a href="https://learn.microsoft.com/en-us/azure/architecture/patterns/bulkhead" target="_blank" rel="noopener" class="text-xs text-gray-400 hover:text-indigo-500">↗ Azure CAF</a>
+        </div>
+        <h3 class="font-semibold text-sm mt-1">Bulkhead</h3>
+        <p class="text-xs bg-indigo-50 text-indigo-700 rounded px-2 py-1"><span class="font-semibold">Problem:</span> A resource-intensive request type exhausts the shared thread pool, starving all other workload types.</p>
+        <p class="text-xs text-gray-600 leading-relaxed"><span class="font-semibold">Solution:</span> Partition resources (thread pools, connection pools, CPU limits) into isolated compartments per consumer or criticality tier — inspired by watertight ship bulkheads.</p>
+        <div class="flex flex-wrap gap-1 mt-1">
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Failure isolation</span>
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Predictable capacity</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ Resource underutilisation</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ Configuration overhead</span>
+        </div>
+        <div class="text-xs text-gray-400 pt-2 border-t border-gray-50 mt-1">
+          <span class="font-semibold">Use when:</span> Protecting critical paths from noisy-neighbour workloads.
+        </div>
+      </div>
+
+      <!-- Retry with Backoff -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs bg-red-100 text-red-700 font-semibold px-2 py-0.5 rounded-full">Resilience</span>
+          <a href="https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter/" target="_blank" rel="noopener" class="text-xs text-gray-400 hover:text-indigo-500">↗ AWS</a>
+        </div>
+        <h3 class="font-semibold text-sm mt-1">Retry + Exponential Backoff &amp; Jitter</h3>
+        <p class="text-xs bg-indigo-50 text-indigo-700 rounded px-2 py-1"><span class="font-semibold">Problem:</span> Immediate retries on failure create a thundering-herd storm that overwhelms a recovering service.</p>
+        <p class="text-xs text-gray-600 leading-relaxed"><span class="font-semibold">Solution:</span> Retry with exponentially increasing delays (100ms → 200ms → 400ms) plus random jitter to de-synchronise clients. Set a max retry count and total budget.</p>
+        <div class="flex flex-wrap gap-1 mt-1">
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Avoids thundering herd</span>
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Handles transient faults</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ Increases tail latency</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ Idempotency required</span>
+        </div>
+        <div class="text-xs text-gray-400 pt-2 border-t border-gray-50 mt-1">
+          <span class="font-semibold">Use when:</span> Any network call; combine with Circuit Breaker for full resilience.
+        </div>
+      </div>
+
+      <!-- Data Mesh -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-5 flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <span class="text-xs bg-orange-100 text-orange-700 font-semibold px-2 py-0.5 rounded-full">Data</span>
+          <a href="https://martinfowler.com/articles/data-mesh-principles.html" target="_blank" rel="noopener" class="text-xs text-gray-400 hover:text-indigo-500">↗ Dehghani</a>
+        </div>
+        <h3 class="font-semibold text-sm mt-1">Data Mesh</h3>
+        <p class="text-xs bg-indigo-50 text-indigo-700 rounded px-2 py-1"><span class="font-semibold">Problem:</span> Centralised data teams become a bottleneck; data lakes fill with untrusted, poorly documented datasets.</p>
+        <p class="text-xs text-gray-600 leading-relaxed"><span class="font-semibold">Solution:</span> Treat data as a product owned by the domain team. Each domain publishes discoverable, SLA-backed data products. Governed by federated computational policies across a self-serve platform.</p>
+        <div class="flex flex-wrap gap-1 mt-1">
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Domain ownership</span>
+          <span class="text-xs bg-green-50 text-green-700 px-1.5 py-0.5 rounded">✓ Scales data teams</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ High org maturity needed</span>
+          <span class="text-xs bg-red-50 text-red-600 px-1.5 py-0.5 rounded">✗ Governance complexity</span>
+        </div>
+        <div class="text-xs text-gray-400 pt-2 border-t border-gray-50 mt-1">
+          <span class="font-semibold">Use when:</span> Large enterprises with multiple domain teams and data silos.
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="border-t bg-white text-center text-xs text-gray-400 py-6">
+    Yuvi's Knowledge Base &amp; Playbook &mdash; Hosted on <a href="https://pages.github.com" class="hover:text-indigo-500 underline" target="_blank" rel="noopener">GitHub Pages</a>
+  </footer>
+
+</body>
+</html>

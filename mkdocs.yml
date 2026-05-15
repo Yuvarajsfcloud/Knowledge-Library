@@ -1,0 +1,76 @@
+site_name: Knowledge Library
+site_description: Personal architecture knowledge base
+docs_dir: docs
+site_dir: site
+
+# No site_url set here — configure it after your GitHub Pages URL is known.
+# site_url: https://<your-username>.github.io/<your-repo>/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.code.annotate
+    - toc.follow
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - tables
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - Home: index.md
+  - Architecture Notes:
+    - architecture/index.md
+    - Event-Driven Architecture: architecture/event-driven-architecture.md
+  - Case Studies:
+    - case-studies/index.md
+    - Microservices Migration: case-studies/microservices-migration.md
+  - Playbooks:
+    - playbooks/index.md
+    - Incident Response: playbooks/incident-response.md
+  - ADRs:
+    - adrs/index.md
+
+# Disable features not appropriate for a private knowledge base
+extra:
+  generator: false   # Removes "Made with Material for MkDocs" footer link

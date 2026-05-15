@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Templates — Yuvi's KB</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+  <nav class="bg-indigo-700 text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="font-bold text-lg tracking-tight">📚 Yuvi's KB &amp; Playbook</a>
+      <div class="hidden md:flex gap-5 text-sm font-medium">
+        <a href="index.html" class="hover:text-indigo-200 transition">Home</a>
+        <a href="playbooks.html" class="hover:text-indigo-200 transition">Playbooks</a>
+        <a href="references.html" class="hover:text-indigo-200 transition">References</a>
+        <a href="templates.html" class="text-white underline underline-offset-4">Templates</a>
+        <a href="patterns.html" class="hover:text-indigo-200 transition">Patterns</a>
+        <a href="adr.html" class="hover:text-indigo-200 transition">ADRs</a>
+        <a href="tech-radar.html" class="hover:text-indigo-200 transition">Tech Radar</a>
+        <a href="notes.html" class="hover:text-indigo-200 transition">Notes</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-white border-b px-6 py-8">
+    <div class="max-w-7xl mx-auto">
+      <p class="text-xs text-gray-400 mb-1"><a href="index.html" class="hover:text-indigo-600">Home</a> / Templates</p>
+      <h1 class="text-2xl font-bold">📄 Templates</h1>
+      <p class="text-gray-500 mt-1 text-sm">Reusable document templates for architecture reviews, RFCs, proposals, and decision records.</p>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-10 flex-1 w-full">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col gap-3">
+        <div class="flex items-center gap-3">
+          <span class="text-3xl">📋</span>
+          <span class="text-xs bg-indigo-100 text-indigo-700 font-semibold px-2 py-0.5 rounded-full">ADR</span>
+        </div>
+        <h3 class="font-semibold text-base">Architecture Decision Record (ADR)</h3>
+        <p class="text-sm text-gray-500 flex-1 leading-relaxed">Captures the context, decision, alternatives considered, and consequences for a key architectural choice.</p>
+        <div class="text-xs text-gray-400 space-y-0.5">
+          <p>Sections: Title · Status · Context · Decision · Consequences</p>
+        </div>
+        <details class="mt-2 text-xs">
+          <summary class="cursor-pointer text-indigo-600 font-semibold select-none">Preview template structure ▾</summary>
+          <pre class="mt-2 bg-gray-50 border border-gray-200 rounded-lg p-3 font-mono text-gray-700 overflow-x-auto leading-relaxed whitespace-pre"># ADR-NNN: [Short descriptive title]
+Date: YYYY-MM-DD
+Status: Proposed | Accepted | Deprecated | Superseded by ADR-XXX
+
+## Context
+What is the situation that motivates this decision?
+Include forces, constraints, and relevant background.
+
+## Decision
+The change we’re proposing or have agreed to make.
+
+## Consequences
+What becomes easier or harder? List both positive and
+negative outcomes, and any risks or follow-up actions.
+
+## Alternatives Considered
+1. Option A — [why rejected]
+2. Option B — [why rejected]</pre>
+        </details>
+        <a href="adr.html" class="mt-2 inline-block text-center text-sm font-medium bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors">View ADR Log →</a>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col gap-3">
+        <div class="flex items-center gap-3">
+          <span class="text-3xl">📝</span>
+          <span class="text-xs bg-green-100 text-green-700 font-semibold px-2 py-0.5 rounded-full">RFC</span>
+        </div>
+        <h3 class="font-semibold text-base">Request for Comments (RFC)</h3>
+        <p class="text-sm text-gray-500 flex-1 leading-relaxed">Proposal document for technical changes requiring team review, discussion, and consensus before implementation.</p>
+        <div class="text-xs text-gray-400 space-y-0.5">
+          <p>Sections: Summary · Motivation · Proposal · Drawbacks · Alternatives</p>
+        </div>
+        <details class="text-xs">
+          <summary class="cursor-pointer text-indigo-600 font-semibold select-none">Preview template structure ▾</summary>
+          <pre class="mt-2 bg-gray-50 border border-gray-200 rounded-lg p-3 font-mono text-gray-700 overflow-x-auto leading-relaxed whitespace-pre"># RFC-NNN: [Title]
+Status: Draft | Under Review | Accepted | Withdrawn
+Author: [Name]  Date: YYYY-MM-DD
+
+## Summary (TL;DR)
+One paragraph executive summary of the proposal.
+
+## Motivation
+Why is this change needed? What problem does it solve?
+
+## Detailed Proposal
+Describe the change in full. Include diagrams if useful.
+
+## Drawbacks
+What are the risks or downsides of this approach?
+
+## Alternatives Considered
+1. Do nothing — [impact]
+2. Alternative approach — [why not chosen]
+
+## Open Questions
+- [ ] Question 1
+- [ ] Question 2</pre>
+        </details>
+        <a href="#" class="mt-2 inline-block text-center text-sm font-medium bg-white border border-indigo-200 text-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-50 transition-colors">Copy Template</a>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col gap-3">
+        <div class="flex items-center gap-3">
+          <span class="text-3xl">🔍</span>
+          <span class="text-xs bg-orange-100 text-orange-700 font-semibold px-2 py-0.5 rounded-full">Review</span>
+        </div>
+        <h3 class="font-semibold text-base">Architecture Review Checklist</h3>
+        <p class="text-sm text-gray-500 flex-1 leading-relaxed">Structured checklist for evaluating proposed architectures across reliability, scalability, security, and cost dimensions.</p>
+        <div class="text-xs text-gray-400 space-y-0.5">
+          <p>Covers: Non-functional requirements · Risk assessment · Dependencies</p>
+        </div>
+        <details class="text-xs">
+          <summary class="cursor-pointer text-indigo-600 font-semibold select-none">Preview template structure ▾</summary>
+          <pre class="mt-2 bg-gray-50 border border-gray-200 rounded-lg p-3 font-mono text-gray-700 overflow-x-auto leading-relaxed whitespace-pre"># Architecture Review: [System / Feature Name]
+Review Date: YYYY-MM-DD  Reviewer(s): [Names]
+
+## NFR Coverage
+[ ] Availability target defined (e.g. 99.9%)
+[ ] Latency budget set per critical path
+[ ] Scalability model documented
+[ ] DR / RTO / RPO defined
+
+## Security
+[ ] Threat model completed
+[ ] Auth / AuthZ model reviewed
+[ ] Data classification applied
+
+## Operability
+[ ] Observability hooks in place
+[ ] Runbooks drafted
+[ ] Deployment strategy defined
+
+## Risks & Open Issues
+1. [Risk] — [Mitigation]
+2. [Risk] — [Mitigation]</pre>
+        </details>
+        <a href="#" class="mt-2 inline-block text-center text-sm font-medium bg-white border border-indigo-200 text-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-50 transition-colors">Copy Template</a>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col gap-3">
+        <div class="flex items-center gap-3">
+          <span class="text-3xl">🗺️</span>
+          <span class="text-xs bg-purple-100 text-purple-700 font-semibold px-2 py-0.5 rounded-full">Roadmap</span>
+        </div>
+        <h3 class="font-semibold text-base">Technical Roadmap Template</h3>
+        <p class="text-sm text-gray-500 flex-1 leading-relaxed">Quarter-by-quarter technical roadmap structure for communicating engineering direction to stakeholders.</p>
+        <div class="text-xs text-gray-400 space-y-0.5">
+          <p>Sections: Vision · Now/Next/Later · Milestones · Dependencies</p>
+        </div>
+        <details class="text-xs">
+          <summary class="cursor-pointer text-indigo-600 font-semibold select-none">Preview template structure ▾</summary>
+          <pre class="mt-2 bg-gray-50 border border-gray-200 rounded-lg p-3 font-mono text-gray-700 overflow-x-auto leading-relaxed whitespace-pre"># Technical Roadmap — [Team / Product] — H1 2026
+Vision: [One sentence north star]
+
+## Now (Q1)
+- [Initiative]  Owner: [Team]  Status: In Progress
+- [Initiative]  Owner: [Team]  Status: Planned
+
+## Next (Q2)
+- [Initiative]  Owner: [Team]  Status: Backlog
+
+## Later (Q3+)
+- [Initiative] — [brief rationale]
+
+## Key Dependencies
+| Initiative        | Depends On      | Risk  |
+|-------------------|-----------------|-------|
+| Platform upgrade  | Infra team       | Med   |
+
+## Success Metrics
+- [OKR / KPI to track progress]</pre>
+        </details>
+        <a href="#" class="mt-2 inline-block text-center text-sm font-medium bg-white border border-indigo-200 text-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-50 transition-colors">Copy Template</a>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col gap-3">
+        <div class="flex items-center gap-3">
+          <span class="text-3xl">💡</span>
+          <span class="text-xs bg-yellow-100 text-yellow-700 font-semibold px-2 py-0.5 rounded-full">Design Doc</span>
+        </div>
+        <h3 class="font-semibold text-base">System Design Document</h3>
+        <p class="text-sm text-gray-500 flex-1 leading-relaxed">Comprehensive design document covering requirements, high-level design, component design, and operational considerations.</p>
+        <div class="text-xs text-gray-400 space-y-0.5">
+          <p>Sections: Problem · Goals · Design · Trade-offs · Open Questions</p>
+        </div>
+        <details class="text-xs">
+          <summary class="cursor-pointer text-indigo-600 font-semibold select-none">Preview template structure ▾</summary>
+          <pre class="mt-2 bg-gray-50 border border-gray-200 rounded-lg p-3 font-mono text-gray-700 overflow-x-auto leading-relaxed whitespace-pre"># System Design: [Component / Feature]
+Author: [Name]  Date: YYYY-MM-DD
+
+## Problem Statement
+What user/business problem are we solving?
+
+## Goals &amp; Non-Goals
+Goals:     [ ] Goal 1  [ ] Goal 2
+Non-Goals: Out of scope: ...
+
+## High-Level Design
+[Architecture diagram or C4 context diagram]
+
+## Component Design
+[Data models, API contracts, sequence diagrams]
+
+## Trade-offs &amp; Alternatives
+| Option        | Pros       | Cons        | Decision |
+|---------------|------------|-------------|----------|
+| Approach A    | Simple     | Less scale  | Chosen   |
+| Approach B    | Scalable   | Complex     | Rejected |
+
+## Open Questions
+- [ ] Q1: [question + owner + due date]</pre>
+        </details>
+        <a href="#" class="mt-2 inline-block text-center text-sm font-medium bg-white border border-indigo-200 text-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-50 transition-colors">Copy Template</a>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-6 flex flex-col gap-3">
+        <div class="flex items-center gap-3">
+          <span class="text-3xl">🧪</span>
+          <span class="text-xs bg-teal-100 text-teal-700 font-semibold px-2 py-0.5 rounded-full">Post-mortem</span>
+        </div>
+        <h3 class="font-semibold text-base">Incident Post-Mortem</h3>
+        <p class="text-sm text-gray-500 flex-1 leading-relaxed">Blameless post-mortem template for capturing incident timeline, root cause, impact, and action items.</p>
+        <div class="text-xs text-gray-400 space-y-0.5">
+          <p>Sections: Summary · Timeline · Root Cause · Action Items</p>
+        </div>
+        <details class="text-xs">
+          <summary class="cursor-pointer text-indigo-600 font-semibold select-none">Preview template structure ▾</summary>
+          <pre class="mt-2 bg-gray-50 border border-gray-200 rounded-lg p-3 font-mono text-gray-700 overflow-x-auto leading-relaxed whitespace-pre"># Incident Post-Mortem: [INC-NNN] [Title]
+Severity: P1/P2/P3   Date: YYYY-MM-DD
+Duration: HH:MM       On-Call: [Name]
+
+## Impact Summary
+Affected: [services / users / %]
+Revenue impact (if applicable): $X
+
+## Timeline (UTC)
+10:15  Alert fired — [alert name]
+10:22  On-call acknowledged
+10:45  Root cause identified
+11:30  Fix deployed and verified
+
+## Root Cause Analysis
+Immediate cause: ...
+Contributing factors: ...
+5-Whys:
+  Why 1: ...
+  Why 2: ...
+
+## Action Items
+| Action                 | Owner  | Due        |
+|------------------------|--------|------------|
+| Add circuit breaker    | @eng   | 2026-05-30 |
+| Improve alert fidelity | @sre   | 2026-06-07 |</pre>
+        </details>
+        <a href="#" class="mt-2 inline-block text-center text-sm font-medium bg-white border border-indigo-200 text-indigo-600 px-4 py-2 rounded-lg hover:bg-indigo-50 transition-colors">Copy Template</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="border-t bg-white text-center text-xs text-gray-400 py-6">
+    Yuvi's Knowledge Base &amp; Playbook &mdash; Hosted on <a href="https://pages.github.com" class="hover:text-indigo-500 underline" target="_blank" rel="noopener">GitHub Pages</a>
+  </footer>
+
+</body>
+</html>

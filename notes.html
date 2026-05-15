@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes / Blog — Yuvi's KB</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+  <nav class="bg-indigo-700 text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="font-bold text-lg tracking-tight">📚 Yuvi's KB &amp; Playbook</a>
+      <div class="hidden md:flex gap-5 text-sm font-medium">
+        <a href="index.html" class="hover:text-indigo-200 transition">Home</a>
+        <a href="playbooks.html" class="hover:text-indigo-200 transition">Playbooks</a>
+        <a href="references.html" class="hover:text-indigo-200 transition">References</a>
+        <a href="templates.html" class="hover:text-indigo-200 transition">Templates</a>
+        <a href="patterns.html" class="hover:text-indigo-200 transition">Patterns</a>
+        <a href="adr.html" class="hover:text-indigo-200 transition">ADRs</a>
+        <a href="tech-radar.html" class="hover:text-indigo-200 transition">Tech Radar</a>
+        <a href="notes.html" class="text-white underline underline-offset-4">Notes</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-white border-b px-6 py-8">
+    <div class="max-w-7xl mx-auto">
+      <p class="text-xs text-gray-400 mb-1"><a href="index.html" class="hover:text-indigo-600">Home</a> / Notes</p>
+      <h1 class="text-2xl font-bold">📝 Notes / Blog</h1>
+      <p class="text-gray-500 mt-1 text-sm">Personal notes, learning reflections, and short articles on technology and architecture.</p>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 py-10 flex-1 w-full">
+
+    <!-- Tag Filter -->
+    <div class="flex flex-wrap gap-2 mb-8">
+      <span class="bg-indigo-600 text-white text-xs font-semibold px-3 py-1 rounded-full cursor-pointer">All</span>
+      <span class="bg-white border text-gray-600 text-xs font-semibold px-3 py-1 rounded-full cursor-pointer hover:bg-indigo-50">Architecture</span>
+      <span class="bg-white border text-gray-600 text-xs font-semibold px-3 py-1 rounded-full cursor-pointer hover:bg-indigo-50">Cloud</span>
+      <span class="bg-white border text-gray-600 text-xs font-semibold px-3 py-1 rounded-full cursor-pointer hover:bg-indigo-50">Career</span>
+      <span class="bg-white border text-gray-600 text-xs font-semibold px-3 py-1 rounded-full cursor-pointer hover:bg-indigo-50">Lessons Learned</span>
+    </div>
+
+    <div class="flex flex-col gap-6">
+
+      <article class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-6">
+        <div class="flex items-center gap-3 mb-3 flex-wrap">
+          <span class="text-xs bg-blue-100 text-blue-700 font-semibold px-2 py-0.5 rounded-full">Architecture</span>
+          <span class="text-xs text-gray-400">14 May 2026 &mdash; 5 min read</span>
+        </div>
+        <h2 class="text-lg font-semibold mb-2">The Trade-off Triangle: When "Best Practice" Becomes a Liability</h2>
+        <p class="text-sm text-gray-500 leading-relaxed mb-4">
+          Every architectural best practice carries hidden assumptions. Microservices are great — until you're a two-person team debugging a distributed transaction at 2am.
+          This note explores how to evaluate patterns against your actual context rather than the context they were born in.
+        </p>
+        <div class="flex items-center justify-between">
+          <div class="flex flex-wrap gap-1.5">
+            <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded">microservices</span>
+            <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded">trade-offs</span>
+            <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded">context</span>
+          </div>
+          <a href="#" class="text-indigo-600 text-sm font-medium hover:underline">Read →</a>
+        </div>
+      </article>
+
+      <article class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-6">
+        <div class="flex items-center gap-3 mb-3 flex-wrap">
+          <span class="text-xs bg-purple-100 text-purple-700 font-semibold px-2 py-0.5 rounded-full">Cloud</span>
+          <span class="text-xs text-gray-400">2 May 2026 &mdash; 8 min read</span>
+        </div>
+        <h2 class="text-lg font-semibold mb-2">5 AWS Cost Patterns I've Seen Kill Platform Budgets</h2>
+        <p class="text-sm text-gray-500 leading-relaxed mb-4">
+          Cloud billing surprises are almost always architectural problems in disguise. NAT gateway data transfer charges, over-provisioned RDS multi-AZ instances,
+          and forgotten dev environments — here are patterns I've seen repeatedly and how to design around them.
+        </p>
+        <div class="flex items-center justify-between">
+          <div class="flex flex-wrap gap-1.5">
+            <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded">aws</span>
+            <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded">finops</span>
+            <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded">cost-optimization</span>
+          </div>
+          <a href="#" class="text-indigo-600 text-sm font-medium hover:underline">Read →</a>
+        </div>
+      </article>
+
+      <article class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-6">
+        <div class="flex items-center gap-3 mb-3 flex-wrap">
+          <span class="text-xs bg-amber-100 text-amber-700 font-semibold px-2 py-0.5 rounded-full">Career</span>
+          <span class="text-xs text-gray-400">18 Apr 2026 &mdash; 4 min read</span>
+        </div>
+        <h2 class="text-lg font-semibold mb-2">Writing ADRs Changed How I Think About Decisions</h2>
+        <p class="text-sm text-gray-500 leading-relaxed mb-4">
+          Forcing yourself to write down the context, the alternatives you rejected, and the consequences you expect makes you a sharper decision-maker.
+          The ADR format isn't just documentation — it's a thinking tool.
+        </p>
+        <div class="flex items-center justify-between">
+          <div class="flex flex-wrap gap-1.5">
+            <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded">adr</span>
+            <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded">documentation</span>
+            <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded">decision-making</span>
+          </div>
+          <a href="#" class="text-indigo-600 text-sm font-medium hover:underline">Read →</a>
+        </div>
+      </article>
+
+      <article class="bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow p-6">
+        <div class="flex items-center gap-3 mb-3 flex-wrap">
+          <span class="text-xs bg-green-100 text-green-700 font-semibold px-2 py-0.5 rounded-full">Lessons Learned</span>
+          <span class="text-xs text-gray-400">5 Apr 2026 &mdash; 6 min read</span>
+        </div>
+        <h2 class="text-lg font-semibold mb-2">What a Production Incident Taught Me About Observability</h2>
+        <p class="text-sm text-gray-500 leading-relaxed mb-4">
+          Metrics, logs, and traces — the three pillars everyone talks about, but often wires up in the wrong order.
+          A post-mortem on a cascading failure that took 4 hours to diagnose because we had logs but no correlated traces.
+        </p>
+        <div class="flex items-center justify-between">
+          <div class="flex flex-wrap gap-1.5">
+            <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded">observability</span>
+            <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded">incident</span>
+            <span class="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded">distributed-tracing</span>
+          </div>
+          <a href="#" class="text-indigo-600 text-sm font-medium hover:underline">Read →</a>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="border-t bg-white text-center text-xs text-gray-400 py-6">
+    Yuvi's Knowledge Base &amp; Playbook &mdash; Hosted on <a href="https://pages.github.com" class="hover:text-indigo-500 underline" target="_blank" rel="noopener">GitHub Pages</a>
+  </footer>
+
+</body>
+</html>

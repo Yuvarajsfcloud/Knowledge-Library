@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech Radar — Yuvi's KB</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+  <nav class="bg-indigo-700 text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="font-bold text-lg tracking-tight">📚 Yuvi's KB &amp; Playbook</a>
+      <div class="hidden md:flex gap-5 text-sm font-medium">
+        <a href="index.html" class="hover:text-indigo-200 transition">Home</a>
+        <a href="playbooks.html" class="hover:text-indigo-200 transition">Playbooks</a>
+        <a href="references.html" class="hover:text-indigo-200 transition">References</a>
+        <a href="templates.html" class="hover:text-indigo-200 transition">Templates</a>
+        <a href="patterns.html" class="hover:text-indigo-200 transition">Patterns</a>
+        <a href="adr.html" class="hover:text-indigo-200 transition">ADRs</a>
+        <a href="tech-radar.html" class="text-white underline underline-offset-4">Tech Radar</a>
+        <a href="notes.html" class="hover:text-indigo-200 transition">Notes</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-white border-b px-6 py-8">
+    <div class="max-w-7xl mx-auto">
+      <p class="text-xs text-gray-400 mb-1"><a href="index.html" class="hover:text-indigo-600">Home</a> / Tech Radar</p>
+      <h1 class="text-2xl font-bold">🎯 Tech Radar</h1>
+      <p class="text-gray-500 mt-1 text-sm">Personal technology adoption tracker. Inspired by the <a href="https://www.thoughtworks.com/radar" target="_blank" rel="noopener" class="text-indigo-500 hover:underline">ThoughtWorks Tech Radar</a>.</p>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-10 flex-1 w-full">
+
+    <!-- Ring Legend -->
+    <div class="flex flex-wrap gap-4 mb-8">
+      <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-green-500"></span>
+        <span class="text-sm font-semibold text-gray-700">Adopt</span>
+        <span class="text-xs text-gray-400">— Strong recommendation; proven in production.</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-blue-500"></span>
+        <span class="text-sm font-semibold text-gray-700">Trial</span>
+        <span class="text-xs text-gray-400">— Worth pursuing; used in low-risk projects.</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+        <span class="text-sm font-semibold text-gray-700">Assess</span>
+        <span class="text-xs text-gray-400">— Looks promising; needs exploration.</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-red-400"></span>
+        <span class="text-sm font-semibold text-gray-700">Hold</span>
+        <span class="text-xs text-gray-400">— Use cautiously; avoid for new projects.</span>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Techniques -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        <div class="bg-gray-50 border-b border-gray-100 px-5 py-3">
+          <h2 class="font-semibold text-sm text-gray-700">⚙️ Techniques</h2>
+        </div>
+        <table class="w-full text-sm">
+          <tbody class="divide-y divide-gray-50">
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-green-500 inline-block mr-2"></span>Event-Driven Architecture</td><td class="px-4 py-3 text-right"><span class="text-xs bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full">Adopt</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-green-500 inline-block mr-2"></span>Infrastructure as Code</td><td class="px-4 py-3 text-right"><span class="text-xs bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full">Adopt</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-green-500 inline-block mr-2"></span>Domain-Driven Design</td><td class="px-4 py-3 text-right"><span class="text-xs bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full">Adopt</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-blue-500 inline-block mr-2"></span>Platform Engineering</td><td class="px-4 py-3 text-right"><span class="text-xs bg-blue-50 text-blue-700 font-semibold px-2 py-0.5 rounded-full">Trial</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-blue-500 inline-block mr-2"></span>GitOps</td><td class="px-4 py-3 text-right"><span class="text-xs bg-blue-50 text-blue-700 font-semibold px-2 py-0.5 rounded-full">Trial</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-yellow-400 inline-block mr-2"></span>AI-augmented development</td><td class="px-4 py-3 text-right"><span class="text-xs bg-yellow-50 text-yellow-700 font-semibold px-2 py-0.5 rounded-full">Assess</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-red-400 inline-block mr-2"></span>Manual server provisioning</td><td class="px-4 py-3 text-right"><span class="text-xs bg-red-50 text-red-700 font-semibold px-2 py-0.5 rounded-full">Hold</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Platforms -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        <div class="bg-gray-50 border-b border-gray-100 px-5 py-3">
+          <h2 class="font-semibold text-sm text-gray-700">☁️ Platforms</h2>
+        </div>
+        <table class="w-full text-sm">
+          <tbody class="divide-y divide-gray-50">
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-green-500 inline-block mr-2"></span>AWS</td><td class="px-4 py-3 text-right"><span class="text-xs bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full">Adopt</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-green-500 inline-block mr-2"></span>Kubernetes (EKS / GKE)</td><td class="px-4 py-3 text-right"><span class="text-xs bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full">Adopt</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-blue-500 inline-block mr-2"></span>Confluent Cloud (Kafka)</td><td class="px-4 py-3 text-right"><span class="text-xs bg-blue-50 text-blue-700 font-semibold px-2 py-0.5 rounded-full">Trial</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-blue-500 inline-block mr-2"></span>Databricks</td><td class="px-4 py-3 text-right"><span class="text-xs bg-blue-50 text-blue-700 font-semibold px-2 py-0.5 rounded-full">Trial</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-yellow-400 inline-block mr-2"></span>Wasm-based serverless</td><td class="px-4 py-3 text-right"><span class="text-xs bg-yellow-50 text-yellow-700 font-semibold px-2 py-0.5 rounded-full">Assess</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-yellow-400 inline-block mr-2"></span>Azure OpenAI Service</td><td class="px-4 py-3 text-right"><span class="text-xs bg-yellow-50 text-yellow-700 font-semibold px-2 py-0.5 rounded-full">Assess</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-red-400 inline-block mr-2"></span>On-prem bare metal</td><td class="px-4 py-3 text-right"><span class="text-xs bg-red-50 text-red-700 font-semibold px-2 py-0.5 rounded-full">Hold</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tools -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        <div class="bg-gray-50 border-b border-gray-100 px-5 py-3">
+          <h2 class="font-semibold text-sm text-gray-700">🔧 Tools</h2>
+        </div>
+        <table class="w-full text-sm">
+          <tbody class="divide-y divide-gray-50">
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-green-500 inline-block mr-2"></span>Terraform</td><td class="px-4 py-3 text-right"><span class="text-xs bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full">Adopt</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-green-500 inline-block mr-2"></span>GitHub Actions</td><td class="px-4 py-3 text-right"><span class="text-xs bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full">Adopt</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-green-500 inline-block mr-2"></span>Datadog / OpenTelemetry</td><td class="px-4 py-3 text-right"><span class="text-xs bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full">Adopt</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-blue-500 inline-block mr-2"></span>ArgoCD</td><td class="px-4 py-3 text-right"><span class="text-xs bg-blue-50 text-blue-700 font-semibold px-2 py-0.5 rounded-full">Trial</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-yellow-400 inline-block mr-2"></span>Backstage (IDP)</td><td class="px-4 py-3 text-right"><span class="text-xs bg-yellow-50 text-yellow-700 font-semibold px-2 py-0.5 rounded-full">Assess</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-yellow-400 inline-block mr-2"></span>Crossplane</td><td class="px-4 py-3 text-right"><span class="text-xs bg-yellow-50 text-yellow-700 font-semibold px-2 py-0.5 rounded-full">Assess</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-red-400 inline-block mr-2"></span>Jenkins (classic)</td><td class="px-4 py-3 text-right"><span class="text-xs bg-red-50 text-red-700 font-semibold px-2 py-0.5 rounded-full">Hold</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Languages & Frameworks -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        <div class="bg-gray-50 border-b border-gray-100 px-5 py-3">
+          <h2 class="font-semibold text-sm text-gray-700">💻 Languages &amp; Frameworks</h2>
+        </div>
+        <table class="w-full text-sm">
+          <tbody class="divide-y divide-gray-50">
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-green-500 inline-block mr-2"></span>Python</td><td class="px-4 py-3 text-right"><span class="text-xs bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full">Adopt</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-green-500 inline-block mr-2"></span>TypeScript / Node.js</td><td class="px-4 py-3 text-right"><span class="text-xs bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full">Adopt</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-green-500 inline-block mr-2"></span>Go</td><td class="px-4 py-3 text-right"><span class="text-xs bg-green-50 text-green-700 font-semibold px-2 py-0.5 rounded-full">Adopt</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-blue-500 inline-block mr-2"></span>Rust (systems/WASM)</td><td class="px-4 py-3 text-right"><span class="text-xs bg-blue-50 text-blue-700 font-semibold px-2 py-0.5 rounded-full">Trial</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-yellow-400 inline-block mr-2"></span>Kotlin Multiplatform</td><td class="px-4 py-3 text-right"><span class="text-xs bg-yellow-50 text-yellow-700 font-semibold px-2 py-0.5 rounded-full">Assess</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-yellow-400 inline-block mr-2"></span>Bun.js runtime</td><td class="px-4 py-3 text-right"><span class="text-xs bg-yellow-50 text-yellow-700 font-semibold px-2 py-0.5 rounded-full">Assess</span></td></tr>
+            <tr class="hover:bg-gray-50"><td class="px-5 py-3"><span class="w-2 h-2 rounded-full bg-red-400 inline-block mr-2"></span>PHP (legacy)</td><td class="px-4 py-3 text-right"><span class="text-xs bg-red-50 text-red-700 font-semibold px-2 py-0.5 rounded-full">Hold</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="border-t bg-white text-center text-xs text-gray-400 py-6">
+    Yuvi's Knowledge Base &amp; Playbook &mdash; Hosted on <a href="https://pages.github.com" class="hover:text-indigo-500 underline" target="_blank" rel="noopener">GitHub Pages</a>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+# Pin exact versions for reproducible builds.
+# Run `pip install -r requirements.txt` to install locally.
+# Update periodically and re-pin after verifying nothing breaks.
+
+mkdocs==1.6.1
+mkdocs-material==9.5.44

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>References & Links — Yuvi's KB</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+  <nav class="bg-indigo-700 text-white shadow-md">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="font-bold text-lg tracking-tight">📚 Yuvi's KB &amp; Playbook</a>
+      <div class="hidden md:flex gap-5 text-sm font-medium">
+        <a href="index.html" class="hover:text-indigo-200 transition">Home</a>
+        <a href="playbooks.html" class="hover:text-indigo-200 transition">Playbooks</a>
+        <a href="references.html" class="text-white underline underline-offset-4">References</a>
+        <a href="templates.html" class="hover:text-indigo-200 transition">Templates</a>
+        <a href="patterns.html" class="hover:text-indigo-200 transition">Patterns</a>
+        <a href="adr.html" class="hover:text-indigo-200 transition">ADRs</a>
+        <a href="tech-radar.html" class="hover:text-indigo-200 transition">Tech Radar</a>
+        <a href="notes.html" class="hover:text-indigo-200 transition">Notes</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-white border-b px-6 py-8">
+    <div class="max-w-7xl mx-auto">
+      <p class="text-xs text-gray-400 mb-1"><a href="index.html" class="hover:text-indigo-600">Home</a> / References &amp; Links</p>
+      <h1 class="text-2xl font-bold">🔗 References &amp; Links</h1>
+      <p class="text-gray-500 mt-1 text-sm">Curated external resources, official docs, tools, and articles organized by topic.</p>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-10 flex-1 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+      <!-- Cloud & Infrastructure -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <h2 class="font-semibold text-base mb-4 flex items-center gap-2">
+          <span class="bg-purple-100 text-purple-700 text-xs font-bold px-2 py-0.5 rounded-full">Cloud</span>
+          Cloud &amp; Infrastructure
+        </h2>
+        <ul class="space-y-3 text-sm">
+          <li class="flex flex-col gap-0.5">
+            <a href="https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html" target="_blank" rel="noopener" class="text-indigo-600 hover:underline font-medium">AWS Well-Architected Framework</a>
+            <span class="text-gray-400">The 6 pillars of cloud architecture — operational excellence, security, reliability, performance, cost, sustainability.</span>
+          </li>
+          <li class="flex flex-col gap-0.5">
+            <a href="https://learn.microsoft.com/en-us/azure/architecture/framework/" target="_blank" rel="noopener" class="text-indigo-600 hover:underline font-medium">Azure Architecture Center</a>
+            <span class="text-gray-400">Guidance, blueprints, and best practices for building reliable Azure solutions.</span>
+          </li>
+          <li class="flex flex-col gap-0.5">
+            <a href="https://cloud.google.com/architecture" target="_blank" rel="noopener" class="text-indigo-600 hover:underline font-medium">Google Cloud Architecture Framework</a>
+            <span class="text-gray-400">GCP design principles covering system design, operational excellence, and security.</span>
+          </li>
+          <li class="flex flex-col gap-0.5">
+            <a href="https://www.cncf.io/" target="_blank" rel="noopener" class="text-indigo-600 hover:underline font-medium">CNCF (Cloud Native Computing Foundation)</a>
+            <span class="text-gray-400">Landscape of cloud-native projects, SIGs, and open standards.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Architecture & Design -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <h2 class="font-semibold text-base mb-4 flex items-center gap-2">
+          <span class="bg-blue-100 text-blue-700 text-xs font-bold px-2 py-0.5 rounded-full">Architecture</span>
+          Architecture &amp; Design
+        </h2>
+        <ul class="space-y-3 text-sm">
+          <li class="flex flex-col gap-0.5">
+            <a href="https://martinfowler.com/architecture/" target="_blank" rel="noopener" class="text-indigo-600 hover:underline font-medium">Martin Fowler — Architecture</a>
+            <span class="text-gray-400">Articles and pattern catalog on software architecture, refactoring, and agile practices.</span>
+          </li>
+          <li class="flex flex-col gap-0.5">
+            <a href="https://www.thoughtworks.com/radar" target="_blank" rel="noopener" class="text-indigo-600 hover:underline font-medium">ThoughtWorks Tech Radar</a>
+            <span class="text-gray-400">Bi-annual snapshot of technology adoption across techniques, platforms, tools, and languages.</span>
+          </li>
+          <li class="flex flex-col gap-0.5">
+            <a href="https://adr.github.io/" target="_blank" rel="noopener" class="text-indigo-600 hover:underline font-medium">ADR GitHub — Templates &amp; Tools</a>
+            <span class="text-gray-400">Architectural Decision Records: templates, tooling, and community resources.</span>
+          </li>
+          <li class="flex flex-col gap-0.5">
+            <a href="https://c4model.com/" target="_blank" rel="noopener" class="text-indigo-600 hover:underline font-medium">C4 Model for Software Architecture</a>
+            <span class="text-gray-400">Context, Container, Component, Code — a simple hierarchical approach to diagramming.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Developer Tools -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <h2 class="font-semibold text-base mb-4 flex items-center gap-2">
+          <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-0.5 rounded-full">Tools</span>
+          Developer Tools
+        </h2>
+        <ul class="space-y-3 text-sm">
+          <li class="flex flex-col gap-0.5">
+            <a href="https://excalidraw.com/" target="_blank" rel="noopener" class="text-indigo-600 hover:underline font-medium">Excalidraw</a>
+            <span class="text-gray-400">Free, open-source whiteboard for hand-drawn style diagrams — great for architecture sketches.</span>
+          </li>
+          <li class="flex flex-col gap-0.5">
+            <a href="https://mermaid.js.org/" target="_blank" rel="noopener" class="text-indigo-600 hover:underline font-medium">Mermaid.js</a>
+            <span class="text-gray-400">Diagram-as-code for flowcharts, sequence diagrams, ER diagrams, and more.</span>
+          </li>
+          <li class="flex flex-col gap-0.5">
+            <a href="https://www.diagrams.net/" target="_blank" rel="noopener" class="text-indigo-600 hover:underline font-medium">diagrams.net (draw.io)</a>
+            <span class="text-gray-400">Free diagramming tool with cloud save support, great for architecture and flow diagrams.</span>
+          </li>
+          <li class="flex flex-col gap-0.5">
+            <a href="https://www.openapis.org/" target="_blank" rel="noopener" class="text-indigo-600 hover:underline font-medium">OpenAPI Initiative</a>
+            <span class="text-gray-400">The specification standard for describing REST APIs. Vendor-neutral and widely adopted.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Learning & Books -->
+      <div class="bg-white rounded-2xl border border-gray-100 shadow-sm p-6">
+        <h2 class="font-semibold text-base mb-4 flex items-center gap-2">
+          <span class="bg-amber-100 text-amber-700 text-xs font-bold px-2 py-0.5 rounded-full">Learning</span>
+          Books &amp; Learning
+        </h2>
+        <ul class="space-y-3 text-sm">
+          <li class="flex flex-col gap-0.5">
+            <span class="font-medium text-gray-700">Designing Data-Intensive Applications — Kleppmann</span>
+            <span class="text-gray-400">Deep-dive into data systems, distributed databases, streaming, and consistency models.</span>
+          </li>
+          <li class="flex flex-col gap-0.5">
+            <span class="font-medium text-gray-700">Building Microservices — Sam Newman</span>
+            <span class="text-gray-400">The definitive guide to designing, building, and operating microservice-based systems.</span>
+          </li>
+          <li class="flex flex-col gap-0.5">
+            <span class="font-medium text-gray-700">Software Architecture: The Hard Parts — Ford, Richards, Sadalage</span>
+            <span class="text-gray-400">Modern trade-off analysis for distributed architectures and decomposition decisions.</span>
+          </li>
+          <li class="flex flex-col gap-0.5">
+            <a href="https://12factor.net/" target="_blank" rel="noopener" class="text-indigo-600 hover:underline font-medium">The Twelve-Factor App</a>
+            <span class="text-gray-400">Methodology for building scalable, maintainable, cloud-ready applications.</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="border-t bg-white text-center text-xs text-gray-400 py-6">
+    Yuvi's Knowledge Base &amp; Playbook &mdash; Hosted on <a href="https://pages.github.com" class="hover:text-indigo-500 underline" target="_blank" rel="noopener">GitHub Pages</a>
+  </footer>
+
+</body>
+</html>
