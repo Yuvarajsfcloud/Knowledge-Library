@@ -1,0 +1,2 @@
+Binary assets for book sources (PDFs, cover images, etc.)
+Do not commit files > 10 MB. Use a link in index.md instead.

@@ -137,6 +137,14 @@ nav:
     - Templates:
       - playbook/templates/index.md
 
+  - Inputs & Evidence:
+    - inputs/index.md
+    - Books: inputs/books/index.md
+    - Trainings: inputs/trainings/index.md
+    - Articles: inputs/articles/index.md
+    - Papers: inputs/papers/index.md
+    - Talks: inputs/talks/index.md
+
 # Disable features not appropriate for a private knowledge base
 extra:
   generator: false   # Removes "Made with Material for MkDocs" footer link
