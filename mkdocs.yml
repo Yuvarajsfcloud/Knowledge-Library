@@ -137,6 +137,15 @@ nav:
     - Templates:
       - playbook/templates/index.md
 
+  - Case Studies:
+    - case-studies/index.md
+    - Decomposition: case-studies/decomposition/index.md
+    - Integration: case-studies/integration/index.md
+    - Data: case-studies/data/index.md
+    - Governance: case-studies/governance/index.md
+    - Cloud Migration: case-studies/cloud-migration/index.md
+    - Security: case-studies/security/index.md
+
   - Inputs & Evidence:
     - inputs/index.md
     - Books: inputs/books/index.md
