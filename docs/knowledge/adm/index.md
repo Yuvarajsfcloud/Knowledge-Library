@@ -53,4 +53,4 @@ flowchart LR
 
 This Knowledge Library treats the ADM as a **structuring device for reference content**, not as a step-by-step delivery method. For step-by-step engagement work, use the [Engagement Playbook](../../playbook/engagement/index.md).
 
-> Each phase page contains foundations, execution guidance, judgment & trade-offs, target outputs, and a synthesis exercise. The order is consistent across all phase pages so you can scan them in the same way each time.
+> Priority phase pages (A, B, D, E) and the Governance reference page follow a **6-layer Bloom structure**: Quick Recall → Conceptual Understanding → Guided Practice (step-by-step with TOGAF step sequence) → Tools & Notations → Decision Frameworks & Judgment → Synthesis Exercise. Each also includes a developer-to-architect callout, AI acceleration notes with bias warnings, and credible sources. Remaining pages follow the original structure: foundations, execution guidance, judgment & trade-offs, target outputs, and a synthesis exercise.

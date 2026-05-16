@@ -8,7 +8,7 @@
 
 ## Architecture Development Method (TOGAF ADM)
 
-Every TOGAF ADM phase has a dedicated page with foundations, execution guidance, decision frameworks, target outputs, decision guides, tools, AI-acceleration notes, and common mistakes.
+Every TOGAF ADM phase has a dedicated page. Priority pages (A — Architecture Vision, B — Business Architecture, D — Technology Architecture, E — Opportunities & Solutions) and the Governance Framework follow a **6-layer Bloom structure**: Quick Recall · Conceptual Understanding · Guided Practice (verified TOGAF step sequence) · Tools & Notations · Decision Frameworks & Judgment · Synthesis Exercise — plus developer-to-architect callouts, AI acceleration notes with bias warnings, and sourced diagrams. Remaining pages cover foundations, execution guidance, decision frameworks, outputs, and common mistakes.
 
 | Phase | Page | Pairs With |
 |---|---|---|
