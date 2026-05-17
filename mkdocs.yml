@@ -146,6 +146,18 @@ nav:
     - Cloud Migration: case-studies/cloud-migration/index.md
     - Security: case-studies/security/index.md
 
+  - Projects:
+    - projects/index.md
+    - Salesforce SDLC Agent Framework:
+      - Overview & Onboarding: projects/salesforce-sdlc-agent/index.md
+      - Objective: projects/salesforce-sdlc-agent/objective.md
+      - Business Architecture: projects/salesforce-sdlc-agent/business-architecture.md
+      - Solution Architecture: projects/salesforce-sdlc-agent/solution-architecture.md
+      - Agent Design: projects/salesforce-sdlc-agent/agent-design.md
+      - Technical Architecture: projects/salesforce-sdlc-agent/technical-architecture.md
+      - SDLC Workflow: projects/salesforce-sdlc-agent/sdlc-workflow.md
+      - Decisions: projects/salesforce-sdlc-agent/decisions.md
+
   - Inputs & Evidence:
     - inputs/index.md
     - Books: inputs/books/index.md
