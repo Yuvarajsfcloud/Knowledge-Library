@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>COP Tech Talk Poster Generator</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+/* ── RESET ── */
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0f172a;min-height:100vh;padding:28px 20px;color:#111}
+h1{text-align:center;font-size:16px;font-weight:700;color:#fff;margin-bottom:3px}
+.sub{text-align:center;font-size:12px;color:#64748b;margin-bottom:24px}
+.layout{display:flex;gap:24px;max-width:1300px;margin:0 auto;align-items:flex-start}
+
+/* ── FORM ── */
+.fp{width:296px;flex-shrink:0;background:#1e293b;border-radius:14px;padding:20px;border:1px solid #334155}
+.sl{font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#FFB500;margin:16px 0 7px}
+.sl:first-child{margin-top:0}
+.sl .opt{font-weight:400;text-transform:none;letter-spacing:0;color:#475569;font-size:9px;margin-left:4px}
+label{display:block;font-size:11px;color:#94a3b8;margin-bottom:3px;font-weight:600}
+input[type=text],input[type=date],textarea{
+  width:100%;padding:7px 10px;border:1px solid #334155;border-radius:7px;
+  font-size:12px;font-family:inherit;color:#f1f5f9;background:#0f172a;
+  margin-bottom:8px;transition:border-color .15s
+}
+input:focus,textarea:focus{outline:none;border-color:#FFB500;background:#0f172a}
+textarea{resize:vertical;min-height:58px;line-height:1.5}
+
+.pu{border:1.5px dashed #334155;border-radius:9px;padding:11px;text-align:center;cursor:pointer;
+  transition:border-color .15s,background .15s;margin-bottom:8px;position:relative}
+.pu:hover{border-color:#FFB500;background:#0f172a}
+.pu input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.pu-icon{font-size:20px;color:#475569;margin-bottom:3px}
+.pu-text{font-size:11px;color:#64748b}
+.pu-thumb{width:48px;height:48px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 3px;border:2px solid #FFB500}
+
+.ag-inputs{display:flex;flex-direction:column;gap:4px;margin-bottom:7px}
+.ag-row{display:flex;gap:5px;align-items:center}
+.ag-row input{margin-bottom:0;flex:1}
+.rm{background:none;border:none;color:#475569;font-size:17px;cursor:pointer;padding:0 2px;line-height:1;flex-shrink:0}
+.rm:hover{color:#ef4444}
+.ag-add{background:none;border:1px dashed #334155;color:#FFB500;border-radius:7px;padding:5px;
+  font-size:11px;cursor:pointer;width:100%;font-family:inherit;transition:background .15s}
+.ag-add:hover{background:#0f172a}
+
+.char-row{display:flex;gap:5px;margin-bottom:8px}
+.cb{flex:1;padding:5px 2px;border:1px solid #334155;border-radius:7px;background:#0f172a;
+  cursor:pointer;font-size:9px;text-align:center;transition:all .15s;font-family:inherit;color:#64748b}
+.cb .ce{font-size:15px;display:block;margin-bottom:2px}
+.cb.on{border-color:#FFB500;background:#0f172a;color:#FFB500;font-weight:700}
+
+.dl{width:100%;margin-top:16px;background:#351C15;color:#FFB500;border:none;border-radius:9px;
+  padding:11px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;
+  transition:opacity .15s,transform .1s;letter-spacing:.02em}
+.dl:hover{opacity:.88}
+.dl:active{transform:scale(.98)}
+.dl:disabled{opacity:.4;cursor:not-allowed}
+.hint{font-size:10px;color:#475569;text-align:center;margin-top:6px}
+
+/* ── POSTER PREVIEW ── */
+.pp{flex:1}
+.plabel{font-size:10px;font-weight:700;color:#475569;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+
+/* ════════════════════════════════════════════
+   POSTER
+════════════════════════════════════════════ */
+#poster{
+  width:680px;background:#fffcf7;
+  border-radius:12px;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.5)
+}
+
+/* ── 1. BRAND BAR ── */
+.p-brand{
+  background:#160A07;
+  border-bottom:2px solid #FFB500;
+  padding:14px 28px;
+  display:flex;align-items:center;justify-content:space-between
+}
+.p-brand-logo{display:flex;align-items:center;gap:11px}
+.p-brand-name{font-size:13px;font-weight:900;letter-spacing:-.2px;color:#FFB500}
+.p-brand-center{
+  font-size:8px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,181,0,.45);text-align:center
+}
+.p-brand-divider{width:1px;height:32px;background:rgba(255,181,0,.2);margin:0 22px}
+
+/* ── 2. HERO ── */
+.p-hero{
+  background:#351C15;
+  padding:30px 32px 34px;
+  position:relative;overflow:hidden
+}
+/* decorative arc — gold tint, top right */
+.p-hero::after{
+  content:'';position:absolute;
+  width:360px;height:360px;border-radius:50%;
+  border:70px solid rgba(255,181,0,.07);
+  top:-110px;right:-90px;pointer-events:none
+}
+.p-hero-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.p-hero-eyebrow{
+  font-size:9px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,181,0,.65)
+}
+.p-hero-badge{
+  display:inline-block;
+  background:#FFB500;color:#351C15;
+  font-size:9px;font-weight:800;
+  padding:4px 13px;border-radius:20px;letter-spacing:.06em;
+  white-space:nowrap
+}
+.p-hero-title{
+  font-size:30px;font-weight:900;
+  color:#ffffff;line-height:1.22;letter-spacing:-.4px;
+  max-width:580px;position:relative;z-index:1
+}
+.p-hero-title.placeholder{color:rgba(255,255,255,.25);font-style:italic;font-weight:400;font-size:22px}
+
+/* ── 3. SPEAKER + META BAND ── */
+.p-band{
+  background:#fdf8f0;
+  border-bottom:1px solid #e8dcc8;
+  padding:18px 28px;
+  display:flex;align-items:center;gap:0;
+  min-height:90px
+}
+
+/* speaker section */
+.p-spk{display:flex;align-items:center;gap:13px;flex-shrink:0}
+.p-photo-ring{
+  border-radius:50%;padding:2.5px;flex-shrink:0;
+  background:linear-gradient(135deg,#FFB500,#351C15);
+  box-shadow:0 3px 12px rgba(53,28,21,.3)
+}
+.p-photo-ring.lg{width:68px;height:68px}
+.p-photo-ring.sm{width:56px;height:56px}
+.p-photo-inner{width:100%;height:100%;border-radius:50%;overflow:hidden;
+  background:#f5ead0;display:flex;align-items:center;justify-content:center}
+.p-photo-inner img{width:100%;height:100%;object-fit:cover;display:none}
+.p-av{width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  font-weight:900;color:#351C15}
+.p-av.lg{font-size:22px}
+.p-av.sm{font-size:17px}
+.p-spk-info{}
+.p-spk-name{font-size:14px;font-weight:800;color:#351C15;margin-bottom:2px;line-height:1.2}
+.p-spk-name.sm{font-size:12px}
+.p-spk-name.placeholder{color:#b0bec5;font-weight:400;font-style:italic}
+.p-spk-role{font-size:11px;color:#8a6040;line-height:1.3}
+.p-spk-role.sm{font-size:10px}
+.p-spk-role.placeholder{color:#cfd8dc;font-style:italic}
+
+/* dual speaker: two cards side by side */
+.p-spk-dual{display:flex;gap:18px;align-items:center}
+.p-spk-card{display:flex;align-items:center;gap:10px}
+.ring-s2{background:linear-gradient(135deg,#D4A017,#351C15)}
+
+/* separator between speaker block and meta */
+.p-band-sep{width:1px;height:44px;background:#e8dcc8;margin:0 24px;flex-shrink:0}
+
+/* meta strip */
+.p-meta{display:flex;align-items:center;gap:0;margin-left:auto;flex-shrink:0}
+.p-meta-item{display:flex;align-items:center;gap:7px;padding:0 16px}
+.p-meta-item:first-child{padding-left:0}
+.p-meta-icon{font-size:15px;flex-shrink:0}
+.p-meta-text{}
+.p-meta-label{font-size:8px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#a07850;margin-bottom:1px}
+.p-meta-val{font-size:11px;font-weight:700;color:#2A1510;line-height:1.3}
+.p-meta-val.placeholder{color:#c9b99a;font-weight:400}
+.p-meta-sep{width:1px;height:32px;background:#e8dcc8;flex-shrink:0}
+
+/* ── 4. CONTENT ── */
+.p-content{background:#fffcf7;padding:24px 32px}
+.p-content-head{
+  display:flex;align-items:center;gap:10px;margin-bottom:13px
+}
+.p-content-bar{width:3px;height:16px;background:#FFB500;border-radius:2px;flex-shrink:0}
+.p-content-label{
+  font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#B8860B
+}
+.p-desc{font-size:13px;color:#3D2010;line-height:1.75;margin-bottom:16px}
+.p-desc.placeholder{color:#c9b99a;font-style:italic}
+.p-agenda{list-style:none;display:flex;flex-direction:column;gap:9px}
+.p-agenda li{display:flex;align-items:flex-start;gap:11px;font-size:13px;color:#3D2010;line-height:1.5}
+.p-agnum{
+  width:22px;height:22px;border-radius:50%;
+  background:#351C15;color:#FFB500;
+  font-size:10px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:1px
+}
+
+/* ── hero two-column layout ── */
+.p-hero{display:flex;gap:16px;align-items:flex-end}
+.p-hero-left{flex:1;min-width:0;padding-bottom:4px}
+.p-hero-astro{flex-shrink:0;display:flex;align-items:flex-end;align-self:stretch}
+.p-hero-astro img{
+  height:200px;width:auto;display:block;
+  filter:drop-shadow(0 6px 18px rgba(0,0,0,.35));
+}
+
+/* pitch tagline */
+.p-hero-pitch{font-size:13px;color:rgba(255,181,0,.7);font-style:italic;margin-top:11px;line-height:1.55}
+.p-hero-pitch.placeholder{color:rgba(255,255,255,.18);font-size:12px}
+
+/* ── 5. FOOTER (simplified) ── */
+.p-footer{
+  background:#351C15;
+  border-top:2px solid #FFB500;
+  padding:13px 28px;
+  display:flex;align-items:center;justify-content:space-between
+}
+.p-footer-note{font-size:10px;color:rgba(255,181,0,.5);letter-spacing:.02em}
+.p-footer-cta{
+  background:#FFB500;color:#351C15;
+  font-size:10px;font-weight:900;
+  padding:5px 16px;border-radius:20px;letter-spacing:.04em;
+  white-space:nowrap
+}
+</style>
+</head>
+<body>
+
+<h1>Salesforce COP — Tech Talk Poster Generator</h1>
+<p class="sub">Fill in the details · upload photos · pick characters · download PNG</p>
+
+<div class="layout">
+
+<!-- ════ FORM ════ -->
+<div class="fp">
+  <div class="sl">Talk details</div>
+  <label>Talk title</label>
+  <input type="text" id="f-title" placeholder="e.g. GitHub Copilot in Apex Development"/>
+  <label>Session badge</label>
+  <input type="text" id="f-badge" value="Weekly Session" placeholder="e.g. Week 21 · May 2026"/>
+
+  <label>Pitch tagline <span style="color:#475569;font-weight:400;font-size:9px">(optional)</span></label>
+  <input type="text" id="f-pitch" placeholder="e.g. Level up your Salesforce skills — join us!"/>
+
+  <div class="sl">Speaker 1</div>
+  <label>Full name</label>
+  <input type="text" id="f-name" placeholder="e.g. Jane Doe"/>
+  <label>Role / team</label>
+  <input type="text" id="f-role" placeholder="e.g. Senior Salesforce Developer"/>
+  <label>Photo</label>
+  <div class="pu" id="pu1">
+    <input type="file" id="f-photo" accept="image/*"/>
+    <div id="pu1-ph"><div class="pu-icon">🖼️</div><div class="pu-text">Click to upload</div></div>
+    <img id="pu1-thumb" class="pu-thumb" style="display:none"/>
+  </div>
+
+  <div class="sl">Speaker 2 <span class="opt">(optional — adds second speaker automatically)</span></div>
+  <label>Full name</label>
+  <input type="text" id="f-name2" placeholder="e.g. John Smith"/>
+  <label>Role / team</label>
+  <input type="text" id="f-role2" placeholder="e.g. Salesforce Architect"/>
+  <label>Photo</label>
+  <div class="pu" id="pu2">
+    <input type="file" id="f-photo2" accept="image/*"/>
+    <div id="pu2-ph"><div class="pu-icon">🖼️</div><div class="pu-text">Click to upload</div></div>
+    <img id="pu2-thumb" class="pu-thumb" style="display:none"/>
+  </div>
+
+  <div class="sl">When &amp; where</div>
+  <label>Date</label>
+  <input type="date" id="f-date"/>
+  <label>Time</label>
+  <input type="text" id="f-time" placeholder="e.g. 2:00 – 3:00 PM AEST"/>
+  <label>Location / link</label>
+  <input type="text" id="f-loc" placeholder="e.g. Microsoft Teams"/>
+
+  <div class="sl">Description &amp; agenda</div>
+  <label>Short description</label>
+  <textarea id="f-desc" placeholder="What this talk is about…"></textarea>
+  <label>Agenda items</label>
+  <div class="ag-inputs" id="ag">
+    <div class="ag-row"><input type="text" placeholder="Item 1"/><button class="rm" onclick="rmAg(this)">×</button></div>
+    <div class="ag-row"><input type="text" placeholder="Item 2"/><button class="rm" onclick="rmAg(this)">×</button></div>
+    <div class="ag-row"><input type="text" placeholder="Item 3"/><button class="rm" onclick="rmAg(this)">×</button></div>
+  </div>
+  <button class="ag-add" onclick="addAg()">+ Add agenda item</button>
+
+  <div class="sl">Character</div>
+  <div class="char-row">
+    <button class="cb on" id="cb-astro" onclick="togAstro(this)" style="flex:none;width:100%"><span class="ce">🚀</span>Show Astro in hero</button>
+  </div>
+  <label>Astro image <span style="color:#475569;font-weight:400;font-size:9px">(upload for best results)</span></label>
+  <div class="pu" id="pu-astro">
+    <input type="file" id="f-astro" accept="image/*"/>
+    <div id="pu-astro-ph"><div class="pu-icon">🚀</div><div class="pu-text">Upload Astro PNG</div></div>
+    <img id="pu-astro-thumb" class="pu-thumb" style="display:none"/>
+  </div>
+  <p style="font-size:9px;color:#475569;line-height:1.4;margin-top:-4px;margin-bottom:6px">Download Astro from <a href="https://www.salesforce.com/news/astro_nooutfit_walkright_sfs20_srgb/" target="_blank" style="color:#FFB500">salesforce.com</a>, save locally, then upload here.</p>
+
+  <button class="dl" id="dl" onclick="doDownload()">⬇ Download poster PNG</button>
+  <p class="hint">Open in Chrome for best results</p>
+</div>
+
+<!-- ════ POSTER ════ -->
+<div class="pp">
+  <div class="plabel">Live preview</div>
+  <div id="poster">
+
+    <!-- ▌1. BRAND BAR ▌-->
+    <div class="p-brand">
+
+      <!-- LEFT: UPS Shield + wordmark -->
+      <div class="p-brand-logo">
+        <!-- Accurate UPS shield: near-black body so it reads on the dark header, gold border, gold UPS text -->
+        <svg width="46" height="55" viewBox="0 0 73.2 87.3" xmlns="http://www.w3.org/2000/svg">
+          <path d="M 8.5,0 Q 0,0 0,8.5 L 0,57.5 Q 0,87.3 36.6,87.3 Q 73.2,87.3 73.2,57.5 L 73.2,8.5 Q 73.2,0 64.7,0 Z" fill="#351C15"/>
+          <path d="M 11.5,3.2 Q 3.2,3.2 3.2,11.5 L 3.2,57 Q 3.2,84 36.6,84 Q 70,84 70,57 L 70,11.5 Q 70,3.2 61.7,3.2 Z" fill="none" stroke="#FFB500" stroke-width="1.8" opacity="0.75"/>
+          <text x="36.6" y="61.5" text-anchor="middle"
+                font-family="'Arial Black','Franklin Gothic Heavy',Arial,sans-serif"
+                font-size="28" font-weight="900" fill="#FFB500" letter-spacing="0">UPS</text>
+        </svg>
+        <div>
+          <div style="font-size:16px;font-weight:900;color:#FFB500;letter-spacing:-.2px;line-height:1">UPS</div>
+          <div style="font-size:9px;font-weight:500;color:rgba(255,181,0,.5);letter-spacing:.03em;white-space:nowrap">United Parcel Service</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: COP identity — given full readable treatment -->
+      <div style="text-align:right">
+        <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,181,0,.75);margin-bottom:4px">Salesforce Community of Practice</div>
+        <div style="font-size:20px;font-weight:900;color:#ffffff;letter-spacing:-.4px;line-height:1">Tech Talks</div>
+      </div>
+
+    </div>
+
+    <!-- ▌2. HERO ▌-->
+    <div class="p-hero">
+
+      <!-- left: text content -->
+      <div class="p-hero-left">
+        <div class="p-hero-top">
+          <span class="p-hero-eyebrow">Community of Practice</span>
+          <span class="p-hero-badge" id="preview-badge">Weekly Session</span>
+        </div>
+        <div id="preview-talk-title" class="p-hero-title placeholder">Your talk title will appear here</div>
+        <div id="preview-pitch" class="p-hero-pitch placeholder">"Level up your Salesforce skills — join us this week!"</div>
+      </div>
+
+      <!-- right: Astro — uploaded or fetched from Salesforce CDN -->
+      <div class="p-hero-astro" id="astro-wrap">
+        <img
+          id="astro-img"
+          src=""
+          alt="Astro"
+          style="display:none"
+        />
+        <!-- placeholder shown when no image loaded -->
+        <div id="astro-placeholder" style="height:200px;width:140px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:8px;opacity:.35">
+          <div style="font-size:72px;line-height:1">🚀</div>
+          <div style="font-size:9px;color:#FFB500;font-weight:700;letter-spacing:.08em;margin-top:4px">UPLOAD ASTRO</div>
+        </div>
+      </div>
+    </div><!-- end p-hero -->
+
+    <!-- ▌3. SPEAKER + META BAND ▌-->
+    <div class="p-band" id="spk-panel">
+
+      <!-- SINGLE speaker (default) -->
+      <div class="p-spk" id="spk-single">
+        <div class="p-photo-ring lg">
+          <div class="p-photo-inner">
+            <img id="preview-photo" src="" alt="Speaker 1"/>
+            <div class="p-av lg" id="preview-av">?</div>
+          </div>
+        </div>
+        <div class="p-spk-info">
+          <div class="p-spk-name placeholder" id="preview-name">Speaker Name</div>
+          <div class="p-spk-role placeholder" id="preview-role">Role / Team</div>
+        </div>
+      </div>
+
+      <!-- DUAL speakers (shown when Speaker 2 name filled) -->
+      <div class="p-spk-dual" id="spk-dual" style="display:none">
+        <div class="p-spk-card">
+          <div class="p-photo-ring sm">
+            <div class="p-photo-inner">
+              <img id="preview-photo-d1" src="" alt="Speaker 1"/>
+              <div class="p-av sm" id="preview-av-d1">?</div>
+            </div>
+          </div>
+          <div class="p-spk-info">
+            <div class="p-spk-name sm placeholder" id="preview-name-d1">Speaker 1</div>
+            <div class="p-spk-role sm placeholder" id="preview-role-d1">Role</div>
+          </div>
+        </div>
+        <div class="p-spk-card">
+          <div class="p-photo-ring sm ring-s2">
+            <div class="p-photo-inner">
+              <img id="preview-photo-d2" src="" alt="Speaker 2"/>
+              <div class="p-av sm" id="preview-av-d2" style="color:#7B5EA7">?</div>
+            </div>
+          </div>
+          <div class="p-spk-info">
+            <div class="p-spk-name sm placeholder" id="preview-name-d2">Speaker 2</div>
+            <div class="p-spk-role sm placeholder" id="preview-role-d2">Role</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- vertical divider -->
+      <div class="p-band-sep"></div>
+
+      <!-- meta strip -->
+      <div class="p-meta">
+        <div class="p-meta-item">
+          <span class="p-meta-icon">📅</span>
+          <div class="p-meta-text">
+            <div class="p-meta-label">Date</div>
+            <div class="p-meta-val placeholder" id="preview-date">Not set</div>
+          </div>
+        </div>
+        <div class="p-meta-sep"></div>
+        <div class="p-meta-item">
+          <span class="p-meta-icon">🕑</span>
+          <div class="p-meta-text">
+            <div class="p-meta-label">Time</div>
+            <div class="p-meta-val placeholder" id="preview-time">Not set</div>
+          </div>
+        </div>
+        <div class="p-meta-sep"></div>
+        <div class="p-meta-item">
+          <span class="p-meta-icon">📍</span>
+          <div class="p-meta-text">
+            <div class="p-meta-label">Location</div>
+            <div class="p-meta-val placeholder" id="preview-loc">Not set</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end p-band -->
+
+    <!-- ▌4. CONTENT ▌-->
+    <div class="p-content">
+      <div class="p-content-head">
+        <div class="p-content-bar"></div>
+        <div class="p-content-label">What we'll cover</div>
+      </div>
+      <div class="p-desc placeholder" id="preview-desc">Description will appear here…</div>
+      <ul class="p-agenda" id="preview-agenda"></ul>
+    </div>
+
+    <!-- ▌5. FOOTER ▌-->
+    <div class="p-footer">
+      <span class="p-footer-note">All are welcome &nbsp;·&nbsp; No prior experience needed</span>
+      <span class="p-footer-cta">Add to calendar</span>
+    </div>
+
+  </div><!-- end #poster -->
+</div>
+</div>
+
+<script>
+let photo1 = null, photo2 = null, astroPhoto = null;
+
+// Astro URL fallback chain — tries these in order until one loads
+const ASTRO_URLS = [
+  'https://www.salesforce.com/news/wp-content/uploads/sites/3/2022/06/ASTRO_NoOutfit_WalkRight_SFS20_sRGB.png',
+  'https://www.salesforce.com/news/wp-content/uploads/sites/3/2022/06/ASTRO_NoOutfit_WalkRight_SFS20_sRGB.png?w=400',
+  'https://developer.salesforce.com/resource/blog/Astro_WalkRight.png',
+];
+let astroUrlIdx = 0;
+
+function loadAstroUrl(){
+  const img = document.getElementById('astro-img');
+  if(astroPhoto){ setAstroImg(astroPhoto); return; }
+  if(astroUrlIdx >= ASTRO_URLS.length){ showAstroPlaceholder(); return; }
+  img.onerror = function(){
+    astroUrlIdx++;
+    loadAstroUrl();
+  };
+  img.onload = function(){
+    img.style.display = 'block';
+    document.getElementById('astro-placeholder').style.display = 'none';
+  };
+  img.src = ASTRO_URLS[astroUrlIdx];
+}
+
+function setAstroImg(src){
+  const img = document.getElementById('astro-img');
+  img.onerror = null; img.onload = null;
+  img.src = src; img.style.display = 'block';
+  document.getElementById('astro-placeholder').style.display = 'none';
+}
+
+function showAstroPlaceholder(){
+  document.getElementById('astro-img').style.display = 'none';
+  document.getElementById('astro-placeholder').style.display = 'flex';
+}
+
+function ini(n){ return n?n.trim().split(/\s+/).map(w=>w[0]).join('').toUpperCase().slice(0,2):'?'; }
+function fmtDate(v){
+  if(!v) return null;
+  return new Date(v+'T00:00:00').toLocaleDateString('en-AU',{weekday:'short',day:'numeric',month:'short',year:'numeric'});
+}
+
+function setEl(id, val, ph, isTitle){
+  const el=document.getElementById(id);
+  if(!el) return;
+  if(val && val.trim()){
+    el.textContent=val;
+    el.classList.remove('placeholder');
+    if(isTitle) el.style.fontSize='';
+  } else {
+    el.textContent=ph;
+    el.classList.add('placeholder');
+  }
+}
+
+function setMeta(id, val, ph){
+  const el=document.getElementById(id);
+  if(!el) return;
+  if(val && val.trim()){ el.textContent=val; el.classList.remove('placeholder'); }
+  else { el.textContent=ph; el.classList.add('placeholder'); }
+}
+
+function setPhoto(imgId, avId, url, name){
+  const img=document.getElementById(imgId), av=document.getElementById(avId);
+  if(!img||!av) return;
+  if(url){ img.src=url; img.style.display='block'; av.style.display='none'; }
+  else { img.style.display='none'; av.style.display='flex'; av.textContent=ini(name); }
+}
+
+function refresh(){
+  const title =document.getElementById('f-title').value;
+  const badge =document.getElementById('f-badge').value;
+  const name  =document.getElementById('f-name').value;
+  const role  =document.getElementById('f-role').value;
+  const name2 =document.getElementById('f-name2').value;
+  const role2 =document.getElementById('f-role2').value;
+  const date  =document.getElementById('f-date').value;
+  const time  =document.getElementById('f-time').value;
+  const loc   =document.getElementById('f-loc').value;
+  const desc  =document.getElementById('f-desc').value;
+
+  // Hero
+  const titleEl=document.getElementById('preview-talk-title');
+  if(title.trim()){
+    titleEl.textContent=title; titleEl.classList.remove('placeholder');
+  } else {
+    titleEl.textContent='Your talk title will appear here'; titleEl.classList.add('placeholder');
+  }
+  document.getElementById('preview-badge').textContent=badge||'Weekly Session';
+
+  // Pitch tagline
+  const pitch=document.getElementById('f-pitch').value;
+  const pitchEl=document.getElementById('preview-pitch');
+  if(pitch.trim()){
+    pitchEl.textContent='"'+pitch+'"'; pitchEl.classList.remove('placeholder');
+  } else {
+    pitchEl.textContent='"Level up your Salesforce skills — join us this week!"'; pitchEl.classList.add('placeholder');
+  }
+
+  // Speaker mode
+  const dual=!!(name2&&name2.trim());
+  document.getElementById('spk-single').style.display=dual?'none':'flex';
+  document.getElementById('spk-dual').style.display=dual?'flex':'none';
+
+  // Single mode
+  setEl('preview-name', name, 'Speaker Name');
+  setEl('preview-role', role, 'Role / Team');
+  setPhoto('preview-photo','preview-av', photo1, name);
+
+  // Dual mode
+  setEl('preview-name-d1', name, 'Speaker 1');
+  setEl('preview-role-d1', role, 'Role');
+  setPhoto('preview-photo-d1','preview-av-d1', photo1, name);
+  setEl('preview-name-d2', name2, 'Speaker 2');
+  setEl('preview-role-d2', role2, 'Role');
+  setPhoto('preview-photo-d2','preview-av-d2', photo2, name2);
+
+  // Meta
+  setMeta('preview-date', fmtDate(date), 'Not set');
+  setMeta('preview-time', time, 'Not set');
+  setMeta('preview-loc',  loc,  'Not set');
+
+  // Desc
+  const descEl=document.getElementById('preview-desc');
+  if(desc.trim()){ descEl.textContent=desc; descEl.classList.remove('placeholder'); }
+  else { descEl.textContent='Description will appear here…'; descEl.classList.add('placeholder'); }
+
+  // Agenda
+  const inputs=document.querySelectorAll('#ag .ag-row input');
+  const ul=document.getElementById('preview-agenda');
+  ul.innerHTML='';
+  let i=0;
+  inputs.forEach(inp=>{
+    if(!inp.value.trim()) return;
+    const li=document.createElement('li');
+    const n=document.createElement('span');
+    n.className='p-agnum'; n.textContent=i+1;
+    const t=document.createElement('span'); t.textContent=inp.value.trim();
+    li.appendChild(n); li.appendChild(t);
+    ul.appendChild(li); i++;
+  });
+}
+
+// Wire inputs
+document.querySelectorAll('input:not([type=file]),textarea').forEach(el=>el.addEventListener('input',refresh));
+
+// Photo uploads
+function wirePhoto(inputId, thumbId, phId, num){
+  document.getElementById(inputId).addEventListener('change',function(e){
+    const f=e.target.files[0]; if(!f) return;
+    const r=new FileReader();
+    r.onload=ev=>{
+      if(num===1) photo1=ev.target.result; else photo2=ev.target.result;
+      document.getElementById(thumbId).src=ev.target.result;
+      document.getElementById(thumbId).style.display='block';
+      document.getElementById(phId).style.display='none';
+      refresh();
+    };
+    r.readAsDataURL(f);
+  });
+}
+wirePhoto('f-photo', 'pu1-thumb','pu1-ph',1);
+wirePhoto('f-photo2','pu2-thumb','pu2-ph',2);
+
+// Astro upload
+document.getElementById('f-astro').addEventListener('change',function(e){
+  const f=e.target.files[0]; if(!f) return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    astroPhoto=ev.target.result;
+    document.getElementById('pu-astro-thumb').src=ev.target.result;
+    document.getElementById('pu-astro-thumb').style.display='block';
+    document.getElementById('pu-astro-ph').style.display='none';
+    // Only show in hero if Astro toggle is on
+    if(document.getElementById('cb-astro').classList.contains('on')){
+      setAstroImg(astroPhoto);
+    }
+  };
+  r.readAsDataURL(f);
+});
+
+// Agenda
+function addAg(){
+  const c=document.getElementById('ag');
+  const row=document.createElement('div'); row.className='ag-row';
+  row.innerHTML=`<input type="text" placeholder="Item ${c.children.length+1}"/><button class="rm" onclick="rmAg(this)">×</button>`;
+  row.querySelector('input').addEventListener('input',refresh);
+  c.appendChild(row);
+}
+function rmAg(btn){btn.parentElement.remove();refresh();}
+document.querySelectorAll('#ag input').forEach(el=>el.addEventListener('input',refresh));
+
+// Astro toggle
+function togAstro(btn){
+  btn.classList.toggle('on');
+  const wrap = document.getElementById('astro-wrap');
+  const on = btn.classList.contains('on');
+  wrap.style.display = on ? 'flex' : 'none';
+  if(on){
+    // Re-trigger load if needed
+    if(astroPhoto){ setAstroImg(astroPhoto); }
+    else {
+      astroUrlIdx = 0;
+      loadAstroUrl();
+    }
+  }
+}
+
+// Download
+async function doDownload(){
+  const btn=document.getElementById('dl');
+  btn.disabled=true; btn.textContent='Generating…';
+  try{
+    const canvas=await html2canvas(document.getElementById('poster'),{
+      scale:2,useCORS:false,allowTaint:true,backgroundColor:'#fffcf7',logging:false,
+    });
+    const a=document.createElement('a');
+    const slug=(document.getElementById('f-title').value.trim()||'cop_tech_talk').replace(/[^a-z0-9]/gi,'_').slice(0,40);
+    a.download=slug+'.png'; a.href=canvas.toDataURL('image/png'); a.click();
+  } catch(e){ alert('Could not render — try Chrome.'); }
+  btn.disabled=false; btn.textContent='⬇ Download poster PNG';
+}
+
+refresh();
+loadAstroUrl(); // try to fetch Astro from Salesforce CDN; falls back to upload prompt
+</script>
+</body>
+</html>
