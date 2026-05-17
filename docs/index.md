@@ -2,12 +2,13 @@
 
 > A private, comprehensive reference for architecture work — TOGAF-aligned, practitioner-grade, built to last.
 
-The library is organised in two **tracks**:
+The library is organised in three **tracks**:
 
 | Track | Purpose | Use it when… |
 |---|---|---|
 | [**Knowledge Library**](knowledge/index.md) | Reference content organised by TOGAF ADM phase | You want to *understand* — concepts, trade-offs, what good looks like |
 | [**Playbook**](playbook/index.md) | Practical, step-by-step operating manual | You want to *do* — start an engagement, run a review, respond to an incident |
+| [**Projects**](projects/index.md) | Documentation for specific built systems | You want to onboard to, operate, or extend a real system |
 
 Each Playbook page links into the relevant Knowledge page when you need depth.
 
@@ -62,6 +63,14 @@ Each Playbook page links into the relevant Knowledge page when you need depth.
 | Operational Playbooks | [Operational Playbooks](playbook/operational/index.md) |
 | Checklists | [Checklists](playbook/checklists/index.md) |
 | Templates | [Templates](playbook/templates/index.md) |
+
+### Projects
+
+| Project | Description |
+|---|---|
+| [Salesforce SDLC Agent Framework](projects/salesforce-sdlc-agent/index.md) | AI agent system automating the full Salesforce development lifecycle |
+
+---
 
 ### Visual companion pages
 
