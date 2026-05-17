@@ -157,6 +157,7 @@ nav:
       - Technical Architecture: projects/salesforce-sdlc-agent/technical-architecture.md
       - SDLC Workflow: projects/salesforce-sdlc-agent/sdlc-workflow.md
       - Decisions: projects/salesforce-sdlc-agent/decisions.md
+      - Rollout Plan: projects/salesforce-sdlc-agent/rollout-plan.md
 
   - Inputs & Evidence:
     - inputs/index.md

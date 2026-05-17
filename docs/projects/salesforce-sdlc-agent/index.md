@@ -27,6 +27,7 @@ Think of it as a virtual Salesforce team where each role has a dedicated AI spec
 | [Technical Architecture](technical-architecture.md) | Salesforce DX, toolchain, environments, quality gates |
 | [SDLC Workflow](sdlc-workflow.md) | End-to-end: idea → deploy, with gates and artefacts |
 | [Decisions](decisions.md) | Key architectural decisions and their rationale |
+| [Rollout Plan](rollout-plan.md) | Step-by-step plan — hosting, pre-rollout fixes, phased adoption |
 
 ---
 
