@@ -29,7 +29,8 @@ They exist to answer: *"What happened, what did we decide, did it work, and what
 
 | Case Study | Domain | Architecture type | Outcome | Year |
 |---|---|---|---|---|
-| *(add entries as case studies are completed)* | | | | |
+| [ERP Account Sync](integration/erp-account-sync.md) | Integration | API-sourced Batch Apex, Iterable/Iterator | succeeded | 2026 |
+| [UC-001 Account Deduplication](governance/uc-001-account-deduplication.md) | Governance | Trigger-handler-service, record-triggered | succeeded | 2026 |
 
 ---
 

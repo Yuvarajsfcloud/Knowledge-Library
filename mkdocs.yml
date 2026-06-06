@@ -105,6 +105,8 @@ nav:
     - Architecture Notes:
       - knowledge/architecture-notes/index.md
       - Event-Driven Architecture: knowledge/architecture-notes/event-driven-architecture.md
+      - API-Sourced Batch Apex: knowledge/architecture-notes/api-sourced-batch-apex.md
+      - AI Agent Framework for SDLC: knowledge/architecture-notes/ai-agent-sdlc-framework.md
     - Decision Records (ADRs):
       - knowledge/decision-records/index.md
       - ADR-001 Shared Database: knowledge/decision-records/ADR-001-shared-database.md
@@ -140,9 +142,13 @@ nav:
   - Case Studies:
     - case-studies/index.md
     - Decomposition: case-studies/decomposition/index.md
-    - Integration: case-studies/integration/index.md
+    - Integration:
+      - case-studies/integration/index.md
+      - ERP Account Sync: case-studies/integration/erp-account-sync.md
     - Data: case-studies/data/index.md
-    - Governance: case-studies/governance/index.md
+    - Governance:
+      - case-studies/governance/index.md
+      - UC-001 Account Deduplication: case-studies/governance/uc-001-account-deduplication.md
     - Cloud Migration: case-studies/cloud-migration/index.md
     - Security: case-studies/security/index.md
 
