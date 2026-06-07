@@ -38,6 +38,39 @@ The radar is divided into four quadrants:
 
 ---
 
+## Tools
+
+### Adopt
+
+| Tool | Category | Notes |
+|---|---|---|
+| **Mermaid** | Diagramming | Code-as-diagram; renders in MkDocs, GitHub, Obsidian; default for knowledge base diagrams |
+| **VS Code** | Editor | Primary editor; Markdown preview, Git, extensions |
+| **Obsidian** | Knowledge management | Local-first markdown vault; used for company-confidential content that cannot be committed to GitHub |
+
+### Trial
+
+| Tool | Category | Notes |
+|---|---|---|
+| **Archi** | ArchiMate modelling | Open-source, GUI-based ArchiMate authoring tool; org standard for formal EA deliverables. Supports jArchi scripting for programmatic model generation. Export diagrams as images for embedding in documentation |
+| **GitHub Copilot (agent mode)** | AI-assisted development | Multi-agent SDLC framework built on top; see [Salesforce SDLC Agent Framework](../../projects/salesforce-sdlc-agent/index.md) |
+
+### Assess
+
+| Tool | Category | Notes |
+|---|---|---|
+| **Figma** | UI/UX design | Browser-based design and wireframing tool; primary use is UI mockups, prototypes, and screen-level design. FigJam (whiteboard) useful for collaborative workshops. Cloud-only — do not use for company-confidential designs |
+| **Structurizr** | C4 diagramming | DSL-based C4 diagrams; strong for system context and container views; no ArchiMate support |
+| **PlantUML** | Diagramming | Unofficial ArchiMate library available; code-driven alternative to Archi for less formal diagrams |
+
+### Hold
+
+| Tool | Category | Notes |
+|---|---|---|
+| *(none yet)* | | |
+
+---
+
 ## Related
 
 - [Frameworks Reference](frameworks.md) — the EA / SDLC frameworks I draw on
